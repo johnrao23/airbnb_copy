@@ -6,12 +6,6 @@ function App() {
 
   return (
     <div>
-      {/* <div>
-      <Image
-        src={main}
-        alt="main page background"
-      ></Image>
-      </div> */}
       <h1>Fairbnb</h1>
       <h2>A place to get last minute travel deals at a fair price!</h2>
       <div>
