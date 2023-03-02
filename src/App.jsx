@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import main from './assets/tropical_main.png'
+import LocationSearch from './components/locationSearch';
 
 function App() {
   const [count, setCount] = useState(0)
@@ -12,6 +12,7 @@ function App() {
         <button onClick={() => setCount((count) => count + 1)}>
           count is {count}
         </button>
+        <LocationSearch />
         <p>
           Click to find your next adventure.
         </p>
