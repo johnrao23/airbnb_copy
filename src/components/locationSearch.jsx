@@ -60,17 +60,17 @@ return <div>
   </tr>
 
 {countries.map((country, index) => {
-
+  
 <div>
   <tr>
     <td>{country.name}</td>
     <td>{country.continent}</td>
   </tr>
 </div>
-
+ 
 })}
 </table>
-
+    
 </div>
 
 
