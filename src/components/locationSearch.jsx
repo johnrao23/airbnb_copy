@@ -31,7 +31,6 @@ const locationSearch = () => {
   { name: "Bangladesh", continent: "Asia" },
   { name: "Portugal", continent: "Europe" },
   { name: "Pakistan", continent: "Asia" },
-
 ];
 
 const handleChange = (e) => {
