@@ -44,16 +44,18 @@ const Firebase = () => {
 
   useEffect(() => {
     // Fetch some data from Firestore
-    console.log("database: ", db)
+   
     // Get a reference to the "users" collection
 const usersRef = collection(db, 'users');
 
 // Fetch all the documents in the "users" collection
     getDocs(usersRef).then((querySnapshot) => {
-      setData(querySnapshot)
-  // querySnapshot.forEach((doc) => {
-  //   console.log(doc.id, '=>', doc.data());
-  // });
+    let huh =[]
+  querySnapshot.forEach((doc) => {
+    console.log(doc.id, '=>', doc.data());
+    huh.push({id: doc.id, data: doc.data()})
+  });
+      setData(huh)
 });
     // db.collection('users')
     //   .get()
@@ -66,13 +68,15 @@ const usersRef = collection(db, 'users');
     //   });
   }, []);
 
+  console.log("data:", data)
+
   return (
 
     <>
       <p className='text-red-500'>firebase</p>
-      {data.length && <ul>
+      {data?.length && <ul>
         {data.map((item) => (
-          <li key={item.id}>{item.data.name}</li>
+          <li key={item.id}>{item.data.email}</li>
         ))}
       </ul>}
       </>
