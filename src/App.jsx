@@ -16,7 +16,7 @@ function App() {
         </button>
         <Firebase/>
         <LocationSearch />
-        <p>
+        <p className='text-red-500'>
           Click to find your next adventure.
         </p>
       </div>
