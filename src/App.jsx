@@ -1,7 +1,8 @@
-import { useState } from 'react';
-import LocationSearch from './components/locationSearch';
-import Firebase from './components/firebaseExample';
-import BeachImg from './assets/tropical_main.png';
+import { useState } from "react";
+import LocationSearch from "./components/locationSearch";
+import Signup from "./components/Signup";
+import Firebase from "./components/firebaseExample";
+import BeachImg from "./assets/tropical_main.png";
 
 function App() {
   return (
@@ -15,6 +16,7 @@ function App() {
       </div>
       <p>Search for the location you want to travel to</p>
       <img src={BeachImg} alt="Beach" />
+      <Signup />
     </div>
   );
 }
