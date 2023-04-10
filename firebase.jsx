@@ -1,6 +1,7 @@
 import React, { useState, useEffect } from "react";
 import * as firebase from "firebase/app";
 import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { getAuth } from "firebase/auth";
 // import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 // const user = {
@@ -22,6 +23,9 @@ const firebaseConfig = {
 // Initialize Firebase
 const app = firebase.initializeApp(firebaseConfig);
 const db = getFirestore(app);
+
+// Initialize Firebase Authentication and get a reference to the service
+const auth = getAuth(app);
 
 const usersCollection = collection(db, "users");
 const locationCollection = collection(db, "location");

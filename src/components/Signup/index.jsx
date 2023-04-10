@@ -1,31 +1,13 @@
 import React from "react";
-import store from "../../store/store";
+import store from "../../store/useAuthStore";
+// @ts-ignore
 import styles from "./Signup.module.css";
 
 const Signup = () => {
   const count = store((state) => state.count);
-  const increment = store((state) => state.increment);
-  const decrement = store((state) => state.decrement);
 
   return (
     <>
-      <div>
-        <p>Count: {count}</p>
-        <button
-          className="bg-slate-600 rounded-md px-4 py-1.5 text-white"
-          onClick={() => increment()}
-        >
-          increase
-        </button>
-      </div>
-      <div>
-        <button
-          className="bg-slate-600 rounded-md px-4 py-1.5 text-white"
-          onClick={() => decrement()}
-        >
-          decrease
-        </button>
-      </div>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
