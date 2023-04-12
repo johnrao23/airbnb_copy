@@ -1,5 +1,5 @@
 import { create } from "zustand";
-// import auth from "../firebase.jsx";
+import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../firebase.js";
 
 const useAuth = create((set) => ({
