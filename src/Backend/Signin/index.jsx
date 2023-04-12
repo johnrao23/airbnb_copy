@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useAuthStore from "../../store/useAuthStore.js";
+import useAuthStore from "../store/useAuth.js";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 
 const SignIn = () => {

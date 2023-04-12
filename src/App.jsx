@@ -1,11 +1,11 @@
 import LocationSearch from "./components/locationSearch";
-import Signup from "./components/Signup";
-import Firebase from "../firebase";
+import Signup from "./Backend/Signup";
+import Firebase from "./Backend/firebase";
 // @ts-ignore
 import BeachImg from "./assets/tropical_main.png";
-import SignIn from "./components/Signin";
-import SignOut from "./components/Signout";
-import useAuthStore from "./store/useAuthStore";
+import SignIn from "./Backend/Signin";
+import SignOut from "./Backend/Signout";
+import useAuthStore from "./Backend/store/useAuth";
 
 function App() {
   const { user, loading, error } = useAuthStore();

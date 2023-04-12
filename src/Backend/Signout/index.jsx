@@ -1,4 +1,4 @@
-import useAuthStore from "../../store/useAuthStore.js";
+import useAuthStore from "../store/useAuth.js";
 
 const SignOut = () => {
   const { user, signOut } = useAuthStore();

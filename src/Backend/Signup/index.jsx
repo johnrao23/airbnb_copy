@@ -1,5 +1,5 @@
 import React from "react";
-import store from "../../store/useAuthStore";
+import store from "../store/useAuth";
 // @ts-ignore
 import styles from "./Signup.module.css";
 
