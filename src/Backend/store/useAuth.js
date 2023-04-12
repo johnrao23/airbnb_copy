@@ -4,7 +4,7 @@ import { auth } from "../firebase.js";
 
 const useAuth = create((set) => ({
   user: null,
-  loading: true,
+  loading: false,
 
   async signUp(email, password) {
     try {
