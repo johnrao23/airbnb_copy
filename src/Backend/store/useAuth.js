@@ -1,6 +1,6 @@
 import { create } from "zustand";
 import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../firebase.js";
+import { auth } from "../Firebase/firebase.js";
 
 const useAuth = create((set) => ({
   user: null,
