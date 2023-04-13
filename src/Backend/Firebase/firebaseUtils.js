@@ -3,7 +3,8 @@ import { db } from "./firebase.js";
 
 const addUserToFirestore = async (user) => {
   const usersCollectionRef = collection(db, "users");
-  await addDoc(usersCollectionRef, user);
+  const result = await addDoc(usersCollectionRef, user);
+  return result;
 };
 
 export default addUserToFirestore;

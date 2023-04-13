@@ -1,8 +1,10 @@
 import { useState } from "react";
-import { createUserWithEmailAndPassword } from "../Firebase/firebase.js";
-import { auth, db } from "../Firebase/firebase.js";
-import { collection, addDoc } from "firebase/firestore";
+import addUserToFirestore from "../Firebase/firebaseUtils.js";
 import { useNavigate } from "react-router-dom";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { auth } from "../Firebase/firebase.js";
+import { useStore } from "zustand";
+import useAuth from "../store/useAuth.js";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -13,6 +15,7 @@ const SignUpPage = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
+  const signUp = useAuth((state) => state.signUp);
 
   const handleInputChange = (e) => {
     setUser({
@@ -26,19 +29,7 @@ const SignUpPage = () => {
     setIsLoading(true);
 
     try {
-      const { email, password } = user;
-
-      // Create user account with email and password
-      const userCredential = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      // Add user data to Firestore
-      const usersCollectionRef = collection(db, "users");
-      await addDoc(usersCollectionRef, { email: user.email });
-
+      signUp(user.email, user.password);
       setIsLoading(false);
       navigate("/");
     } catch (error) {

@@ -1,6 +1,8 @@
 import { create } from "zustand";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase/firebase.js";
+import { addDoc, collection } from "firebase/firestore";
+import addUserToFirestore from "../Firebase/firebaseUtils.js";
 
 const useAuth = create((set) => ({
   user: null,
@@ -13,6 +15,9 @@ const useAuth = create((set) => ({
         email,
         password
       );
+
+      const result = await addUserToFirestore(user);
+      console.log("result: ", result);
       set({ user });
     } catch (error) {
       console.error(error);

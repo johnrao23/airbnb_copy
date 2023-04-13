@@ -1,7 +1,7 @@
 // import React, { useState, useEffect } from "react";
 // import * as firebase from "firebase/app";
 import { initializeApp } from "firebase/app";
-import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
 // import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
@@ -19,7 +19,7 @@ const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
-export { auth, db, createUserWithEmailAndPassword };
+export { auth, db };
 
 // const user = {
 //   name: "John",
