@@ -1,7 +1,9 @@
 import { collection, addDoc } from "firebase/firestore";
-import { db } from "./firebaseConfig";
+import { db } from "./firebase.js";
 
-export const addUserToFirestore = async (user) => {
+const addUserToFirestore = async (user) => {
   const usersCollectionRef = collection(db, "users");
   await addDoc(usersCollectionRef, user);
 };
+
+export default addUserToFirestore;

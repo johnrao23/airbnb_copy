@@ -2,7 +2,7 @@
 // import * as firebase from "firebase/app";
 import { initializeApp } from "firebase/app";
 import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import { getFirestore, collection, getDocs, addDoc } from "firebase/firestore";
+import { getFirestore } from "firebase/firestore";
 // import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 // Your web app's Firebase configuration
@@ -17,21 +17,9 @@ const firebaseConfig = {
 
 const firebaseApp = initializeApp(firebaseConfig);
 const auth = getAuth(firebaseApp);
+const db = getFirestore(firebaseApp);
 
-export { auth };
-
-// // Initialize Firebase
-// const app = initializeApp(firebaseConfig);
-// // const db = getFirestore(app);
-
-// // Initialize Firebase Authentication and get a reference to the service
-// const auth = getAuth(app);
-
-// // Initialize Firebase
-// const app = firebase.initializeApp(firebaseConfig);
-
-// // Initialize Firebase Authentication and get a reference to the service
-// const auth = getAuth(app);
+export { auth, db, createUserWithEmailAndPassword };
 
 // const user = {
 //   name: "John",
