@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import BeachImg from "../assets/tropical_main.png";
 
 const locationSearch = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -43,6 +44,8 @@ const locationSearch = () => {
 
   return (
     <div>
+      <p className="text-red-500">Click to find your next adventure.</p>
+      <p>Search for the location you want to travel to</p>
       <table>
         <tr>
           <th>Country</th>
@@ -63,6 +66,7 @@ const locationSearch = () => {
           </tr>
         </div>
       ))}
+      <img src={BeachImg} alt="Beach" />
     </div>
   );
 };
