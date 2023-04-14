@@ -1,7 +1,9 @@
 import { useState } from "react";
-import signUpWithEmailAndPassword from "../Firebase/firebaseUtils.js";
 import { useNavigate } from "react-router-dom";
 import useStore from "../store/store.js";
+import { auth } from "../Firebase/firebaseConfig.js";
+import { createUserWithEmailAndPassword } from "firebase/auth";
+import { addUserToFirestore } from "../Firebase/firebaseUtils";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -21,21 +23,49 @@ const SignUpPage = () => {
     });
   };
 
-  const handleSignUp = async (e) => {
-    e.preventDefault();
-    setIsLoading(true);
+  const handleSignUp = async (event, email, password) => {
+    event.preventDefault();
+
     try {
-      signUpWithEmailAndPassword();
+      const { user } = await createUserWithEmailAndPassword(
+        auth,
+        email,
+        password
+      );
 
-      const userData = "";
+      const userData = {
+        uid: user.uid,
+        email: user.email,
+        displayName: user.displayName || "",
+        photoURL: user.photoURL || "",
+        createdAt: new Date(),
+      };
 
-      await useStore.setState({ userData });
+      await addUserToFirestore(userData);
 
-      navigate("/");
+      useStore.setState({ userData });
+
+      navigate("/dashboard");
     } catch (error) {
       console.log(error);
     }
   };
+
+  // const handleSignUp = async (e) => {
+  //   e.preventDefault();
+  //   setIsLoading(true);
+  //   try {
+  //     signUpWithEmailAndPassword();
+
+  //     const userData = "";
+
+  //     await useStore.setState({ userData });
+
+  //     navigate("/");
+  //   } catch (error) {
+  //     console.log(error);
+  //   }
+  // };
 
   return (
     <div className="bg-gray-100 min-h-screen">
