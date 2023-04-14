@@ -1,10 +1,9 @@
 import { create } from "zustand";
 import { createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "../Firebase/firebase.js";
-import { addDoc, collection } from "firebase/firestore";
 import addUserToFirestore from "../Firebase/firebaseUtils.js";
 
-const useAuth = create((set) => ({
+const store = create((set) => ({
   user: null,
   loading: false,
 
@@ -25,7 +24,7 @@ const useAuth = create((set) => ({
   },
 }));
 
-export default useAuth;
+export default store;
 
 // const useAuthStore = create((set) => ({
 //   user: null,

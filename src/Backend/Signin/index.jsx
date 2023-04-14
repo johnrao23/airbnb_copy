@@ -1,5 +1,5 @@
 import { useState } from "react";
-import useAuthStore from "../store/useAuth.js";
+import store from "../store/store.js";
 import { useNavigate } from "react-router-dom";
 import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
 // @ts-ignore
@@ -8,7 +8,7 @@ import styles from "./Signin.module.css";
 const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const { signInWithEmailAndPassword } = useAuthStore();
+  const { signInWithEmailAndPassword } = store();
 
   const handleSubmit = (event) => {
     event.preventDefault();
