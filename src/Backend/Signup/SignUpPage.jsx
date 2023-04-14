@@ -1,7 +1,7 @@
 import { useState } from "react";
-import addUserToFirestore from "../Firebase/firebaseUtils.js";
+import signUpWithEmailAndPassword from "../Firebase/firebaseUtils.js";
 import { useNavigate } from "react-router-dom";
-import store from "../store/store.js";
+import useStore from "../store/store.js";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -12,7 +12,7 @@ const SignUpPage = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const signUp = store((state) => state.signUp);
+  const signUp = useStore((state) => state.signUp);
 
   const handleInputChange = (e) => {
     setUser({
@@ -24,15 +24,16 @@ const SignUpPage = () => {
   const handleSignUp = async (e) => {
     e.preventDefault();
     setIsLoading(true);
-    addUserToFirestore(user);
-
     try {
-      signUp(user.email, user.password);
-      setIsLoading(false);
+      signUpWithEmailAndPassword();
+
+      const userData = "";
+
+      await useStore.setState({ userData });
+
       navigate("/");
     } catch (error) {
-      console.error(error);
-      setIsLoading(false);
+      console.log(error);
     }
   };
 

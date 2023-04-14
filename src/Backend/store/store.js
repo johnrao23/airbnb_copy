@@ -1,64 +1,25 @@
 import { create } from "zustand";
-import { createUserWithEmailAndPassword } from "firebase/auth";
-import { auth } from "../Firebase/firebase.js";
-import addUserToFirestore from "../Firebase/firebaseUtils.js";
 
-const store = create((set) => ({
-  user: null,
-  loading: false,
-
-  async signUp(email, password) {
-    try {
-      const { user } = await createUserWithEmailAndPassword(
-        auth,
-        email,
-        password
-      );
-
-      const result = await addUserToFirestore(user);
-      console.log("result: ", result);
-      set({ user });
-    } catch (error) {
-      console.error(error);
-    }
-  },
+const useStore = create((set) => ({
+  userData: null,
+  setUserData: (data) => set({ userData: data }),
 }));
 
-export default store;
+export default useStore;
 
-// const useAuthStore = create((set) => ({
-//   user: null,
-//   loading: true,
-//   error: null,
-//   signInWithEmailAndPassword: async (email, password) => {
+//   async signUp(email, password) {
 //     try {
-//       const userCredential = await auth.signInWithEmailAndPassword(
+//       const { user } = await createUserWithEmailAndPassword(
+//         auth,
 //         email,
 //         password
 //       );
-//       set({ user: userCredential.user, loading: false, error: null });
+
+//       const result = await addUserToFirestore(user);
+//       console.log("result: ", result);
+//       set({ user });
 //     } catch (error) {
-//       set({ user: null, loading: false, error: error.message });
+//       console.error(error);
 //     }
 //   },
-//   signOut: async () => {
-//     await auth.signOut();
-//     set({ user: null, loading: false, error: null });
-//   },
 // }));
-
-// export default useAuthStore;
-
-// const store = create((set) => ({
-//   count: 0,
-//   user: null,
-//   increment: () => set((state) => ({ count: state.count + 1 })),
-//   decrement: () => set((state) => ({ count: state.count - 1 })),
-//   signupUser: async (user) => {
-//     // copy over databse code for adding a user from firebaseexample.jsx addUser function
-//     // await return
-//     // then set user to value   set({ user: some_data })
-//   },
-// }));
-
-// export default store;

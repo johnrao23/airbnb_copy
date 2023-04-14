@@ -1,9 +1,6 @@
-// import React, { useState, useEffect } from "react";
-// import * as firebase from "firebase/app";
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
 import { getFirestore } from "firebase/firestore";
-// import { getFirestore, collection, getDocs } from "firebase/firestore/lite";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
