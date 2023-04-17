@@ -1,12 +1,26 @@
 import { db } from "./firebaseConfig";
 import { collection, addDoc } from "firebase/firestore";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 
-export const addUserToFirestore = async (user) => {
+const auth = getAuth();
+createUserWithEmailAndPassword(auth, email, password)
+  .then((userCredential) => {
+    // Signed in
+    const user = userCredential.user;
+    // ...
+  })
+  .catch((error) => {
+    const errorMessage = error.message;
+    // ..
+  });
+
+const addUserToFirestore = async (user) => {
   const usersCollectionRef = collection(db, "users");
   const result = await addDoc(usersCollectionRef, user);
   return result;
 };
 
+export { addUserToFirestore };
 // const addUserToFirestore = async (userData) => {
 //   try {
 //     await db.collection('users').doc(userData.uid).set(userData)
