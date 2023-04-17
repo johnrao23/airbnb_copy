@@ -45,7 +45,7 @@ const SignUpPage = () => {
 
       useStore.setState({ userData });
 
-      navigate("/dashboard");
+      navigate("/");
     } catch (error) {
       console.log(error);
     }
