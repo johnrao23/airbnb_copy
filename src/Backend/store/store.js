@@ -1,16 +1,9 @@
 import { create } from "zustand";
-import { addUserToFirestore } from "../Firebase/firebaseUtils";
-
-const user = 
+import user from "../Firebase/firebaseUtils";
 
 const useStore = create((set) => ({
-  userData: {
-    uid: user.uid,
-    email: user.email,
-    name: user.displayName || "",
-    password: user.password,
-  },
-  setUserData: (data) => set({ userData: data }),
+  user: { user },
+  setUser: (user) => set({ userData: user }),
 }));
 
 export default useStore;
