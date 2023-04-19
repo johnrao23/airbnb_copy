@@ -12,7 +12,7 @@ const SignUpPage = () => {
   });
 
   const [isLoading, setIsLoading] = useState(false);
-  const signUp = useStore((state) => state.signUp);
+  // const signUp = useStore((state) => state.signUp);
 
   const handleInputChange = (e) => {
     setUser({
@@ -26,7 +26,7 @@ const SignUpPage = () => {
     setIsLoading;
 
     try {
-      signUpWithEmailAndPassword();
+      signUpWithEmailAndPassword(user);
 
       await useStore.setState({ setUser });
 
