@@ -1,6 +1,6 @@
 import { initializeApp } from "firebase/app";
 import { getAuth } from "firebase/auth";
-import { getFirestore } from "firebase/firestore";
+import { addDoc, collection, getFirestore } from "firebase/firestore";
 
 // Your web app's Firebase configuration
 const firebaseConfig = {
@@ -18,28 +18,28 @@ const db = getFirestore(firebaseApp);
 
 // console.log("firebaseApp: ", firebaseApp);
 // console.log("auth: ", auth);
-console.log("db: ", db);
+// console.log("db: ", db);
 
 export { auth, db };
 
-// const user = {
-//   name: "John",
-//   email: "john@example.com",
-//   age: 30,
-// };
+const user = {
+  name: "ryan added 4/19/23",
+  email: "ryan added 4/19/23@example.com",
+  age: 5000,
+};
 
-// const usersCollection = collection(db, "users");
-// const locationCollection = collection(db, "location");
+const usersCollection = collection(db, "users");
+const locationCollection = collection(db, "location");
 
-// // Add a document to the "users" collection
-// async function addUser(user) {
-//   try {
-//     const docRef = await addDoc(usersCollection, user);
-//     console.log("Document written with ID: ", docRef.id);
-//   } catch (e) {
-//     console.error("Error adding document: ", e);
-//   }
-// }
+// Add a document to the "users" collection
+async function addUser(user) {
+  try {
+    const docRef = await addDoc(usersCollection, user);
+    console.log("Document written with ID: ", docRef.id);
+  } catch (e) {
+    console.error("Error adding document: ", e);
+  }
+}
 
 // const Firebase = () => {
 //   const [users, setUsers] = useState([]);

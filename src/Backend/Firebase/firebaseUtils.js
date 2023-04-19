@@ -1,23 +1,36 @@
 import { collection, addDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig.js";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
 
 const signUpWithEmailAndPassword = async ({ email, password }) => {
   try {
-    // Create user with email and password
-    const { user } = await createUserWithEmailAndPassword(
+    // // Create user with email and password
+
+    // TODO: is createUserWithEmailAndPassword the right way to write to firestore with auth?
+    // or is there a different way?
+    const testUser = await createUserWithEmailAndPassword(
       auth,
       email,
       password
     );
 
+    // console.log("testUser: ", testUser);
+
     // Add user to Firestore
     const usersCollection = collection(db, "users");
-    const newUser = user;
-    await addDoc(usersCollection, newUser);
 
-    return { newUser };
+    const user = {
+      auth,
+      email,
+      password,
+    };
+
+    let result = await addDoc(usersCollection, user);
+    console.log("result from adding user to db: ", result);
+
+    // return { newUser };
+    return null;
   } catch (error) {
     return { error };
   }
