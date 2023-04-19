@@ -23,11 +23,12 @@ const SignUpPage = () => {
 
   const handleSignUp = async (event) => {
     event.preventDefault();
+    setIsLoading;
 
     try {
       signUpWithEmailAndPassword();
 
-      await useStore.setState({ user });
+      await useStore.setState({ setUser });
 
       navigate("/");
     } catch (error) {
