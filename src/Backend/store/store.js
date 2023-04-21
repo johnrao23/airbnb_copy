@@ -1,8 +1,8 @@
 import { create } from "zustand";
-import newUser from "../Firebase/firebaseUtils";
+import user from "../Firebase/firebaseUtils";
 
 const useStore = create((set) => ({
-  user: { newUser },
+  user: { user },
   setUser: () => set((state) => ({ user: state.user })),
 }));
 
