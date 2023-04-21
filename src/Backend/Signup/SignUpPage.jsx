@@ -30,7 +30,7 @@ const SignUpPage = () => {
 
       await useStore.setState({ setUser });
 
-      navigate("/");
+      navigate("/Location-Search");
     } catch (error) {
       console.log(error);
     }
