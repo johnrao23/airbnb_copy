@@ -31,7 +31,7 @@ const SignIn = () => {
         <p className="mt-2 text-center text-sm text-gray-600">
           Or{" "}
           <button
-            onClick={() => navigate("/Sign-Up")}
+            onClick={() => navigate("/Location-Search")}
             className="font-medium text-indigo-600 hover:text-indigo-500"
           >
             Sign Up for a New Account Here

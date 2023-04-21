@@ -38,6 +38,7 @@ const LocationSearch = () => {
 
   return (
     <div className="flex flex-col items-center justify-center">
+      <img src={BeachImg} alt="Beach" className="max-w-md h-auto" />
       <p className="text-red-500 text-2xl mb-4">
         Click to find your next adventure.
       </p>
@@ -71,7 +72,6 @@ const LocationSearch = () => {
             ))}
         </tbody>
       </table>
-      <img src={BeachImg} alt="Beach" className="max-w-full h-auto" />
     </div>
   );
 };
