@@ -1,7 +1,7 @@
 import { useState } from "react";
 import store from "../store/store.js";
 import { useNavigate } from "react-router-dom";
-import { getAuth, signInWithEmailAndPassword } from "firebase/auth";
+import { signIn } from "./Firebase/firebaseUtils.js";
 // @ts-ignore
 import styles from "./Signin.module.css";
 

@@ -1,6 +1,9 @@
 import { doc, setDoc } from "firebase/firestore";
 import { db } from "./firebaseConfig.js";
-import { createUserWithEmailAndPassword } from "firebase/auth";
+import {
+  createUserWithEmailAndPassword,
+  signInWithEmailAndPassword,
+} from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
 
 const signUpWithEmailAndPassword = async ({ email, password }) => {
@@ -25,6 +28,18 @@ const signUpWithEmailAndPassword = async ({ email, password }) => {
     return { error };
   }
 };
+
+// const signIn = signInWithEmailAndPassword(auth, email, password)
+//   .then((userCredential) => {
+//     // Signed in
+//     const user = userCredential.user.email;
+//     // ...
+//     return user;
+//   })
+//   .catch((error) => {
+//     const errorCode = error.code;
+//     const errorMessage = error.message;
+//   });
 
 export default signUpWithEmailAndPassword;
 
