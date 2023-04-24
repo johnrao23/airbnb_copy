@@ -23,7 +23,7 @@ const signUp = async ({ email, password }) => {
     // const newUser = user;
     // await addDoc(usersCollection, newUser);
 
-    return { user };
+    return user;
   } catch (error) {
     return { error };
   }
