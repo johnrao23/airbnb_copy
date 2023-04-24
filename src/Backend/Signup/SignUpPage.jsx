@@ -1,7 +1,7 @@
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import useStore from "../store/store.js";
-import signUpWithEmailAndPassword from "../Firebase/firebaseUtils";
+import { signUp } from "../Firebase/firebaseUtils";
 
 const SignUpPage = () => {
   const navigate = useNavigate();
@@ -26,7 +26,7 @@ const SignUpPage = () => {
     setIsLoading;
 
     try {
-      signUpWithEmailAndPassword(user);
+      signUp(user);
 
       await useStore.setState({ setUser });
 

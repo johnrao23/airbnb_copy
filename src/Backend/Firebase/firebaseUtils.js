@@ -6,7 +6,7 @@ import {
 } from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
 
-const signUpWithEmailAndPassword = async ({ email, password }) => {
+const signUp = async ({ email, password }) => {
   try {
     // Create user with email and password
     const userCredential = await createUserWithEmailAndPassword(
@@ -29,54 +29,29 @@ const signUpWithEmailAndPassword = async ({ email, password }) => {
   }
 };
 
-// const signIn = signInWithEmailAndPassword(auth, email, password)
-//   .then((userCredential) => {
-//     // Signed in
-//     const user = userCredential.user.email;
-//     // ...
-//     return user;
-//   })
-//   .catch((error) => {
-//     const errorCode = error.code;
-//     const errorMessage = error.message;
-//   });
+const signIn = async ({ email, password }) => {
+  try {
+    // Sign in user with email and password
+    const userCredential = await signInWithEmailAndPassword(
+      auth,
+      email,
+      password
+    );
 
-export default signUpWithEmailAndPassword;
+    // Get user object from userCredential
+    const user = userCredential.user;
 
-// import { collection, addDoc } from "firebase/firestore";
-// import { db } from "./firebaseConfig.js";
-// import { getAuth, createUserWithEmailAndPassword } from "firebase/auth";
-// import { auth } from "./firebaseConfig.js";
+    // Return the user object
+    return user;
+  } catch (error) {
+    // Handle errors
+    const errorCode = error.code;
+    const errorMessage = error.message;
+    console.error(errorCode, errorMessage);
 
-// const signUpWithEmailAndPassword = async ({ email, password }) => {
-//   try {
-//     // // Create user with email and password
+    // Return null to indicate sign-in failed
+    return null;
+  }
+};
 
-//     // TODO: is createUserWithEmailAndPassword the right way to write to firestore with auth?
-//     // or is there a different way?
-//     const testUser = await createUserWithEmailAndPassword(
-//       auth,
-//       email,
-//       password
-//     );
-
-//     // console.log("testUser: ", testUser);
-
-//     // Add user to Firestore
-//     const usersCollection = collection(db, "users");
-
-//     const user = {
-//       auth,
-//       email,
-//       password,
-//     };
-
-//     let result = await addDoc(usersCollection, user);
-//     console.log("result from adding user to db: ", result);
-
-//     // return { newUser };
-//     return null;
-//   } catch (error) {
-//     return { error };
-//   }
-// };
+export { signUp, signIn };

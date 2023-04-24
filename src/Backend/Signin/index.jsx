@@ -1,18 +1,30 @@
 import { useState } from "react";
-import store from "../store/store.js";
+import useStore from "../store/store.js";
 import { useNavigate } from "react-router-dom";
-// import { signIn } from "./Firebase/firebaseUtils.js";
+import { signIn } from "../Firebase/firebaseUtils.js";
 // @ts-ignore
 import styles from "./Signin.module.css";
 
 const SignIn = () => {
-  const [email, setEmail] = useState("");
-  const [password, setPassword] = useState("");
-  const { signInWithEmailAndPassword } = store();
+  const [user, setUser] = useState({
+    email: "",
+    password: "",
+  });
+  const [isLoading, setIsLoading] = useState(false);
 
-  const handleSubmit = (event) => {
+  const handleSubmit = async (event) => {
     event.preventDefault();
-    signInWithEmailAndPassword(email, password);
+    setIsLoading;
+
+    try {
+      signIn(user);
+
+      await useStore.setState({ setUser });
+
+      navigate("/Location-Search");
+    } catch (error) {
+      console.log(error);
+    }
   };
 
   const navigate = useNavigate();
