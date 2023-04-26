@@ -6,10 +6,9 @@ import { signIn } from "../Firebase/firebaseUtils.js";
 import styles from "./Signin.module.css";
 
 const SignIn = () => {
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  const [user, setUser] = useState({ email, password });
   const [isLoading, setIsLoading] = useState(false);
 
   const handleSubmit = async (event) => {
