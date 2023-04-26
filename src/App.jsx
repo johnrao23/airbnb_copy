@@ -3,7 +3,6 @@ import LocationSearch from "./components/locationSearch";
 // @ts-ignore
 import SignUpPage from "./Backend/Signup/SignUpPage";
 import SignIn from "./Backend/Signin/index.jsx";
-import SignOut from "./Backend/Signout/index.jsx";
 
 function App() {
   return (
@@ -18,7 +17,6 @@ function App() {
           <Route path="Sign-Up" element={<SignUpPage />} />
           <Route path="Location-Search" element={<LocationSearch />} />
         </Routes>
-        <SignOut />
       </BrowserRouter>
     </div>
   );
