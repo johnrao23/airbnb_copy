@@ -1,7 +1,6 @@
 import React, { useState } from "react";
 import BeachImg from "../assets/tropical_main.png";
 import NavBar from "./navBar";
-import SignOut from "../Backend/Signout/index.jsx";
 
 const LocationSearch = () => {
   const [searchInput, setSearchInput] = useState("");
@@ -77,7 +76,6 @@ const LocationSearch = () => {
           </tbody>
         </table>
       </div>
-      <SignOut />
     </>
   );
 };
