@@ -26,3 +26,21 @@ const SignOut = () => {
 };
 
 export default SignOut;
+
+// import React from 'react';
+// import classNames from 'classnames';
+
+// function SignOut({ active }) {
+//   return (
+//     <button
+//       className={classNames(
+//         'block px-4 py-2 text-sm text-gray-700',
+//         active ? 'bg-gray-100' : ''
+//       )}
+//     >
+//       Sign out
+//     </button>
+//   );
+// }
+
+// export default SignOut;
