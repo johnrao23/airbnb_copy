@@ -8,7 +8,7 @@ const SignOut = () => {
   return (
     user && (
       <div>
-        {/* <div className="flex justify-center"> */}
+        <div className="flex justify-center">
         <button
           onClick={() => {
             {
@@ -16,7 +16,7 @@ const SignOut = () => {
             }
             navigate("/");
           }}
-          // className="bg-white text-black font-bold py-2 px-4 rounded-md"
+          className="bg-white text-black font-bold py-2 px-4 rounded-md"
         >
           Sign Out
         </button>
