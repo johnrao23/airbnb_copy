@@ -125,26 +125,18 @@ export default function NavBar() {
                       <Menu.Item>
                         {({ active }) => (
                           <SignOut
+                            ref={null}
                             className={classNames(
                               active ? "bg-gray-100" : "",
-                              "block px-4 py-2 text-sm text-gray-700"
+                              "block px-4 py-2 text-sm text-gray-700 focus:outline-none"
                             )}
-                          />
+                          >
+                            <button className="w-full text-left hover:shadow-lg">
+                              Sign Out
+                            </button>
+                          </SignOut>
                         )}
                       </Menu.Item>
-                      {/* <Menu.Item>
-                        {({ active }) => (
-                          <a
-                            href="#"
-                          className={classNames(
-                            active ? "bg-gray-100" : "",
-                            "block px-4 py-2 text-sm text-gray-700"
-                          )}
-                          >
-                            Sign out
-                          </a>
-                        )}
-                      </Menu.Item> */}
                     </Menu.Items>
                   </Transition>
                 </Menu>
