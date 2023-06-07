@@ -1,5 +1,5 @@
 import { BrowserRouter, Route, Routes } from "react-router-dom";
-import LocationSearch from "./components/LocationSearch.jsx";
+import LocationSearch from "./components/LocationSearch";
 import SignUp from "./Backend/Signup/SignUpPage";
 import SignIn from "./Backend/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
