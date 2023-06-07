@@ -7,6 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
+import useAuthStore from "../store/store.js";
 
 const signUp = async ({ email, password }) => {
   try {
@@ -16,15 +17,28 @@ const signUp = async ({ email, password }) => {
       email,
       password
     );
-    const newUser = userCredential.user.email;
 
     // Add user to Firestore
-    const user = setDoc(doc(db, `users/${userCredential.user.uid}`), {
+    const newUser = userCredential.user.email;
+    setDoc(doc(db, `users/${userCredential.user.uid}`), {
       newUser,
     });
-    // const newUser = user;
-    // await addDoc(usersCollection, newUser);
 
+    // Get user object from userCredential
+    const user = userCredential.user;
+    console.log("Registered with uid: ", user.uid);
+
+    // Update global state
+    await useAuthStore.setState({
+      user: {
+        id: user?.uid,
+        email: user?.email,
+        name: user?.displayName,
+      },
+      isSignedIn: true,
+    });
+
+    // Return the user object
     return user;
   } catch (error) {
     return { error };
@@ -42,6 +56,12 @@ const signIn = async ({ email, password }) => {
 
     // Get user object from userCredential
     const user = userCredential.user;
+
+    // Update global state
+    await useAuthStore.setState({
+      user: { id: user?.uid, email: user?.email, name: user.displayName },
+      isSignedIn: true,
+    });
 
     // Return the user object
     return user;
@@ -71,7 +91,15 @@ const user = () => {
 };
 
 const logOut = async () => {
-  await signOut(auth);
+  try {
+    signOut(auth);
+    await useAuthStore.setState({ isSignedIn: false, user: null });
+  } catch {
+    (error) => {
+      // An error happened.
+      console.log("error", error);
+    };
+  }
 };
 
 export { signUp, signIn, user, logOut };

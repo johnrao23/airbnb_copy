@@ -1,9 +1,32 @@
 import { create } from "zustand";
-import { user } from "../Firebase/firebaseUtils";
 
-const useStore = create((set) => ({
-  user: user,
-  setUser: () => set((state) => ({ user: state.user })),
+const useAuthStore = create((set) => ({
+  user: null,
+  isSignedIn: false,
+  setUser: (user) => set({ user }),
+  setIsSignedIn: (isSignedIn) => set({ isSignedIn }),
 }));
 
-export default useStore;
+export default useAuthStore;
+
+// import { create } from "zustand";
+
+// export interface User {
+//   id: string;
+//   name: string | null;
+//   email?: string | null;
+// }
+
+// export interface AuthStore {
+//   user: User | null;
+//   setUser: (user: User) => void;
+//   isSignedIn: boolean;
+//   setIsSignedIn: (isSignedIn: boolean) => void;
+// }
+
+// export const useAuthStore = create<AuthStore>((set) => ({
+//   user: null,
+//   isSignedIn: false,
+//   setUser: (user) => set({ user }),
+//   setIsSignedIn: (isSignedIn: boolean) => set({ isSignedIn })
+// }));

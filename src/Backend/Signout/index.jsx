@@ -1,21 +1,28 @@
 import * as React from "react";
-import useStore from "../store/store.js";
+import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../Firebase/firebaseUtils.js";
 
 const SignOut = React.forwardRef((props, ref) => {
+  const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
   const handleSignOut = async () => {
+    setLoading(true);
     try {
       logOut();
-
-      await useStore.setState({ user: null });
-
-      navigate("/");
-    } catch (error) {
-      console.log(error);
+      await navigate("/");
+    } catch {
+      (error) => {
+        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        setLoading(false);
+        // ..
+      };
     }
+    setLoading(false);
   };
 
   return (

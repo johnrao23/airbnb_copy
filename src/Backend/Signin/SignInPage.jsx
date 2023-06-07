@@ -1,32 +1,33 @@
+import { signIn } from "../Firebase/firebaseUtils";
 import { useState } from "react";
-import useStore from "../store/store.js";
 import { useNavigate } from "react-router-dom";
-import { signIn } from "../Firebase/firebaseUtils.js";
 // @ts-ignore
 import styles from "./Signin.module.css";
 
-const SignIn = () => {
+export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
-  const [user, setUser] = useState({ email, password });
-  const [isLoading, setIsLoading] = useState(false);
-
-  const handleSubmit = async (event) => {
-    event.preventDefault();
-    setIsLoading;
-
-    try {
-      signIn(user);
-
-      await useStore.setState({ setUser });
-
-      navigate("/Location-Search");
-    } catch (error) {
-      console.log(error);
-    }
-  };
+  const [loading, setLoading] = useState(false);
 
   const navigate = useNavigate();
+
+  const handleSubmit = async () => {
+    setLoading(true);
+    try {
+      signIn({ email, password });
+      await navigate("/Location-Search");
+    } catch {
+      (error) => {
+        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        setLoading(false);
+        // ..
+      };
+    }
+    setLoading(false);
+  };
 
   return (
     <>
@@ -218,3 +219,76 @@ const SignIn = () => {
 };
 
 export default SignIn;
+
+// import { useState } from "react";
+// import { useAuthStore } from "../store/store";
+// import { useNavigate } from "react-router-dom";
+// import { signIn } from "../Firebase/firebaseUtils.js";
+// // @ts-ignore
+// import styles from "./Signin.module.css";
+
+// const SignIn = () => {
+//   const [email, setEmail] = useState("");
+//   const [password, setPassword] = useState("");
+//   // const [user, setUser] = useState({ email, password });
+//   const [isLoading, setIsLoading] = useState(false);
+
+//   const handleSubmit = async () => {
+//     setIsLoading(true);
+//     try {
+//       signIn();
+
+//       await useAuthStore.setState({
+//         user: { id: user?.uid, email: user?.email, name: user.displayName },
+//         isSignedIn: true,
+//       });
+
+//       navigate("/Location-Search");
+//     } catch (error) {
+//       console.log(error);
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       alert(errorMessage);
+//       setIsLoading(false);
+//     }
+//   };
+
+//   signInWithEmailAndPassword(auth, email, password)
+//     .then((userCredential) => {
+//       // Signed in
+//       const user = userCredential.user;
+//       setLoading(false);
+//       useAuthStore.setState({
+//         user: { id: user?.uid, email: user?.email, name: user.displayName },
+//         isSignedIn: true
+//       });
+
+//       // ...
+//     })
+//     .catch((error) => {
+//       console.log(error);
+//       const errorCode = error.code;
+//       const errorMessage = error.message;
+//       alert(errorMessage);
+//       setLoading(false);
+//       // ..
+//     })
+//     .finally(() => setLoading(false));
+// };
+
+// const handleSubmit = async (event) => {
+//   event.preventDefault();
+//   setIsLoading(true);
+
+//   try {
+//     signIn(user);
+
+//     await useAuthStore.setState({ setUser });
+
+//     navigate("/Location-Search");
+//   } catch (error) {
+//     console.log(error);
+//   }
+// };
+
+// const navigate = useNavigate();

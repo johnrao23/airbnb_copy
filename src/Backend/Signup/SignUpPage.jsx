@@ -1,56 +1,50 @@
+import { signUp } from "../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-import useStore from "../store/store.js";
-import { signUp } from "../Firebase/firebaseUtils";
 
-const SignUpPage = () => {
+const SignUp = () => {
   const navigate = useNavigate();
-
-  const [user, setUser] = useState({
-    email: "",
-    password: "",
-  });
-
-  const [isLoading, setIsLoading] = useState(false);
-  // const signUp = useStore((state) => state.signUp);
+  const [email, setEmail] = useState("");
+  const [password, setPassword] = useState("");
+  // const [user, setUser] = useState({
+  //   email: setEmail(""),
+  //   password: setPassword(""),
+  // });
+  // const [passwordConfirmation, setPasswordConfirmation] = useState("");
+  const [loading, setLoading] = useState(false);
 
   const handleInputChange = (e) => {
-    setUser({
-      ...user,
-      [e.target.name]: e.target.value,
-    });
-  };
+    const { name, value } = e.target;
 
-  const handleSignUp = async (event) => {
-    event.preventDefault();
-    setIsLoading;
-
-    try {
-      signUp(user);
-
-      await useStore.setState({ setUser });
-
-      navigate("/Location-Search");
-    } catch (error) {
-      console.log(error);
+    if (name === "email") {
+      setEmail(value);
+    } else if (name === "password") {
+      setPassword(value);
     }
   };
 
-  // const handleSignUp = async (e) => {
-  //   e.preventDefault();
-  //   setIsLoading(true);
-  //   try {
-  //     signUpWithEmailAndPassword();
-
-  //     const userData = "";
-
-  //     await useStore.setState({ userData });
-
-  //     navigate("/");
-  //   } catch (error) {
-  //     console.log(error);
-  //   }
-  // };
+  const handleSignUp = async () => {
+    setLoading(true);
+    // if (password !== passwordConfirmation) {
+    //   alert("Passwords don't match.");
+    //   setLoading(false);
+    //   return;
+    // }
+    try {
+      signUp({ email, password });
+      await navigate("/Location-Search");
+    } catch {
+      (error) => {
+        console.log(error);
+        const errorCode = error.code;
+        const errorMessage = error.message;
+        alert(errorMessage);
+        setLoading(false);
+        // ..
+      };
+    }
+    setLoading(false);
+  };
 
   return (
     <>
@@ -69,7 +63,7 @@ const SignUpPage = () => {
                 type="email"
                 name="email"
                 id="email"
-                value={user.email}
+                value={email}
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
@@ -82,18 +76,31 @@ const SignUpPage = () => {
                 type="password"
                 name="password"
                 id="password"
-                value={user.password}
+                value={password}
                 onChange={handleInputChange}
                 className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
               />
             </div>
+            {/* <div className="mb-6">
+              <label htmlFor="password" className="text-lg">
+                Password
+              </label>
+              <input
+                type="passwordConfirmation"
+                name="passwordConfirmation"
+                id="passwordConfirmation"
+                value={passwordConfirmation}
+                onChange={(text) => setPasswordConfirmation}
+                className="w-full px-3 py-2 border border-gray-300 rounded-lg shadow-sm mt-1 focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:border-indigo-500"
+              />
+            </div> */}
             <div className="flex justify-center items-center">
               <button
                 type="submit"
                 className="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 disabled:opacity-50"
-                disabled={isLoading}
+                disabled={loading}
               >
-                {isLoading ? "Loading..." : "Sign up"}
+                {loading ? "Loading..." : "Sign up"}
               </button>
             </div>
           </form>
@@ -103,37 +110,34 @@ const SignUpPage = () => {
   );
 };
 
-export default SignUpPage;
+export default SignUp;
 
-// import { useEffect } from "react";
-// import useAuth from "../store/useAuth.js";
-// import SignUpForm from "./SignUpForm";
-// import { useNavigate } from "react-router-dom";
+// const [user, setUser] = useState({
+//   email: "",
+//   password: "",
+// });
 
-// function SignUpPage() {
-//   const navigate = useNavigate();
-//   const { user, loading, signUp } = useAuth();
+// const [isLoading, setIsLoading] = useState(false);
+// // const signUp = useStore((state) => state.signUp);
 
-//   useEffect(() => {
-//     if (user) {
-//       navigate("/");
-//     }
-//   }, [user, navigate]);
+// const handleInputChange = (e) => {
+//   setUser({
+//     ...user,
+//     [e.target.name]: e.target.value,
+//   });
+// };
 
-//   function handleSignUp(email, password) {
-//     signUp(email, password);
+// const handleSignUp = async (event) => {
+//   event.preventDefault();
+//   setIsLoading;
+
+//   try {
+//     signUp(user);
+
+//     await useStore.setState({ setUser });
+
+//     navigate("/Location-Search");
+//   } catch (error) {
+//     console.log(error);
 //   }
-
-//   if (loading) {
-//     return <p>Loading...</p>;
-//   }
-
-//   return (
-//     <div>
-//       <h1>Sign Up</h1>
-//       <SignUpForm onSignUp={handleSignUp} />
-//     </div>
-//   );
-// }
-
-// export default SignUpPage;
+// };
