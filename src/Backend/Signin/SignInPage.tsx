@@ -14,7 +14,7 @@ export const SignIn = () => {
     setLoading(true);
     try {
       signIn({ email, password });
-      await navigate("/Location-Search");
+      await navigate("/location-Search");
     } catch {
       (error) => {
         console.log(error);

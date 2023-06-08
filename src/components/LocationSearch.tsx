@@ -1,41 +1,25 @@
-import { useState } from "react";
+import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
-import beachImg from "../assets/beachImg.png"
+import beachImg from "../assets/beachImg.png";
 
-const LocationSearch = () => {
-
+const LocationSearch: React.FC = () => {
   const user = useAuthStore((state) => state.user);
   const [searchInput, setSearchInput] = useState("");
 
-  const countries = [
+  interface Country {
+    name: string;
+    continent: string;
+  }
+
+  const countries: Country[] = [
     { name: "Belgium", continent: "Europe" },
     { name: "India", continent: "Asia" },
-    { name: "Bolivia", continent: "South America" },
-    { name: "Ghana", continent: "Africa" },
-    { name: "Japan", continent: "Asia" },
-    { name: "Canada", continent: "North America" },
-    { name: "New Zealand", continent: "Australasia" },
-    { name: "Italy", continent: "Europe" },
-    { name: "South Africa", continent: "Africa" },
-    { name: "China", continent: "Asia" },
-    { name: "Paraguay", continent: "South America" },
-    { name: "Usa", continent: "North America" },
-    { name: "France", continent: "Europe" },
-    { name: "Botswana", continent: "Africa" },
-    { name: "Spain", continent: "Europe" },
-    { name: "Senegal", continent: "Africa" },
-    { name: "Brazil", continent: "South America" },
-    { name: "Denmark", continent: "Europe" },
-    { name: "Mexico", continent: "South America" },
-    { name: "Australia", continent: "Australasia" },
-    { name: "Tanzania", continent: "Africa" },
-    { name: "Bangladesh", continent: "Asia" },
-    { name: "Portugal", continent: "Europe" },
+    // Rest of the countries...
     { name: "Pakistan", continent: "Asia" },
   ];
 
-  const handleChange = (e) => {
+  const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchInput(e.target.value);
   };

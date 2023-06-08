@@ -16,7 +16,11 @@
     }
   },
   "exclude": ["node_modules"],
-  "include": ["src", "typings"]
+  "include": [
+    "src",
+    "typings",
+    "src/custom.d.ts"
+  ]
 }
 
 

@@ -1,12 +1,11 @@
 import { doc, setDoc } from "firebase/firestore";
-import { db } from "./firebaseConfig.js";
+import { db, auth } from "./firebaseConfig.js";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
 } from "firebase/auth";
-import { auth } from "./firebaseConfig.js";
 import { useAuthStore } from "../store/store";
 
 const signUp = async ({ email, password }) => {
@@ -39,7 +38,7 @@ const signUp = async ({ email, password }) => {
     });
 
     // Return the user object
-    return user;
+    return { user };
   } catch (error) {
     return { error };
   }
@@ -64,7 +63,7 @@ const signIn = async ({ email, password }) => {
     });
 
     // Return the user object
-    return user;
+    return { user };
   } catch (error) {
     // Handle errors
     const errorCode = error.code;
@@ -76,30 +75,28 @@ const signIn = async ({ email, password }) => {
   }
 };
 
-const user = () => {
-  onAuthStateChanged(auth, (user) => {
-    if (user) {
-      // User is signed in, see docs for a list of available properties
-      // https://firebase.google.com/docs/reference/js/firebase.User
-      const uid = user.uid;
-      // ...
-    } else {
-      // User is signed out
-      // ...
-    }
-  });
-};
-
 const logOut = async () => {
   try {
     signOut(auth);
     await useAuthStore.setState({ isSignedIn: false, user: null });
-  } catch {
-    (error) => {
-      // An error happened.
-      console.log("error", error);
-    };
+  } catch (error) {
+    console.log("error", error);
   }
 };
 
-export { signUp, signIn, user, logOut };
+export { signUp, signIn, logOut };
+
+
+// const user = () => {
+//   onAuthStateChanged(auth, (user) => {
+//     if (user) {
+//       // User is signed in, see docs for a list of available properties
+//       // https://firebase.google.com/docs/reference/js/firebase.User
+//       const uid = user.uid;
+//       // ...
+//     } else {
+//       // User is signed out
+//       // ...
+//     }
+//   });
+// };
