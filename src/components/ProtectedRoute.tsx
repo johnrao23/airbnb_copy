@@ -1,7 +1,7 @@
+import React from "react";
 import { useEffect } from "react";
 import { Navigate } from "react-router-dom";
 import { useAuthStore } from "../Backend/store/store";
-import React from "react";
 
 const ProtectedRoute = ({ children }) => {
   const isSignedIn = useAuthStore((state) => state.isSignedIn);
