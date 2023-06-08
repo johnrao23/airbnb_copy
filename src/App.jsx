@@ -3,16 +3,8 @@ import LocationSearch from "./components/LocationSearch";
 import SignUp from "./Backend/Signup/SignUpPage";
 import SignIn from "./Backend/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
-import { useEffect } from "react";
-import useAuthStore from "./Backend/store/store";
 
 function App() {
-  const isSignedIn = useAuthStore((state) => state.isSignedIn);
-
-  useEffect(() => {
-    console.log("isSignedIn", isSignedIn);
-  }, [isSignedIn]);
-
   return (
     <div>
       <BrowserRouter>
@@ -22,7 +14,7 @@ function App() {
           <Route
             path="/location-search"
             element={
-              <ProtectedRoute isSignedIn={isSignedIn}>
+              <ProtectedRoute>
                 <LocationSearch />
               </ProtectedRoute>
             }
