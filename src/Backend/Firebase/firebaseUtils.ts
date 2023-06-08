@@ -7,7 +7,7 @@ import {
   signOut,
 } from "firebase/auth";
 import { auth } from "./firebaseConfig.js";
-import useAuthStore from "../store/store.js";
+import { useAuthStore } from "../store/store";
 
 const signUp = async ({ email, password }) => {
   try {

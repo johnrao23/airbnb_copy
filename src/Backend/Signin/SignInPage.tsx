@@ -1,7 +1,6 @@
 import { signIn } from "../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
-// @ts-ignore
 import styles from "./Signin.module.css";
 
 export const SignIn = () => {
@@ -41,7 +40,7 @@ export const SignIn = () => {
             src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
             alt="Your Company"
           />
-          <h2 className="mt-6 text-center text-3xl font-bold tracking-tight text-green-500">
+          <h2 className={`mt-6 text-center text-3xl font-bold tracking-tight ${styles.green}`}>
             Sign in to your account
           </h2>
           <p className="mt-2 text-center text-sm text-gray-600">

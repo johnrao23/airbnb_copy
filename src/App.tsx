@@ -1,3 +1,4 @@
+import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import LocationSearch from "./components/LocationSearch";
 import SignUp from "./Backend/Signup/SignUpPage";

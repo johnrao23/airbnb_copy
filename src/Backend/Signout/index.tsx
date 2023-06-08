@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../Firebase/firebaseUtils.js";
 
-const SignOut = React.forwardRef((props, ref) => {
+const SignOut =(props) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
@@ -23,15 +23,15 @@ const SignOut = React.forwardRef((props, ref) => {
       };
     }
     setLoading(false);
-  };
+  };  
 
   return (
     <div className="block px-4 py-2 text-sm text-gray-700" {...props}>
-      <button ref={ref} onClick={handleSignOut} className="w-full text-left">
+      <button  onClick={handleSignOut} className="hover:shadow-lg w-full text-left">
         Sign Out
       </button>
     </div>
   );
-});
+};
 
 export default SignOut;

@@ -2,8 +2,15 @@ import { Fragment } from "react";
 import SignOut from "../Backend/Signout";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
+import React from "react";
 
-const navigation = [
+interface NavigationItem {
+  name: string;
+  href: string;
+  current: boolean;
+}
+
+const navigation: NavigationItem[] = [
   { name: "Home", href: "#", current: true },
   { name: "Search", href: "#", current: false },
   { name: "About Us", href: "#", current: false },
@@ -125,15 +132,15 @@ export default function NavBar() {
                       <Menu.Item>
                         {({ active }) => (
                           <SignOut
-                            ref={null}
+                           
                             className={classNames(
                               active ? "bg-gray-100" : "",
                               "block px-4 py-2 text-sm text-gray-700 focus:outline-none"
                             )}
                           >
-                            <button className="w-full text-left hover:shadow-lg">
+                            {/* <button className="w-full text-left hover:shadow-lg ">
                               Sign Out
-                            </button>
+                            </button> */}
                           </SignOut>
                         )}
                       </Menu.Item>

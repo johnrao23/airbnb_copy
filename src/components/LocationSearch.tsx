@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import useAuthStore from "../Backend/store/store";
+import { useAuthStore } from "../Backend/store/store";
 import BeachImg from "../assets/tropical_main.png";
 import NavBar from "./NavBar";
 
@@ -43,7 +43,7 @@ const LocationSearch = () => {
     <>
       <NavBar />
       <div className="flex flex-col items-center justify-center">
-        <h1>{user?.email}</h1>
+        <h1>Welcome, {user?.email}</h1>
         <img src={BeachImg} alt="Beach" className="max-w-md h-auto" />
         <p className="text-red-500 text-2xl mb-4">
           Click to find your next adventure.
