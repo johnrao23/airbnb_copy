@@ -1,4 +1,4 @@
-import React, { useState } from "react";
+import { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import BeachImg from "../assets/tropical_main.png";
 import NavBar from "./NavBar";
