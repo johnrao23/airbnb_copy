@@ -1,7 +1,14 @@
+import { User } from "firebase/auth"
 import { signIn } from "../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
+// import { useAuthStore } from "../store/store";
+
+interface SignInResult {
+  user?: User;
+  error?: any;
+}
 
 export const SignIn = () => {
   const [email, setEmail] = useState("");
@@ -12,21 +19,66 @@ export const SignIn = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
+
     try {
-      signIn({ email, password });
-      await navigate("/location-Search");
-    } catch {
-      (error) => {
-        console.log(error);
-        const errorCode = error.code;
-        const errorMessage = error.message;
-        alert(errorMessage);
-        setLoading(false);
-        // ..
-      };
+      const result: SignInResult = await signIn({ email, password });
+      console.log("result: ", result);
+      if (result.error) {
+        // Handle sign-in failure
+        alert("Sign-in failed. Please check your credentials and try again.");
+        await navigate("/location-Search");
+      }
+    } catch (error) {
+      console.log(error);
+      const errorCode = error.code;
+      const errorMessage = error.message;
+      alert(errorMessage);
+      setLoading(false);
     }
+
     setLoading(false);
   };
+
+  // const handleSubmit = async () => {
+  //   setLoading(true);
+  //   try {
+  //     await signIn({ email, password });
+  //     // await navigate("/location-Search");
+  //   } catch {
+  //     (error) => {
+  //       console.log(error);
+  //       const errorCode = error.code;
+  //       const errorMessage = error.message;
+  //       alert(errorMessage);
+  //       setLoading(false);
+  //       // ..
+  //     };
+  //   }
+  //   setLoading(false);
+  // };
+
+
+// const handleSubmit = async () => {
+//   setLoading(true);
+//   try {
+//     const user = await signIn({ email, password });
+//     if (user) {
+//       useAuthStore.setState({
+//         user: { id: user.user?.uid, email: user.user?.email, name: user.user?.displayName },
+//         isSignedIn: true,
+//       });
+//       navigate("/location-Search");
+//     } else {
+//       // Handle sign-in failure
+//       alert("Sign-in failed. Please check your credentials and try again.");
+//     }
+//   } catch (error) {
+//     console.log(error);
+//     alert("An error occurred during sign-in. Please try again.");
+//   }
+//   setLoading(false);
+// };
+
 
   return (
     <>
@@ -131,7 +183,7 @@ export const SignIn = () => {
               <button
                 type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold"
-                onClick={() => navigate("/Location-Search")}
+                onClick={() => handleSubmit()}
               >
                 Sign In
               </button>

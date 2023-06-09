@@ -31,6 +31,7 @@ const SignUp = () => {
       const result: SignUpResult = await signUp({ email, password });
       console.log("result: ", result);
       if (result.error) {
+        alert(result.error);
         await navigate("/location-Search");
       }
     } catch (error) {
