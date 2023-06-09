@@ -3,7 +3,6 @@ import { signIn } from "../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
-// import { useAuthStore } from "../store/store";
 
 interface SignInResult {
   user?: User;
@@ -23,11 +22,14 @@ export const SignIn = () => {
     try {
       const result: SignInResult = await signIn({ email, password });
       console.log("result: ", result);
-      if (result.error) {
+      if (result?.error) {
         // Handle sign-in failure
         alert("Sign-in failed. Please check your credentials and try again.");
-        await navigate("/location-Search");
+        setLoading(false);
+        return 
       }
+      
+      navigate("/location-Search");
     } catch (error) {
       console.log(error);
       const errorCode = error.code;
@@ -107,8 +109,8 @@ export const SignIn = () => {
         </div>
 
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
-          <form
-            onSubmit={handleSubmit}
+          <div
+            // onSubmit={handleSubmit}
             className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
           >
             <div>
@@ -181,7 +183,7 @@ export const SignIn = () => {
 
             <div>
               <button
-                type="submit"
+                // type="submit"
                 className="flex w-full justify-center rounded-md bg-indigo-600 px-3 py-2 text-sm font-semibold"
                 onClick={() => handleSubmit()}
               >
@@ -262,7 +264,7 @@ export const SignIn = () => {
                 </div>
               </div>
             </div>
-          </form>
+          </div>
         </div>
       </div>
     </>

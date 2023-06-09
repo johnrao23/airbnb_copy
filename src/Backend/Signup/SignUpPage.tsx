@@ -13,6 +13,7 @@ const SignUp = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [signUpError, setSignupError] = useState('');
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,17 +30,22 @@ const SignUp = () => {
 
     try {
       const result: SignUpResult = await signUp({ email, password });
-      console.log("result: ", result);
+   
       if (result.error) {
-        alert(result.error);
-        await navigate("/location-Search");
+        setSignupError(JSON.stringify(result?.error))
+        setLoading(false);
+       return 
       }
+      navigate("/location-Search");
     } catch (error) {
+      // TODO - pass correct result.error here and move if logic down  here 
       console.log(error);
+      setSignupError(error)
       const errorCode = error.code;
       const errorMessage = error.message;
       alert(errorMessage);
       setLoading(false);
+     
     }
 
     setLoading(false);
@@ -89,6 +95,11 @@ const SignUp = () => {
                 {loading ? "Loading..." : "Sign up"}
               </button>
             </div>
+
+            <div>
+              {signUpError && <p className="text-red-500">{signUpError }</p>}
+            </div>
+
           </form>
         </div>
       </div>

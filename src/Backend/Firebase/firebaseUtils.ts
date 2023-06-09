@@ -28,7 +28,7 @@ const signUp = async ({ email, password }) => {
     console.log("Registered with uid: ", user.uid);
 
     // Update global state
-    await useAuthStore.setState({
+     useAuthStore.setState({
       user: {
         id: user?.uid,
         email: user?.email,
@@ -57,7 +57,7 @@ const signIn = async ({ email, password }) => {
     const user = userCredential.user;
 
     // Update global state
-    await useAuthStore.setState({
+     useAuthStore.setState({
       user: { id: user?.uid, email: user?.email, name: user.displayName },
       isSignedIn: true,
     });
