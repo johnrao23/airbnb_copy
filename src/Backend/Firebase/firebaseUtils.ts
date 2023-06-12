@@ -71,7 +71,7 @@ const signIn = async ({ email, password }) => {
     console.error(errorCode, errorMessage);
 
     // Return null to indicate sign-in failed
-    return null;
+    return { error };
   }
 };
 

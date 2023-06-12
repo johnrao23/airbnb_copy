@@ -32,7 +32,7 @@ const SignUp = () => {
       const result: SignUpResult = await signUp({ email, password });
    
       if (result.error) {
-        setSignupError(JSON.stringify(result?.error))
+        setSignupError(JSON.stringify(result?.error.message))
         setLoading(false);
        return 
       }

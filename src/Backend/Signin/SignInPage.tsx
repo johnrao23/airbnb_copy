@@ -13,6 +13,7 @@ export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
+  const [signInError, setSigninError] = useState('');
 
   const navigate = useNavigate();
 
@@ -22,65 +23,27 @@ export const SignIn = () => {
     try {
       const result: SignInResult = await signIn({ email, password });
       console.log("result: ", result);
-      if (result?.error) {
-        // Handle sign-in failure
-        alert("Sign-in failed. Please check your credentials and try again.");
+      if (result.error) {
+        setSigninError(result.error.message);
+        alert(result.error.message);
         setLoading(false);
-        return 
+        return;
       }
       
       navigate("/location-Search");
     } catch (error) {
       console.log(error);
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
+      if (error.message) {
+        setSigninError(error.message);
+        alert(error.message);
+      } else {
+        // handle other errors or set a generic error message
+        setSigninError("An error occurred");
+        alert("An error occurred");
+      }
       setLoading(false);
     }
-
-    setLoading(false);
-  };
-
-  // const handleSubmit = async () => {
-  //   setLoading(true);
-  //   try {
-  //     await signIn({ email, password });
-  //     // await navigate("/location-Search");
-  //   } catch {
-  //     (error) => {
-  //       console.log(error);
-  //       const errorCode = error.code;
-  //       const errorMessage = error.message;
-  //       alert(errorMessage);
-  //       setLoading(false);
-  //       // ..
-  //     };
-  //   }
-  //   setLoading(false);
-  // };
-
-
-// const handleSubmit = async () => {
-//   setLoading(true);
-//   try {
-//     const user = await signIn({ email, password });
-//     if (user) {
-//       useAuthStore.setState({
-//         user: { id: user.user?.uid, email: user.user?.email, name: user.user?.displayName },
-//         isSignedIn: true,
-//       });
-//       navigate("/location-Search");
-//     } else {
-//       // Handle sign-in failure
-//       alert("Sign-in failed. Please check your credentials and try again.");
-//     }
-//   } catch (error) {
-//     console.log(error);
-//     alert("An error occurred during sign-in. Please try again.");
-//   }
-//   setLoading(false);
-// };
-
+  }
 
   return (
     <>
@@ -272,76 +235,3 @@ export const SignIn = () => {
 };
 
 export default SignIn;
-
-// import { useState } from "react";
-// import { useAuthStore } from "../store/store";
-// import { useNavigate } from "react-router-dom";
-// import { signIn } from "../Firebase/firebaseUtils.js";
-// // @ts-ignore
-// import styles from "./Signin.module.css";
-
-// const SignIn = () => {
-//   const [email, setEmail] = useState("");
-//   const [password, setPassword] = useState("");
-//   // const [user, setUser] = useState({ email, password });
-//   const [isLoading, setIsLoading] = useState(false);
-
-//   const handleSubmit = async () => {
-//     setIsLoading(true);
-//     try {
-//       signIn();
-
-//       await useAuthStore.setState({
-//         user: { id: user?.uid, email: user?.email, name: user.displayName },
-//         isSignedIn: true,
-//       });
-
-//       navigate("/Location-Search");
-//     } catch (error) {
-//       console.log(error);
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       alert(errorMessage);
-//       setIsLoading(false);
-//     }
-//   };
-
-//   signInWithEmailAndPassword(auth, email, password)
-//     .then((userCredential) => {
-//       // Signed in
-//       const user = userCredential.user;
-//       setLoading(false);
-//       useAuthStore.setState({
-//         user: { id: user?.uid, email: user?.email, name: user.displayName },
-//         isSignedIn: true
-//       });
-
-//       // ...
-//     })
-//     .catch((error) => {
-//       console.log(error);
-//       const errorCode = error.code;
-//       const errorMessage = error.message;
-//       alert(errorMessage);
-//       setLoading(false);
-//       // ..
-//     })
-//     .finally(() => setLoading(false));
-// };
-
-// const handleSubmit = async (event) => {
-//   event.preventDefault();
-//   setIsLoading(true);
-
-//   try {
-//     signIn(user);
-
-//     await useAuthStore.setState({ setUser });
-
-//     navigate("/Location-Search");
-//   } catch (error) {
-//     console.log(error);
-//   }
-// };
-
-// const navigate = useNavigate();
