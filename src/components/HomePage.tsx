@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import beachImg from "../assets/beachImg.png";
+import { locationSearch } from "../Backend/api/LocationSearch"
 
 const HomePage: React.FC = () => {
   const user = useAuthStore((state) => state.user);
@@ -22,6 +23,15 @@ const HomePage: React.FC = () => {
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     e.preventDefault();
     setSearchInput(e.target.value);
+  };
+
+  const handleSearch = async () => {
+    try {
+      const data = await locationSearch(searchInput, '2023-09-16', '2023-09-17');
+      console.log(data); // Output the API response data to the console for testing
+    } catch (error) {
+      console.error(error);
+    }
   };
 
   return (
@@ -64,6 +74,7 @@ const HomePage: React.FC = () => {
           </tbody>
         </table>
       </div>
+      <button onClick={handleSearch}>Search</button>
     </>
   );
 };
