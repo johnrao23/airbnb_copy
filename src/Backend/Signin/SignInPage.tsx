@@ -30,7 +30,7 @@ export const SignIn = () => {
         return;
       }
       
-      navigate("/location-Search");
+      navigate("/home");
     } catch (error) {
       console.log(error);
       if (error.message) {

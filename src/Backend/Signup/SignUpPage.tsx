@@ -36,7 +36,7 @@ const SignUp = () => {
         setLoading(false);
        return 
       }
-      navigate("/location-Search");
+      navigate("/home");
     } catch (error) {
       // TODO - pass correct result.error here and move if logic down  here 
       console.log(error);
@@ -147,7 +147,7 @@ export default SignUp;
 //       const result: User | { error: any;} = await signUp({ email, password });
 //       console.log("result: ", result)
 //       if (result.error) {
-//         await navigate("/Location-Search");
+//         await navigate("/home");
 //       }
     
 //     } catch {
@@ -256,7 +256,7 @@ export default SignUp;
 
 //     await useStore.setState({ setUser });
 
-//     navigate("/Location-Search");
+//     navigate("/home");
 //   } catch (error) {
 //     console.log(error);
 //   }

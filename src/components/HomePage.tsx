@@ -3,7 +3,7 @@ import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import beachImg from "../assets/beachImg.png";
 
-const LocationSearch: React.FC = () => {
+const HomePage: React.FC = () => {
   const user = useAuthStore((state) => state.user);
   const [searchInput, setSearchInput] = useState("");
 
@@ -68,4 +68,4 @@ const LocationSearch: React.FC = () => {
   );
 };
 
-export default LocationSearch;
+export default HomePage;
