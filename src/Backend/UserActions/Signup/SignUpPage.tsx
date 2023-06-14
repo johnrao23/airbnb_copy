@@ -1,5 +1,5 @@
 import { User } from "firebase/auth";
-import { signUp } from "../Firebase/firebaseUtils";
+import { signUp } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 

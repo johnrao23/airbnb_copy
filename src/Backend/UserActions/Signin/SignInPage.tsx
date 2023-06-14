@@ -1,5 +1,5 @@
 import { User } from "firebase/auth"
-import { signIn } from "../Firebase/firebaseUtils";
+import { signIn } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
