@@ -3,10 +3,13 @@ import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import beachImg from "../assets/beachImg.png";
 import { locationSearch } from "../Backend/api/LocationSearch"
+import { useNavigate } from "react-router-dom";
 
 const HomePage: React.FC = () => {
   const user = useAuthStore((state) => state.user);
   const [searchInput, setSearchInput] = useState('');
+
+  const navigate = useNavigate();
 
   const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     setSearchInput(e.target.value);
@@ -18,6 +21,7 @@ const HomePage: React.FC = () => {
     try {
       const data = await locationSearch(searchInput, '2023-09-16', '2023-09-17');
       console.log(data);
+      navigate("/search")
     } catch (error) {
       console.error(error);
     }
