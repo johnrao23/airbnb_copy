@@ -19,14 +19,3 @@ export const useAuthStore = create<AuthStore>((set) => ({
   setUser: (user) => set({ user }),
   setIsSignedIn: (isSignedIn: boolean) => set({ isSignedIn })
 }));
-
-// import { create } from "zustand";
-
-// const useAuthStore = create((set) => ({
-//   user: null,
-//   isSignedIn: false,
-//   setUser: (user) => set({ user }),
-//   setIsSignedIn: (isSignedIn) => set({ isSignedIn }),
-// }));
-
-// export default useAuthStore;
