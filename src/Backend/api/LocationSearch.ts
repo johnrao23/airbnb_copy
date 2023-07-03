@@ -18,8 +18,8 @@ export const locationSearch = async (location: string, checkin: string, checkout
         currency: 'USD'
       },
       headers: {
-      //   'X-RapidAPI-Key': API_KEY,
-      //   'X-RapidAPI-Host': API_HOST
+        // 'X-RapidAPI-Key': API_KEY,
+        // 'X-RapidAPI-Host': API_HOST
       }
     });
 
