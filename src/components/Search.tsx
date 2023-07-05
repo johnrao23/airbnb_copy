@@ -16,6 +16,7 @@ const Search = () => {
                 <div key={result.id}>
                   <p>{result.url}</p>
                   <img src={result.images[0]} alt="Result" />
+                  <p>{result.price.total}</p>
                 </div>
             ))}
         </div>
