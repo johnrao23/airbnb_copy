@@ -39,9 +39,15 @@ interface SearchResult {
   price: Price;
 }
 
-interface SearchResults {
+interface SearchResponse {
+  error: boolean;
+  headers: any; 
   results: SearchResult[];
-  setResults: (results: SearchResult[]) => void;
+}
+
+interface SearchResults {
+  results: SearchResponse;
+  setResults: (results: SearchResponse) => void;
 }
 
 export interface User {
@@ -62,7 +68,7 @@ export const useAuthStore = create<AuthStore>((set) => ({
   user: null,
   isSignedIn: false,
   searchResults: {
-    results: [],
+    results: {error: false, headers: {}, results: []},
     setResults: (results) => set(state => ({ ...state, searchResults: { ...state.searchResults, results }}))
   },
   setUser: (user) => set({ user }),
