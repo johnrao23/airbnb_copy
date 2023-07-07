@@ -4,6 +4,7 @@ import SignOut from "../Backend/UserActions/Signout";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import { useNavigate } from "react-router-dom";
+import ProfileImg from "../assets/profileicon.png"
 
 interface NavigationItem {
   name: string;
@@ -89,7 +90,7 @@ export default function NavBar() {
                       <span className="sr-only">Open user menu</span>
                       <img
                         className="h-8 w-8 rounded-full"
-                        src="https://media.licdn.com/dms/image/C4E03AQGS5CbA8JEv6w/profile-displayphoto-shrink_800_800/0/1550934430107?e=1688601600&v=beta&t=4Oz2hteUKDFGC-V5j6WpjqlmJjIngKoC_ODdPZg5ANI"
+                        src={ProfileImg}
                         alt=""
                       />
                     </Menu.Button>
