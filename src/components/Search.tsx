@@ -16,9 +16,9 @@ const Search = () => {
         <div>
             <NavBar />
             <h1 className="text-center text-2xl font-bold my-4">Get ready to live it up, {user?.email}</h1>
-            <div className="flex overflow-x-scroll pb-10 hide-scrollbar">
+            <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
             {Array.isArray(searchResults.results.results) && searchResults.results.results.map((result) => (
-                <div key={result.id} className="border border-gray-300 rounded-lg p-4 m-2 w-full sm:w-80 flex-shrink-0 flex flex-col items-center justify-center">
+                <div key={result.id} className="border border-gray-300 rounded-lg p-4 m-2 flex flex-col items-center justify-center">
                   <p className="overflow-hidden break-all mb-2 text-center">{result.url}</p>
                   <img className="rounded-lg mb-2" src={result.images[0]} alt="Result" />
                   <p className="mb-2">{result.price.total}</p>
