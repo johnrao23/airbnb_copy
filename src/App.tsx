@@ -2,6 +2,7 @@ import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Search from "./components/Search"
+import Reservation from "./components/ReservationPage" 
 import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -26,6 +27,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Search />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/reserve"
+            element={
+              <ProtectedRoute>
+                <Reservation />
               </ProtectedRoute>
             }
           />
