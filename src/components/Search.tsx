@@ -6,11 +6,11 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
     const user = useAuthStore((state) => state.user);
     const searchResults = useAuthStore((state) => state.searchResults);
-    // const searchResult = useAuthStore(some state once a single result is picked)
+    const setSelectedResult = useAuthStore((state) => state.setSelectedResult);
     const navigate = useNavigate();
 
-    const handleSubmit = () =>{
-        // pass in the new state of the chosen result before navigating to reservation decision page
+    const handleSubmit = (result) =>{
+        setSelectedResult(result);
         return navigate("/reserve")
     }
 
@@ -24,7 +24,7 @@ const Search = () => {
                   <p className="overflow-hidden break-all mb-2 text-center h-12">{result.name}</p>
                   <img className="rounded-lg mb-2 h-48 w-full object-cover" src={result.images[0]} alt="Result" />
                   <p className="mb-2 text-green-500">${result.price.total}</p>
-                  <button className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 mt-auto" onClick={() => handleSubmit()}>Reserve</button>
+                  <button className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 mt-auto" onClick={() => handleSubmit(result)}>Reserve</button>
                 </div>
             ))}
             </div>

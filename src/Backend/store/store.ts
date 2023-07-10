@@ -62,6 +62,8 @@ export interface AuthStore {
   isSignedIn: boolean;
   setIsSignedIn: (isSignedIn: boolean) => void;
   searchResults: SearchResults;
+  selectedResult: SearchResult | null;
+  setSelectedResult: (result: SearchResult) => void;
 }
 
 export const useAuthStore = create<AuthStore>((set) => ({
@@ -71,7 +73,8 @@ export const useAuthStore = create<AuthStore>((set) => ({
     results: {error: false, headers: {}, results: []},
     setResults: (results) => set(state => ({ ...state, searchResults: { ...state.searchResults, results }})),
   },
-  // here, figure out how to set the state by choosing a single result from the searchResults
+  selectedResult: null,
+  setSelectedResult: (result) => set({ selectedResult: result }),
   setUser: (user) => set({ user }),
   setIsSignedIn: (isSignedIn: boolean) => set({ isSignedIn })
 }));
