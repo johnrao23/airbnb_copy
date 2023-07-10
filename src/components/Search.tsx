@@ -10,7 +10,7 @@ const Search = () => {
     const navigate = useNavigate();
 
     const handleSubmit = () =>{
-        // pass in the new state of the chosen result before navigating to  reservation decision page
+        // pass in the new state of the chosen result before navigating to reservation decision page
         return navigate("/reserve")
     }
 
