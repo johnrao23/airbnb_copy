@@ -1,9 +1,11 @@
 import React from "react";
 import { useAuthStore } from "../Backend/store/store"
+import { useNavigate } from "react-router-dom"
 
 const Reservation = () => {
     const user = useAuthStore((state) => state.user);
     const selectedResult = useAuthStore((state) => state.selectedResult);
+    const navigate = useNavigate();
 
     // If no result has been selected, display a message instead
     if (!selectedResult) {
@@ -11,7 +13,7 @@ const Reservation = () => {
     }
 
     const confirmResult = () => {
-        return
+        return navigate("/confirmation")
     }
 
     return (

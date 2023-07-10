@@ -1,7 +1,7 @@
 import React from "react";
 import { useAuthStore } from "Backend/store/store";
 
-const Payment = () => {
+const Confirmation = () => {
     const user = useAuthStore((state) => state.user);
 
     return (
@@ -12,4 +12,4 @@ const Payment = () => {
     )
 }
 
-export default Payment;
+export default Confirmation;

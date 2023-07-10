@@ -9,7 +9,7 @@ const Search = () => {
     const setSelectedResult = useAuthStore((state) => state.setSelectedResult);
     const navigate = useNavigate();
 
-    const handleSubmit = (result) =>{
+    const handleSubmit = (result) => {
         setSelectedResult(result);
         return navigate("/reserve")
     }
