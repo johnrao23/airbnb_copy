@@ -10,6 +10,10 @@ const Reservation = () => {
         return <h1>No reservation selected.</h1>;
     }
 
+    const confirmResult = () => {
+        return
+    }
+
     return (
         <div>
             <h1>Great choice {user?.email}! Now let's make it official...</h1>
@@ -22,6 +26,7 @@ const Reservation = () => {
               <p className="mb-2">City: {selectedResult.city}</p>
               <p className="mb-2">Bedrooms: {selectedResult.bedrooms}</p>
               <p className="mb-2">Bathrooms: {selectedResult.bathrooms}</p>
+              <button className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 mt-auto" onClick={() => confirmResult()}>Confirm Reservation</button>
             </div>
         </div>
     );
