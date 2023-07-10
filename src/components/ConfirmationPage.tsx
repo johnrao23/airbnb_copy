@@ -1,4 +1,5 @@
 import React, { useState } from "react";
+import NavBar from "./NavBar";
 import { useAuthStore } from "../Backend/store/store"
 
 const Confirmation = () => {
@@ -21,6 +22,8 @@ const Confirmation = () => {
     };
 
     return (
+        <>
+        <NavBar />
         <div className="max-w-md mx-auto">
             <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.email}</h1>
             <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
@@ -54,6 +57,7 @@ const Confirmation = () => {
                 </div>
             </form>
         </div>
+        </>
     )
 }
 

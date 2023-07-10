@@ -1,4 +1,5 @@
 import React from "react";
+import NavBar from "./NavBar";
 import { useAuthStore } from "../Backend/store/store"
 import { useNavigate } from "react-router-dom"
 
@@ -18,7 +19,8 @@ const Reservation = () => {
 
     return (
         <div>
-            <h1>Great choice {user?.email}! Now let's make it official...</h1>
+            <NavBar />
+            <h1 className="text-center text-2xl font-bold my-4">Great choice {user?.email}! Now let's make it official...</h1>
             <div className="border border-gray-300 rounded-lg p-4 m-2 flex flex-col items-center justify-between space-y-4 h-full">
               <h2 className="text-2xl mb-2">{selectedResult.name}</h2>
               <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
