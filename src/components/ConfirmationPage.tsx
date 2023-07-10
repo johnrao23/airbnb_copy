@@ -13,6 +13,7 @@ const Confirmation = () => {
     const handleSubmit = (e) => {
         e.preventDefault();
 
+        alert("Congratulations! You are all set. Enjoy your stay!")
         // For now, let's just log the form data.
         console.log({ creditCardNumber, expiryDate, cvv });
 
