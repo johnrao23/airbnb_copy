@@ -2,7 +2,7 @@ import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import beachImg from "../assets/beachImg.png";
-import { locationSearch } from "../Backend/api/LocationSearch"
+import { locationSearch } from "../Backend/api/LocationSearch";
 import { useNavigate } from "react-router-dom";
 
 const HomePage: React.FC = () => {
@@ -34,9 +34,9 @@ const HomePage: React.FC = () => {
   };
 
   return (
-    <>
+    <div className="min-h-screen flex flex-col">
       <div 
-        className="relative h-screen bg-cover bg-no-repeat" 
+        className="relative flex-grow bg-cover bg-no-repeat" 
         style={{ 
           backgroundImage: `url(${beachImg})`,
         }}
@@ -44,7 +44,7 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50" />
         <NavBar />
 
-        <div className="relative flex flex-col items-center justify-center h-full text-white transform translate-y-[10%]">
+        <div className="relative flex flex-col items-center h-full text-white transform translate-y-[255%]">
           <h1>Welcome, {user?.email}</h1>
           <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
 
@@ -68,8 +68,9 @@ const HomePage: React.FC = () => {
           </form>
         </div>
       </div>
-    </>
+    </div>
   );
 };
 
 export default HomePage;
+
