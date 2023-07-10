@@ -23,6 +23,10 @@ const Confirmation = () => {
     return (
         <div className="max-w-md mx-auto">
             <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.email}</h1>
+            <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
+                <img className="w-full h-full object-cover" src={selectedResult.images[0]} alt="Result" />
+            </div>
+
 
             <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                 <input type="hidden" name="remember" value="true" />
