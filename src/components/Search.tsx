@@ -6,6 +6,7 @@ import { useNavigate } from "react-router-dom";
 const Search = () => {
     const user = useAuthStore((state) => state.user);
     const searchResults = useAuthStore((state) => state.searchResults);
+    // const searchResult = useAuthStore(some state once a single result is picked)
     const navigate = useNavigate();
 
     const handleSubmit = () =>{

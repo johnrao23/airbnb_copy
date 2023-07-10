@@ -69,8 +69,9 @@ export const useAuthStore = create<AuthStore>((set) => ({
   isSignedIn: false,
   searchResults: {
     results: {error: false, headers: {}, results: []},
-    setResults: (results) => set(state => ({ ...state, searchResults: { ...state.searchResults, results }}))
+    setResults: (results) => set(state => ({ ...state, searchResults: { ...state.searchResults, results }})),
   },
+  // here, figure out how to set the state by choosing a single result from the searchResults
   setUser: (user) => set({ user }),
   setIsSignedIn: (isSignedIn: boolean) => set({ isSignedIn })
 }));
