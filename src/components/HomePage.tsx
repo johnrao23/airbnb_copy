@@ -33,6 +33,8 @@ const HomePage: React.FC = () => {
     }
   };
 
+  // Mobile styling (center text with text-center??)
+
   return (
     <div className="min-h-screen flex flex-col">
       <div 
