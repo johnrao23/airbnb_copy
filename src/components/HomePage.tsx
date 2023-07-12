@@ -38,22 +38,18 @@ const HomePage: React.FC = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <div 
-        className="relative flex-grow bg-cover bg-no-repeat" 
+        className="relative flex-grow bg-cover bg-no-repeat pb-20" 
         style={{ 
           backgroundImage: `url(${beachImg})`,
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />
         <NavBar />
-
-        <div className={
-            "relative flex flex-col items-center h-full text-white " + 
-            (window.innerWidth > 640 ? "transform translate-y-[255%]" : "justify-center")
-          }
-        >
+  
+        <div className="relative flex flex-col items-center h-full text-white transform translate-y-[255%]">
           <h1>Welcome, {user?.email}</h1>
           <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
-
+  
           <form onSubmit={handleSearch} className="mb-4">
             <p className="text-lg mb-2">Search for the location you want to travel to:</p>
             <div className="flex">
@@ -75,7 +71,7 @@ const HomePage: React.FC = () => {
         </div>
       </div>
     </div>
-  );
+  );  
 };
 
 export default HomePage;
