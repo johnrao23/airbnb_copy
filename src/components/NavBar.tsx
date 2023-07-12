@@ -19,7 +19,7 @@ const navigation: NavigationItem[] = [
   { name: "Contact", href: "#", current: false },
 ];
 
-// Update the links to navigate to proper path based on what user clicks
+// Update the links to navigate to proper path based on what user clicks (link to vs useNavigate)
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
