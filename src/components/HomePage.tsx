@@ -46,7 +46,11 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50" />
         <NavBar />
 
-        <div className="relative flex flex-col items-center h-full text-white transform translate-y-[255%]">
+        <div className={
+            "relative flex flex-col items-center h-full text-white " + 
+            (window.innerWidth > 640 ? "transform translate-y-[255%]" : "justify-center")
+          }
+        >
           <h1>Welcome, {user?.email}</h1>
           <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
 
