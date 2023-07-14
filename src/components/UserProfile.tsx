@@ -2,6 +2,9 @@ import React from "react"
 import { useAuthStore } from "Backend/store/store";
 
 const Profile = () => {
+
+    // Link to "Your Profile" from NavBar Menu Button will direct to this page
+
     const user = useAuthStore((state) => state.user);
 
     return (
@@ -13,4 +16,4 @@ const Profile = () => {
     )
 }
 
-export default Profile
+export default Profile;
