@@ -1,12 +1,13 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./NavBar";
 import { useAuthStore } from "../Backend/store/store";
 
 const Profile = () => {
 
-    // Link to "Your Profile" from NavBar Menu Button will direct to this page
-
     const user = useAuthStore((state) => state.user);
+    const [userinfo, setUserInfo] = useState("")
+
+    // Set up field to store profile info and save it to Application state
 
     return (
         <div>
