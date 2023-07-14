@@ -4,6 +4,7 @@ import HomePage from "./components/HomePage";
 import Search from "./components/Search"
 import Reservation from "./components/ReservationPage" 
 import Confirmation from "./components/ConfirmationPage"
+import Profile from "./components/UserProfile";
 import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -39,11 +40,19 @@ function App() {
               </ProtectedRoute>
             }
           />
-        <Route
+          <Route
             path="/confirmation"
             element={
               <ProtectedRoute>
                 <Confirmation />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/profile"
+            element={
+              <ProtectedRoute>
+                <Profile />
               </ProtectedRoute>
             }
           />
