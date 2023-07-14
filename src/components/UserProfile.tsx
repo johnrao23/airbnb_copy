@@ -1,5 +1,6 @@
-import React from "react"
-import { useAuthStore } from "Backend/store/store";
+import React from "react";
+import NavBar from "./NavBar";
+import { useAuthStore } from "../Backend/store/store";
 
 const Profile = () => {
 
@@ -9,6 +10,7 @@ const Profile = () => {
 
     return (
         <div>
+            <NavBar />
             <h1>This will display info about the user and current user state/transactions</h1>
             <h1>{user.name}</h1>
             <h1>{user?.email}</h1>
