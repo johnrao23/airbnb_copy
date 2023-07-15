@@ -23,7 +23,7 @@ const Profile = () => {
 
     return (
         <div>
-            <NavBar />
+           
             <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
                 <h1 className="text-2xl text-gray-800 mb-4">Let us get to know you a little bit, {user?.email}</h1>
                 {!submitted ? (
