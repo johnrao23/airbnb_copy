@@ -5,6 +5,7 @@ import Search from "./components/Search"
 import Reservation from "./components/ReservationPage" 
 import Confirmation from "./components/ConfirmationPage"
 import Profile from "./components/UserProfile";
+import About from "./components/AboutUs";
 import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
@@ -53,6 +54,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <Profile />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/about"
+            element={
+              <ProtectedRoute>
+                <About />
               </ProtectedRoute>
             }
           />
