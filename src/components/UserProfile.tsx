@@ -29,7 +29,7 @@ const Profile = () => {
                 {!submitted ? (
                     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-6 space-y-2 bg-white rounded-xl shadow-md">
                         <div>
-                            <label className="block text-gray-700 text-lg font-semibold mb-2">Name:</label>
+                            <label className="block text-gray-700 text-lg font-semibold mb-2">What's your name?</label>
                             <input className="form-input mt-1 block w-full px-4 py-2 rounded-lg border-gray-300 shadow-sm focus:border-indigo-500 focus:ring-indigo-500" type="text" value={userinfo} onChange={handleNameChange} />
                         </div>
                         <div>
