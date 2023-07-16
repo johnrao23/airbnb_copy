@@ -9,14 +9,14 @@ const About = () => {
     return (
         <div className="min-h-screen flex flex-col">
             <div 
-                className="relative flex-grow bg-cover bg-no-repeat pb-20" 
+                className="relative flex-grow bg-cover bg-no-repeat pb-20 text-right" 
                 style={{ 
                     backgroundImage: `url(${nycImg})`,
                 }}
             >
                 <NavBar />
-                <h1>Thanks for asking about us, {user?.email}!</h1>
-                <p>Here at Fairbnb, we want to provide you with once in a lifetime opportunites for a much better price!</p>
+                <h1 className="text-white">Thanks for asking about us, {user?.email}!</h1>
+                <p className="text-white">Here at Fairbnb, we want to provide you with once in a lifetime opportunities for a much better price!</p>
             </div>
         </div>
     )
