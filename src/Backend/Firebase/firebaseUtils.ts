@@ -5,6 +5,8 @@ import {
   signInWithEmailAndPassword,
   onAuthStateChanged,
   signOut,
+  GoogleAuthProvider,
+  signInWithPopup
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
@@ -77,6 +79,11 @@ const signIn = async ({ email, password }) => {
     return { error };
   }
 };
+
+const googleSignIn = () => {
+  const provider = new GoogleAuthProvider();
+  return signInWithPopup(auth, provider)
+}
 
 const logOut = async () => {
   try {
