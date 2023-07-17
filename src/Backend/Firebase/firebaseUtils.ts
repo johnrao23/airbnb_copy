@@ -1,4 +1,4 @@
-import { doc, setDoc } from "firebase/firestore";
+import { doc, setDoc, Timestamp } from "firebase/firestore";
 import { db, auth } from "./firebaseConfig.js";
 import {
   createUserWithEmailAndPassword,
@@ -18,7 +18,10 @@ const signUp = async ({ email, password }) => {
     );
 
     // Add user to Firestore
-    const newUser = userCredential.user.email;
+    const newUser = {
+      email: userCredential.user.email,
+      date: Timestamp.fromDate(new Date()),
+    };
     setDoc(doc(db, `users/${userCredential.user.uid}`), {
       newUser,
     });
