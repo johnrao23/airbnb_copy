@@ -1,5 +1,5 @@
 import { User } from "firebase/auth"
-import { signIn, googleSignIn, githubSignIn } from "../../Firebase/firebaseUtils";
+import { signIn, googleSignIn, twitterSignIn, githubSignIn } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
@@ -77,7 +77,7 @@ export const SignIn = () => {
     setLoading(true);
 
     try {
-      const result = await googleSignIn();
+      const result = await twitterSignIn();
       console.log("result: ", result);
       if (result.error) {
         setSigninError(result.error.message);
