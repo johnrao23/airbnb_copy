@@ -6,6 +6,7 @@ import {
   onAuthStateChanged,
   signOut,
   GoogleAuthProvider,
+  TwitterAuthProvider,
   GithubAuthProvider,
   signInWithPopup
 } from "firebase/auth";
@@ -113,6 +114,22 @@ const githubSignIn = async () => {
   }
 }
 
+const twitterSignIn = async () => {
+  const provider = new TwitterAuthProvider();
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    useAuthStore.setState({
+      user: { id: user?.uid, email: user?.email, name: user.displayName },
+      isSignedIn: true,
+    });
+    return { user };  // return user object for further use if needed
+  } catch (error) {
+    console.error("An error occurred during Google sign-in", error);
+    return { error };  // return error object for error handling if needed
+  }
+}
+
 
 const logOut = async () => {
   try {
@@ -123,7 +140,7 @@ const logOut = async () => {
   }
 };
 
-export { signUp, signIn, logOut, googleSignIn, githubSignIn };
+export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn };
 
 
 // const user = () => {
