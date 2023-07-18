@@ -1,5 +1,5 @@
 import { User } from "firebase/auth"
-import { signIn } from "../../Firebase/firebaseUtils";
+import { signIn, googleSignIn } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
@@ -22,6 +22,34 @@ export const SignIn = () => {
 
     try {
       const result: SignInResult = await signIn({ email, password });
+      console.log("result: ", result);
+      if (result.error) {
+        setSigninError(result.error.message);
+        alert(result.error.message);
+        setLoading(false);
+        return;
+      }
+      
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+      if (error.message) {
+        setSigninError(error.message);
+        alert(error.message);
+      } else {
+        // handle other errors or set a generic error message
+        setSigninError("An error occurred");
+        alert("An error occurred");
+      }
+      setLoading(false);
+    }
+  }
+
+  const handleGoogleSignIn = async () => {
+    setLoading(true);
+
+    try {
+      const result = await googleSignIn();
       console.log("result: ", result);
       if (result.error) {
         setSigninError(result.error.message);
@@ -167,25 +195,26 @@ export const SignIn = () => {
 
                 <div className="mt-6 grid grid-cols-3 gap-3">
                   <div>
-                    <a
-                        href="#"
-                        className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
+                    <button
+                      className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
+                      onClick={() => handleGoogleSignIn()}
                     >
-                        <span className="sr-only">Sign in with Google</span>
-                        <svg
-                            className="h-5 w-5"
-                            aria-hidden="true"
-                            fill="currentColor"
-                            viewBox="0 0 20 20"
-                        >
-                            <path
-                                fillRule="evenodd"
-                                d="M10 9.978V14H15.196C14.667 16.328 12.935 18 10.5 18 7.468 18 5 15.532 5 12.5S7.468 7 10.5 7C12.041 7 13.345 7.66 14.11 8.775L16.896 6.082C15.363 4.57 13.296 3.5 10.5 3.5C6.364 3.5 3 6.864 3 11S6.364 18.5 10.5 18.5C15.196 18.5 18.5 14.358 18.5 11.153 18.5 10.384 18.364 9.978 18 9.36H10Z"
-                                clipRule="evenodd"
-                            />
-                        </svg>
-                    </a>
+                      <span className="sr-only">Sign in with Google</span>
+                      <svg
+                        className="h-5 w-5"
+                        aria-hidden="true"
+                        fill="currentColor"
+                        viewBox="0 0 20 20"
+                      >
+                        <path
+                          fillRule="evenodd"
+                          d="M10 9.978V14H15.196C14.667 16.328 12.935 18 10.5 18 7.468 18 5 15.532 5 12.5S7.468 7 10.5 7C12.041 7 13.345 7.66 14.11 8.775L16.896 6.082C15.363 4.57 13.296 3.5 10.5 3.5C6.364 3.5 3 6.864 3 11S6.364 18.5 10.5 18.5C15.196 18.5 18.5 14.358 18.5 11.153 18.5 10.384 18.364 9.978 18 9.36H10Z"
+                          clipRule="evenodd"
+                        />
+                      </svg>
+                    </button>
                   </div>
+
 
 
                   <div>

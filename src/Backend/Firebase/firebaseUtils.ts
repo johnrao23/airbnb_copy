@@ -80,10 +80,22 @@ const signIn = async ({ email, password }) => {
   }
 };
 
-const googleSignIn = () => {
+const googleSignIn = async () => {
   const provider = new GoogleAuthProvider();
-  return signInWithPopup(auth, provider)
+  try {
+    const result = await signInWithPopup(auth, provider);
+    const user = result.user;
+    useAuthStore.setState({
+      user: { id: user?.uid, email: user?.email, name: user.displayName },
+      isSignedIn: true,
+    });
+    return { user };  // return user object for further use if needed
+  } catch (error) {
+    console.error("An error occurred during Google sign-in", error);
+    return { error };  // return error object for error handling if needed
+  }
 }
+
 
 const logOut = async () => {
   try {
@@ -94,7 +106,7 @@ const logOut = async () => {
   }
 };
 
-export { signUp, signIn, logOut };
+export { signUp, signIn, logOut, googleSignIn };
 
 
 // const user = () => {
