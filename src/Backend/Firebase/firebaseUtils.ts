@@ -98,8 +98,8 @@ const googleSignIn = async () => {
   }
 }
 
-const githubSignIn = async () => {
-  const provider = new GithubAuthProvider();
+const twitterSignIn = async () => {
+  const provider = new TwitterAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
@@ -114,8 +114,8 @@ const githubSignIn = async () => {
   }
 }
 
-const twitterSignIn = async () => {
-  const provider = new TwitterAuthProvider();
+const githubSignIn = async () => {
+  const provider = new GithubAuthProvider();
   try {
     const result = await signInWithPopup(auth, provider);
     const user = result.user;
