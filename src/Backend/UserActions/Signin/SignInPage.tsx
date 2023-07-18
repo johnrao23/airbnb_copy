@@ -1,5 +1,5 @@
 import { User } from "firebase/auth"
-import { signIn, googleSignIn } from "../../Firebase/firebaseUtils";
+import { signIn, googleSignIn, githubSignIn } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
@@ -50,6 +50,34 @@ export const SignIn = () => {
 
     try {
       const result = await googleSignIn();
+      console.log("result: ", result);
+      if (result.error) {
+        setSigninError(result.error.message);
+        alert(result.error.message);
+        setLoading(false);
+        return;
+      }
+      
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+      if (error.message) {
+        setSigninError(error.message);
+        alert(error.message);
+      } else {
+        // handle other errors or set a generic error message
+        setSigninError("An error occurred");
+        alert("An error occurred");
+      }
+      setLoading(false);
+    }
+  }
+
+  const handleGithubSignIn = async () => {
+    setLoading(true);
+
+    try {
+      const result = await githubSignIn();
       console.log("result: ", result);
       if (result.error) {
         setSigninError(result.error.message);
@@ -193,6 +221,7 @@ export const SignIn = () => {
                   </div>
                 </div>
 
+
                 <div className="mt-6 grid grid-cols-3 gap-3">
                   <div>
                     <button
@@ -234,10 +263,11 @@ export const SignIn = () => {
                     </a>
                   </div>
 
+
                   <div>
-                    <a
-                      href="#"
+                  <button
                       className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
+                      onClick={() => handleGithubSignIn()}
                     >
                       <span className="sr-only">Sign in with GitHub</span>
                       <svg
@@ -252,7 +282,7 @@ export const SignIn = () => {
                           clipRule="evenodd"
                         />
                       </svg>
-                    </a>
+                    </button>
                   </div>
                 </div>
               </div>
