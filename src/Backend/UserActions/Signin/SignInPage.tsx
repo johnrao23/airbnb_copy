@@ -73,6 +73,34 @@ export const SignIn = () => {
     }
   }
 
+  const handleTwitterSignIn = async () => {
+    setLoading(true);
+
+    try {
+      const result = await googleSignIn();
+      console.log("result: ", result);
+      if (result.error) {
+        setSigninError(result.error.message);
+        alert(result.error.message);
+        setLoading(false);
+        return;
+      }
+      
+      navigate("/home");
+    } catch (error) {
+      console.log(error);
+      if (error.message) {
+        setSigninError(error.message);
+        alert(error.message);
+      } else {
+        // handle other errors or set a generic error message
+        setSigninError("An error occurred");
+        alert("An error occurred");
+      }
+      setLoading(false);
+    }
+  }
+
   const handleGithubSignIn = async () => {
     setLoading(true);
 
