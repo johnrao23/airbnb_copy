@@ -220,6 +220,7 @@ export const SignIn = () => {
               <div className="text-sm">
                 <a
                   href="#"
+                  // Will need to set up functionality using Firebase Auth ...
                   className="font-medium text-indigo-600 hover:text-indigo-500"
                 >
                   Forgot your password?
