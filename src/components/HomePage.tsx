@@ -8,6 +8,8 @@ import { useNavigate } from "react-router-dom";
 const HomePage: React.FC = () => {
   const user = useAuthStore((state) => state.user);
   const [searchInput, setSearchInput] = useState('');
+  const [checkInDate, setCheckInDate] = useState('');
+  const [checkOutDate, setCheckOutDate] = useState('');
   const { setResults } = useAuthStore((state) => state.searchResults);
 
   const navigate = useNavigate();
@@ -20,7 +22,7 @@ const HomePage: React.FC = () => {
     e.preventDefault();
 
     try {
-      const data = await locationSearch(searchInput, '2023-09-16', '2023-09-17');
+      const data = await locationSearch(searchInput, checkInDate, checkOutDate);
       console.log(data);
 
       setResults(data);
