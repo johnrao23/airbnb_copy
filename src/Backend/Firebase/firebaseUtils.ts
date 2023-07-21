@@ -13,6 +13,8 @@ import {
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
+const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
+
 const signUp = async ({ email, password }) => {
   try {
     // Create user with email and password
@@ -84,9 +86,7 @@ const signIn = async ({ email, password }) => {
 };
 
 const googleSignIn = async () => {
-  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GoogleAuthProvider();
-
   if (isMobile) {
     try {
       signInWithRedirect(auth, provider);
@@ -113,33 +113,51 @@ const googleSignIn = async () => {
 
 const twitterSignIn = async () => {
   const provider = new TwitterAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-    useAuthStore.setState({
-      user: { id: user?.uid, email: user?.email, name: user.displayName },
-      isSignedIn: true,
-    });
-    return { user };  // return user object for further use if needed
-  } catch (error) {
-    console.error("An error occurred during Google sign-in", error);
-    return { error };  // return error object for error handling if needed
+  if (isMobile) {
+    try {
+      signInWithRedirect(auth, provider);
+    } catch (error) {
+      console.error("An error occurred during Twitter sign-in", error);
+      return { error };
+    }
+  } else {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      useAuthStore.setState({
+        user: { id: user?.uid, email: user?.email, name: user.displayName },
+        isSignedIn: true,
+      });
+      return { user };
+    } catch (error) {
+      console.error("An error occurred during Twitter sign-in", error);
+      return { error };
+    }
   }
 }
 
 const githubSignIn = async () => {
   const provider = new GithubAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-    useAuthStore.setState({
-      user: { id: user?.uid, email: user?.email, name: user.displayName },
-      isSignedIn: true,
-    });
-    return { user };  // return user object for further use if needed
-  } catch (error) {
-    console.error("An error occurred during Google sign-in", error);
-    return { error };  // return error object for error handling if needed
+  if (isMobile) {
+    try {
+      signInWithRedirect(auth, provider);
+    } catch (error) {
+      console.error("An error occurred during GitHub sign-in", error);
+      return { error };
+    }
+  } else {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      useAuthStore.setState({
+        user: { id: user?.uid, email: user?.email, name: user.displayName },
+        isSignedIn: true,
+      });
+      return { user };
+    } catch (error) {
+      console.error("An error occurred during GitHub sign-in", error);
+      return { error };
+    }
   }
 }
 
