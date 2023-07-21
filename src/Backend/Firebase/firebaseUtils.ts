@@ -8,7 +8,8 @@ import {
   GoogleAuthProvider,
   TwitterAuthProvider,
   GithubAuthProvider,
-  signInWithPopup
+  signInWithPopup,
+  signInWithRedirect
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
@@ -83,20 +84,32 @@ const signIn = async ({ email, password }) => {
 };
 
 const googleSignIn = async () => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GoogleAuthProvider();
-  try {
-    const result = await signInWithPopup(auth, provider);
-    const user = result.user;
-    useAuthStore.setState({
-      user: { id: user?.uid, email: user?.email, name: user.displayName },
-      isSignedIn: true,
-    });
-    return { user };  // return user object for further use if needed
-  } catch (error) {
-    console.error("An error occurred during Google sign-in", error);
-    return { error };  // return error object for error handling if needed
+
+  if (isMobile) {
+    try {
+      signInWithRedirect(auth, provider);
+    } catch (error) {
+      console.error("An error occurred during Google sign-in", error);
+      return { error };  // return error object for error handling if needed
+    }
+  } else {
+    try {
+      const result = await signInWithPopup(auth, provider);
+      const user = result.user;
+      useAuthStore.setState({
+        user: { id: user?.uid, email: user?.email, name: user.displayName },
+        isSignedIn: true,
+      });
+      return { user };  // return user object for further use if needed
+    } catch (error) {
+      console.error("An error occurred during Google sign-in", error);
+      return { error };  // return error object for error handling if needed
+    }
   }
 }
+
 
 const twitterSignIn = async () => {
   const provider = new TwitterAuthProvider();
