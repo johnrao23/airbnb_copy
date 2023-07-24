@@ -87,12 +87,13 @@ const signIn = async ({ email, password }) => {
 
 const googleSignIn = async () => {
   const provider = new GoogleAuthProvider();
+
   if (isMobile) {
     try {
       signInWithRedirect(auth, provider);
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
-      return { error };  // return error object for error handling if needed
+      return { error: error || "An error occurred during Google sign-in" };
     }
   } else {
     try {
@@ -102,10 +103,10 @@ const googleSignIn = async () => {
         user: { id: user?.uid, email: user?.email, name: user.displayName },
         isSignedIn: true,
       });
-      return { user };  // return user object for further use if needed
+      return { user };
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
-      return { error };  // return error object for error handling if needed
+      return { error: error || "An error occurred during Google sign-in" };
     }
   }
 }

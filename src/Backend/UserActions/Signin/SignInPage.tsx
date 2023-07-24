@@ -47,17 +47,19 @@ export const SignIn = () => {
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
-
+  
     try {
       const result = await googleSignIn();
       console.log("result: ", result);
-      if (result.error) {
-        setSigninError(result.error.message);
-        alert(result.error.message);
+  
+      if (!result || result.error) {
+        const errorMessage = result ? result.error.message : "An unknown error occurred during sign-in";
+        setSigninError(errorMessage);
+        alert(errorMessage);
         setLoading(false);
         return;
       }
-      
+  
       navigate("/home");
     } catch (error) {
       console.log(error);
