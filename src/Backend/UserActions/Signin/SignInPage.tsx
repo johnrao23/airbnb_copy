@@ -60,7 +60,7 @@ export const SignIn = () => {
         return;
       }
   
-      navigate("https://www.sameplacebetterprice.com/home");
+      navigate("/home");
     } catch (error) {
       console.log(error);
       if (error.message) {
