@@ -17,7 +17,7 @@ function App() {
   useEffect(() => {
     getRedirectResult(auth)
       .then((result) => {
-        if (result.user) {
+        if (result && result.user) {
           useAuthStore.setState({
             user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
             isSignedIn: true,
