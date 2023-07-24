@@ -13,8 +13,6 @@ import {
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
-const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
-
 const signUp = async ({ email, password }) => {
   try {
     // Create user with email and password
@@ -86,6 +84,7 @@ const signIn = async ({ email, password }) => {
 };
 
 const googleSignIn = async () => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GoogleAuthProvider();
 
   if (isMobile) {
@@ -93,7 +92,7 @@ const googleSignIn = async () => {
       signInWithRedirect(auth, provider);
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
-      return { error: error || "An error occurred during Google sign-in" };
+      return { error };  // return error object for error handling if needed
     }
   } else {
     try {
@@ -103,23 +102,24 @@ const googleSignIn = async () => {
         user: { id: user?.uid, email: user?.email, name: user.displayName },
         isSignedIn: true,
       });
-      return { user };
+      return { user };  // return user object for further use if needed
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
-      return { error: error || "An error occurred during Google sign-in" };
+      return { error };  // return error object for error handling if needed
     }
   }
 }
 
-
 const twitterSignIn = async () => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new TwitterAuthProvider();
+
   if (isMobile) {
     try {
       signInWithRedirect(auth, provider);
     } catch (error) {
       console.error("An error occurred during Twitter sign-in", error);
-      return { error };
+      return { error };  // return error object for error handling if needed
     }
   } else {
     try {
@@ -129,22 +129,24 @@ const twitterSignIn = async () => {
         user: { id: user?.uid, email: user?.email, name: user.displayName },
         isSignedIn: true,
       });
-      return { user };
+      return { user };  // return user object for further use if needed
     } catch (error) {
       console.error("An error occurred during Twitter sign-in", error);
-      return { error };
+      return { error };  // return error object for error handling if needed
     }
   }
 }
 
 const githubSignIn = async () => {
+  const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GithubAuthProvider();
+
   if (isMobile) {
     try {
       signInWithRedirect(auth, provider);
     } catch (error) {
-      console.error("An error occurred during GitHub sign-in", error);
-      return { error };
+      console.error("An error occurred during Github sign-in", error);
+      return { error };  // return error object for error handling if needed
     }
   } else {
     try {
@@ -154,13 +156,14 @@ const githubSignIn = async () => {
         user: { id: user?.uid, email: user?.email, name: user.displayName },
         isSignedIn: true,
       });
-      return { user };
+      return { user };  // return user object for further use if needed
     } catch (error) {
-      console.error("An error occurred during GitHub sign-in", error);
-      return { error };
+      console.error("An error occurred during Github sign-in", error);
+      return { error };  // return error object for error handling if needed
     }
   }
 }
+
 
 
 const logOut = async () => {
