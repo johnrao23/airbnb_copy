@@ -90,6 +90,7 @@ const googleSignIn = async () => {
   if (isMobile) {
     try {
       signInWithRedirect(auth, provider);
+      return {};
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
       return { error };  // return error object for error handling if needed
