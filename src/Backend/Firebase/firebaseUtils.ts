@@ -89,8 +89,7 @@ const googleSignIn = async () => {
 
   if (isMobile) {
     try {
-      signInWithRedirect(auth, provider);
-      return {};
+      await signInWithRedirect(auth, provider);
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
       return { error };  // return error object for error handling if needed
@@ -110,6 +109,7 @@ const googleSignIn = async () => {
     }
   }
 }
+
 
 const twitterSignIn = async () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
