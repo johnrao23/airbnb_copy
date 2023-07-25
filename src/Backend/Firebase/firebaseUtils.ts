@@ -106,7 +106,7 @@ const googleSignIn = async () => {
           isSignedIn: true,
         });
 
-        console.log('Updated State: ', useAuthStore.getState()); // Add this line
+        console.log('Mobile sign-in - Updated State: ', useAuthStore.getState());
 
         // Return the user object
         return { user: result.user };
@@ -129,8 +129,6 @@ const googleSignIn = async () => {
         user: { id: user?.uid, email: user?.email, name: user.displayName },
         isSignedIn: true,
       });
-      
-      console.log('Updated State: ', useAuthStore.getState()); // Add this line
 
       return { user };  // return user object for further use if needed
     } catch (error) {
