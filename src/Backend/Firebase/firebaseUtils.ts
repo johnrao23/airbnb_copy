@@ -9,7 +9,8 @@ import {
   TwitterAuthProvider,
   GithubAuthProvider,
   signInWithPopup,
-  signInWithRedirect
+  signInWithRedirect,
+  getRedirectResult
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
@@ -89,7 +90,26 @@ const googleSignIn = async () => {
 
   if (isMobile) {
     try {
+      // Initiate sign-in with redirect
       await signInWithRedirect(auth, provider);
+
+      // Wait for the sign-in process to complete and get the result
+      const result = await getRedirectResult(auth);
+
+      // Check if the sign-in process completed successfully
+      if (result && result.user) {
+        // Update the state with the signed-in user's information
+        useAuthStore.setState({
+          user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
+          isSignedIn: true,
+        });
+
+        // Return the user object
+        return { user: result.user };
+      } else {
+        // The sign-in process did not complete successfully
+        return { error: new Error('The sign-in process did not complete successfully') };
+      }
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
       return { error };  // return error object for error handling if needed
@@ -109,7 +129,6 @@ const googleSignIn = async () => {
     }
   }
 }
-
 
 const twitterSignIn = async () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
