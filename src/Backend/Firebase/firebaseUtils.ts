@@ -104,6 +104,8 @@ const googleSignIn = async () => {
           isSignedIn: true,
         });
 
+        console.log('Updated State: ', useAuthStore.getState());
+
         // Return the user object
         return { user: result.user };
       } else {
