@@ -95,6 +95,8 @@ const googleSignIn = async () => {
 
       // Wait for the sign-in process to complete and get the result
       const result = await getRedirectResult(auth);
+      
+      console.log('getRedirectResult result: ', result); // Add this line
 
       // Check if the sign-in process completed successfully
       if (result && result.user) {
@@ -104,7 +106,7 @@ const googleSignIn = async () => {
           isSignedIn: true,
         });
 
-        console.log('Updated State: ', useAuthStore.getState());
+        console.log('Updated State: ', useAuthStore.getState()); // Add this line
 
         // Return the user object
         return { user: result.user };
@@ -119,11 +121,17 @@ const googleSignIn = async () => {
   } else {
     try {
       const result = await signInWithPopup(auth, provider);
+
+      console.log('signInWithPopup result: ', result); // Add this line
+
       const user = result.user;
       useAuthStore.setState({
         user: { id: user?.uid, email: user?.email, name: user.displayName },
         isSignedIn: true,
       });
+      
+      console.log('Updated State: ', useAuthStore.getState()); // Add this line
+
       return { user };  // return user object for further use if needed
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
