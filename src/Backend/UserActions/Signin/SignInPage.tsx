@@ -1,8 +1,10 @@
-import { User } from "firebase/auth"
+import { GoogleAuthProvider, User, getRedirectResult, signInWithRedirect, getAuth } from "firebase/auth"
 import { signIn, googleSignIn, twitterSignIn, githubSignIn } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
+// import { auth } from  "../../Firebase/firebaseConfig.ts";
+import { useAuthStore } from "../../store/store";
 
 interface SignInResult {
   user?: User;
@@ -16,6 +18,8 @@ export const SignIn = () => {
   const [signInError, setSigninError] = useState('');
 
   const navigate = useNavigate();
+
+  const auth = getAuth();
 
   const handleSubmit = async () => {
     setLoading(true);
@@ -47,20 +51,41 @@ export const SignIn = () => {
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
-  
+ 
     try {
       const result = await googleSignIn();
       console.log("result: ", result);
+      // const provider = new GoogleAuthProvider();
+      // await signInWithRedirect(auth, provider);
+      // this function is done: nothing else will fire below this, because its navigated off the page 
+      
+      // navigate("/home");
+      //  // After the page redirects back
+      // const result = await getRedirectResult(auth);
+
+      // console.log("result: ", result)
+
+      // if (result && result.user) {
+      //   // Update the state with the signed-in user's information
+      //   useAuthStore.setState({
+      //     user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
+      //     isSignedIn: true,
+      //   });
+      // }
   
-      if (!result || result.error) {
-        const errorMessage = result ? result.error.message : "An unknown error occurred during sign-in";
+      if (!result || result?.error) {
+        const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
         setSigninError(errorMessage);
         alert(errorMessage);
         setLoading(false);
         return;
       }
+
+      if (result  && result?.user) {
+         navigate("/home");
+      }
   
-      navigate("/home");
+    
     } catch (error) {
       console.log(error);
       if (error.message) {

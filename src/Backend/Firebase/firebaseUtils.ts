@@ -1,5 +1,5 @@
 import { doc, setDoc, Timestamp } from "firebase/firestore";
-import { db, auth } from "./firebaseConfig.js";
+import { db, auth } from "./firebaseConfig";
 import {
   createUserWithEmailAndPassword,
   signInWithEmailAndPassword,
@@ -88,32 +88,34 @@ const googleSignIn = async () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GoogleAuthProvider();
 
+  // if (isMobile) {
   if (isMobile) {
+    
     try {
       // Initiate sign-in with redirect
-      await signInWithRedirect(auth, provider);
-
-      // Wait for the sign-in process to complete and get the result
-      const result = await getRedirectResult(auth);
+      signInWithRedirect(auth, provider);
+      return null;
+      // // Wait for the sign-in process to complete and get the result
+      // const result = await getRedirectResult(auth);
       
-      console.log('getRedirectResult result: ', result); // Add this line
+      // console.log('getRedirectResult result: ', result);
 
-      // Check if the sign-in process completed successfully
-      if (result && result.user) {
-        // Update the state with the signed-in user's information
-        useAuthStore.setState({
-          user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
-          isSignedIn: true,
-        });
+      // // Check if the sign-in process completed successfully
+      // if (result && result.user) {
+      //   // Update the state with the signed-in user's information
+      //   useAuthStore.setState({
+      //     user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
+      //     isSignedIn: true,
+      //   });
 
-        console.log('Mobile sign-in - Updated State: ', useAuthStore.getState());
+      //   console.log('Mobile sign-in - Updated State: ', useAuthStore.getState());
 
-        // Return the user object
-        return { user: result.user };
-      } else {
-        // The sign-in process did not complete successfully
-        return { error: new Error('The sign-in process did not complete successfully') };
-      }
+      //   // Return the user object
+
+    //   } else {
+    //     // The sign-in process did not complete successfully
+    //     return { error: new Error('The sign-in process did not complete successfully') };
+    //   }
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
       return { error };  // return error object for error handling if needed

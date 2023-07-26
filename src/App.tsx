@@ -1,8 +1,8 @@
-import React from "react";
-// import { auth } from "./Backend/Firebase/firebaseConfig";
-// import { getRedirectResult } from 'firebase/auth';
-// import { useAuthStore } from "./Backend/store/store";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import React, { useEffect } from "react";
+import { auth } from "./Backend/Firebase/firebaseConfig";
+import { getRedirectResult } from 'firebase/auth';
+import { useAuthStore } from "./Backend/store/store";
+import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Search from "./components/Search"
 import Reservation from "./components/ReservationPage" 
@@ -13,25 +13,31 @@ import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
-function App() {
-  // useEffect(() => {
-  //   getRedirectResult(auth)
-  //     .then((result) => {
-  //       if (result && result.user) {
-  //         useAuthStore.setState({
-  //           user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
-  //           isSignedIn: true,
-  //         });
-  //       }
-  //     })
-  //     .catch((error) => {
-  //       console.error("An error occurred during sign-in", error);
-  //     });
-  // }, []);
+const AuthFetcher = () => {
+  const navigate = useNavigate()
+  useEffect(() => {
+    getRedirectResult(auth)
+      .then((result) => {
+        if (result && result.user) {
+          useAuthStore.setState({
+            user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
+            isSignedIn: true,
+          });
+        }
+        navigate("/home");
+      })
+      .catch((error) => {
+        console.error("An error occurred during sign-in", error);
+      });
+  }, []);
+  return null 
+}
 
+function App() {
   return (
     <div>
       <BrowserRouter>
+        <AuthFetcher/>
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="Sign-Up" element={<SignUp />} />
