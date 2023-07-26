@@ -3,8 +3,6 @@ import { signIn, googleSignIn, twitterSignIn, githubSignIn } from "../../Firebas
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
-// import { auth } from  "../../Firebase/firebaseConfig.ts";
-import { useAuthStore } from "../../store/store";
 
 interface SignInResult {
   user?: User;
@@ -18,8 +16,6 @@ export const SignIn = () => {
   const [signInError, setSigninError] = useState('');
 
   const navigate = useNavigate();
-
-  const auth = getAuth();
 
   const handleSubmit = async () => {
     setLoading(true);
