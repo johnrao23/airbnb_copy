@@ -88,7 +88,6 @@ const googleSignIn = async () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GoogleAuthProvider();
 
-  // if (isMobile) {
   if (isMobile) {
     
     try {
