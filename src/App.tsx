@@ -13,7 +13,7 @@ import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
-const AuthFetcher = () => {
+const AppLoader = () => {
   const navigate = useNavigate()
   useEffect(() => {
     getRedirectResult(auth)
@@ -30,14 +30,15 @@ const AuthFetcher = () => {
         console.error("An error occurred during sign-in", error);
       });
   }, []);
-  return null 
+  
+  return null
 }
 
 function App() {
   return (
     <div>
       <BrowserRouter>
-        <AuthFetcher/>
+        <AppLoader />
         <Routes>
           <Route path="/" element={<SignIn />} />
           <Route path="Sign-Up" element={<SignUp />} />
