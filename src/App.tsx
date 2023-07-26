@@ -1,5 +1,6 @@
 import React from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
+import AppLoader from "./components/AppLoader";
 import HomePage from "./components/HomePage";
 import Search from "./components/Search"
 import Reservation from "./components/ReservationPage" 
