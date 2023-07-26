@@ -1,8 +1,5 @@
-import React, { useEffect } from "react";
-import { auth } from "./Backend/Firebase/firebaseConfig";
-import { getRedirectResult } from 'firebase/auth';
-import { useAuthStore } from "./Backend/store/store";
-import { BrowserRouter, Route, Routes, useNavigate } from "react-router-dom";
+import React from "react";
+import { BrowserRouter, Route, Routes } from "react-router-dom";
 import HomePage from "./components/HomePage";
 import Search from "./components/Search"
 import Reservation from "./components/ReservationPage" 
