@@ -95,27 +95,6 @@ const googleSignIn = async () => {
       // Initiate sign-in with redirect
       signInWithRedirect(auth, provider);
       return null;
-      // // Wait for the sign-in process to complete and get the result
-      // const result = await getRedirectResult(auth);
-      
-      // console.log('getRedirectResult result: ', result);
-
-      // // Check if the sign-in process completed successfully
-      // if (result && result.user) {
-      //   // Update the state with the signed-in user's information
-      //   useAuthStore.setState({
-      //     user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
-      //     isSignedIn: true,
-      //   });
-
-      //   console.log('Mobile sign-in - Updated State: ', useAuthStore.getState());
-
-      //   // Return the user object
-
-    //   } else {
-    //     // The sign-in process did not complete successfully
-    //     return { error: new Error('The sign-in process did not complete successfully') };
-    //   }
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
       return { error };  // return error object for error handling if needed
