@@ -10,7 +10,6 @@ import {
   GithubAuthProvider,
   signInWithPopup,
   signInWithRedirect,
-  getRedirectResult
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 

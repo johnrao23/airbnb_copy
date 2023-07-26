@@ -13,27 +13,6 @@ import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 
-const AppLoader = () => {
-  const navigate = useNavigate()
-  useEffect(() => {
-    getRedirectResult(auth)
-      .then((result) => {
-        if (result && result.user) {
-          useAuthStore.setState({
-            user: { id: result.user.uid, email: result.user.email, name: result.user.displayName },
-            isSignedIn: true,
-          });
-        }
-        navigate("/home");
-      })
-      .catch((error) => {
-        console.error("An error occurred during sign-in", error);
-      });
-  }, []);
-  
-  return null
-}
-
 function App() {
   return (
     <div>
