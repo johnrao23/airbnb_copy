@@ -1,11 +1,13 @@
 import React, { useEffect } from "react";
-import { auth } from "Backend/Firebase/firebaseConfig";
+import { auth } from "../Backend/Firebase/firebaseConfig";
 import { getRedirectResult } from 'firebase/auth';
-import { useAuthStore } from "Backend/store/store";
+import { useAuthStore } from "../Backend/store/store";
 import { useNavigate } from "react-router-dom";
 
 const AppLoader = () => {
+
     const navigate = useNavigate()
+
     useEffect(() => {
       getRedirectResult(auth)
         .then((result) => {
@@ -22,7 +24,7 @@ const AppLoader = () => {
         });
     }, []);
     
-    return null
+    return <></>
   }
 
   export default AppLoader;
