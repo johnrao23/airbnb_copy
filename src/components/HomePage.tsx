@@ -14,10 +14,6 @@ const HomePage: React.FC = () => {
 
   const navigate = useNavigate();
 
-  // const handleChange = (e: React.ChangeEvent<HTMLInputElement>) => {
-  //   setSearchInput(e.target.value);
-  // };
-
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
 
@@ -35,8 +31,6 @@ const HomePage: React.FC = () => {
     }
   };
 
-  // Mobile styling (center text with text-center??)
-
   return (
     <div className="min-h-screen flex flex-col">
       <div 
@@ -48,7 +42,7 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50" />
         <NavBar />
 
-        <div className="absolute w-full bottom-1/4 flex flex-col items-center text-white pb-20">
+        <div className="absolute w-full top-[75%] flex flex-col items-center text-white pb-20">
           <h1>Welcome, {user?.email}</h1>
           <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
 
