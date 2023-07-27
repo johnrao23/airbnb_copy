@@ -124,6 +124,7 @@ const twitterSignIn = async () => {
   if (isMobile) {
     try {
       signInWithRedirect(auth, provider);
+      return null;
     } catch (error) {
       console.error("An error occurred during Twitter sign-in", error);
       return { error };  // return error object for error handling if needed
