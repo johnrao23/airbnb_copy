@@ -69,11 +69,9 @@ export const SignIn = () => {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
-        // alert(error.message);
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
-        // alert("An error occurred");
       }
       setLoading(false);
     }
@@ -89,7 +87,6 @@ export const SignIn = () => {
       if (!result || result?.error) {
         const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
         setSigninError(errorMessage);
-        // alert(errorMessage);
         setLoading(false);
         return;
       }
@@ -103,11 +100,9 @@ export const SignIn = () => {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
-        // alert(error.message);
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
-        // alert("An error occurred");
       }
       setLoading(false);
     }
@@ -123,7 +118,6 @@ export const SignIn = () => {
       if (!result || result?.error) {
         const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
         setSigninError(errorMessage);
-        // alert(errorMessage);
         setLoading(false);
         return;
       }
@@ -137,11 +131,9 @@ export const SignIn = () => {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
-        // alert(error.message);
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
-        // alert("An error occurred");
       }
       setLoading(false);
     }
