@@ -81,27 +81,33 @@ export const SignIn = () => {
 
   const handleTwitterSignIn = async () => {
     setLoading(true);
-
+ 
     try {
       const result = await twitterSignIn();
       console.log("result: ", result);
-      if (result.error) {
-        setSigninError(result.error.message);
-        alert(result.error.message);
+  
+      if (!result || result?.error) {
+        const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
+        setSigninError(errorMessage);
+        // alert(errorMessage);
         setLoading(false);
         return;
       }
-      
-      navigate("/home");
+
+      if (result  && result?.user) {
+         navigate("/home");
+      }
+  
+    
     } catch (error) {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
-        alert(error.message);
+        // alert(error.message);
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
-        alert("An error occurred");
+        // alert("An error occurred");
       }
       setLoading(false);
     }
@@ -109,27 +115,33 @@ export const SignIn = () => {
 
   const handleGithubSignIn = async () => {
     setLoading(true);
-
+ 
     try {
       const result = await githubSignIn();
       console.log("result: ", result);
-      if (result.error) {
-        setSigninError(result.error.message);
-        alert(result.error.message);
+  
+      if (!result || result?.error) {
+        const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
+        setSigninError(errorMessage);
+        // alert(errorMessage);
         setLoading(false);
         return;
       }
-      
-      navigate("/home");
+
+      if (result  && result?.user) {
+         navigate("/home");
+      }
+  
+    
     } catch (error) {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
-        alert(error.message);
+        // alert(error.message);
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
-        alert("An error occurred");
+        // alert("An error occurred");
       }
       setLoading(false);
     }
