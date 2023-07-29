@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
                       <input
                           type="search"
                           placeholder="Search here"
-                          className="border border-gray-400 rounded-l-lg px-3 py-2 w-full md:w-64 focus:outline-none text-black"
+                          className="border border-gray-400 rounded-l-lg px-3 py-2 w-full md:w-[200] focus:outline-none text-black"
                           onChange={e => setSearchInput(e.target.value)}
                           value={searchInput}
                       />
