@@ -42,7 +42,7 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50" />
         <NavBar />
 
-        <div className="absolute w-full top-[57%] flex flex-col items-center text-white pb-20">
+        <div className="absolute w-full top-[55%] flex flex-col items-center text-white pb-20">
           <h1>Welcome, {user?.email}</h1>
           <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
           <form onSubmit={handleSearch} className="mb-4">
@@ -52,7 +52,7 @@ const HomePage: React.FC = () => {
                       <input
                           type="search"
                           placeholder="Search here"
-                          className="border border-gray-400 rounded-l-lg px-3 py-2 w-full md:w-[200] focus:outline-none text-black"
+                          className="border border-gray-400 rounded-lg px-3 py-2 w-full md:w-[200] focus:outline-none text-black"
                           onChange={e => setSearchInput(e.target.value)}
                           value={searchInput}
                       />
