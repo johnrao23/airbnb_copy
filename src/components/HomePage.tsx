@@ -42,24 +42,25 @@ const HomePage: React.FC = () => {
         <div className="absolute inset-0 bg-black opacity-50" />
         <NavBar />
 
-        <div className="absolute w-full top-[75%] flex flex-col items-center text-white pb-20">
+        <div className="absolute w-full top-[57%] flex flex-col items-center text-white pb-20">
           <h1>Welcome, {user?.email}</h1>
           <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
-
           <form onSubmit={handleSearch} className="mb-4">
               <p className="text-lg mb-2">Search for the location you want to travel to:</p>
-              <div className="flex flex-col md:flex-row">
-                  <input
-                      type="search"
-                      placeholder="Search here"
-                      className="border border-gray-400 rounded-l-lg px-3 py-2 w-full md:w-64 focus:outline-none text-black mb-4 md:mb-0"
-                      onChange={e => setSearchInput(e.target.value)}
-                      value={searchInput}
-                  />
-                  <div className="flex">
+              <div className="flex flex-col md:flex-col">
+                  <div className="mb-4">
+                      <input
+                          type="search"
+                          placeholder="Search here"
+                          className="border border-gray-400 rounded-l-lg px-3 py-2 w-full md:w-64 focus:outline-none text-black"
+                          onChange={e => setSearchInput(e.target.value)}
+                          value={searchInput}
+                      />
+                  </div>
+                  <div className="flex justify-center">
                       <input
                           type="date"
-                          className="border border-gray-400 px-3 py-2 w-64 focus:outline-none text-black ml-2"
+                          className="border border-gray-400 px-3 py-2 w-64 focus:outline-none text-black"
                           onChange={e => setCheckInDate(e.target.value)}
                           value={checkInDate}
                       />
@@ -78,7 +79,6 @@ const HomePage: React.FC = () => {
                   </div>
               </div>
           </form>
-
         </div>
       </div>
     </div>
