@@ -25,9 +25,8 @@ const Search = () => {
   return (
     <div
       onClick={handleUserClick}
-      className={`${
-        !searchResults.results.results.length && hasClicked ? "bg-gray-100" : ""
-      }`}
+      className={`${!searchResults.results.results.length && hasClicked ? "bg-blue-100" : ""
+        }`}
     >
       <NavBar />
       <h1 className="text-center text-2xl font-bold my-4">
