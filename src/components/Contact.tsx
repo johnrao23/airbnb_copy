@@ -4,7 +4,7 @@ import CraterLake from "../assets/craterLake.png";
 const Contact = () => {
   return (
     <div
-      className="flex items-center justify-center min-h-screen min-w-full bg-cover bg-no-repeat bg-center"
+      className="flex items-center justify-center min-h-screen w-full bg-no-repeat bg-center bg-contain"
       style={{
         backgroundImage: `url(${CraterLake})`,
       }}
