@@ -10,7 +10,7 @@ const Contact = () => {
         className="flex items-center justify-center flex-grow w-full bg-no-repeat bg-center"
         style={{
           backgroundImage: `url(${CraterLake})`,
-          backgroundSize: '130% 105%',
+          backgroundSize: '150% 130%',
         }}
       >
         <div className="bg-white bg-opacity-60 p-10 rounded-lg shadow-lg text-center w-1/2">
