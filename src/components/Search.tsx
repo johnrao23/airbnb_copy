@@ -22,8 +22,8 @@ const Search = () => {
   };
 
   const priceSlash = (result, price) => {
-    return result - (result * (price/100))
-  }
+    return result - (result * (price/100));
+  };
 
   return (
     <div
