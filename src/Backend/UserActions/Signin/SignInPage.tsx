@@ -13,7 +13,7 @@ export const SignIn = () => {
   const [email, setEmail] = useState("");
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
-  const [signInError, setSigninError] = useState('');
+  const [signInError, setSigninError] = useState("");
 
   const navigate = useNavigate();
 
@@ -144,8 +144,10 @@ export const SignIn = () => {
       .then((response) => {
         if (response.success) {
           // Inform the user that the email was sent
+          console.log("Email sent to user")
         } else {
           // Show the error to the user
+          setSigninError("An error occurred");
         }
       });
   };
@@ -240,13 +242,13 @@ export const SignIn = () => {
               </div>
 
               <div className="text-sm">
-                <a
-                  href="#"
+                <button
                   // Will need to set up functionality using Firebase Auth ...
                   className="font-medium text-indigo-600 hover:text-indigo-500"
+                  onClick={() => handleForgotPassword(email)}
                 >
                   Forgot your password?
-                </a>
+                </button>
               </div>
             </div>
 
