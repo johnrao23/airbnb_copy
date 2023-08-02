@@ -21,6 +21,10 @@ const Search = () => {
     return navigate("/reserve");
   };
 
+  const priceSlash = (result) => {
+    return 
+  }
+
   return (
     <div
       style={{
