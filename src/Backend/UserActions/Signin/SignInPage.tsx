@@ -1,5 +1,5 @@
 import { User } from "firebase/auth"
-import { signIn, googleSignIn, twitterSignIn, githubSignIn } from "../../Firebase/firebaseUtils";
+import { signIn, googleSignIn, twitterSignIn, githubSignIn, forgotPassword } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
@@ -137,6 +137,19 @@ export const SignIn = () => {
       setLoading(false);
     }
   }
+
+
+  const handleForgotPassword = (email) => {
+    forgotPassword(email)
+      .then((response) => {
+        if (response.success) {
+          // Inform the user that the email was sent
+        } else {
+          // Show the error to the user
+        }
+      });
+  };
+
 
   return (
     <>

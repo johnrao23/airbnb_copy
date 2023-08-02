@@ -195,7 +195,7 @@ const logOut = async () => {
   }
 };
 
-export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn };
+export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn, forgotPassword };
 
 
 // const user = () => {
