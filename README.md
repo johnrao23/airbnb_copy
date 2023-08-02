@@ -14,3 +14,4 @@ Goals:
 - Zustand (state management)
 - Styling with TailwindCSS and (maybe) DaisyUI
 - possibly mongoDB (database)
+- Used Firebase/Firestore instead of Mongo
