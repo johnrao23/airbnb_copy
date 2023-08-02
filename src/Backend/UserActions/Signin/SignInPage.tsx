@@ -147,7 +147,7 @@ export const SignIn = () => {
           console.log("Email sent to user")
         } else {
           // Show the error to the user
-          setSigninError("Must include email");
+          setSigninError("Must Include Email");
           alert(signInError);
         }
       });
