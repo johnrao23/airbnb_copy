@@ -21,8 +21,8 @@ const Search = () => {
     return navigate("/reserve");
   };
 
-  const priceSlash = (result) => {
-    return 
+  const priceSlash = (result, price) => {
+    return result - (result * (price/100))
   }
 
   return (
