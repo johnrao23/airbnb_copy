@@ -10,6 +10,7 @@ import {
   GithubAuthProvider,
   signInWithPopup,
   signInWithRedirect,
+  sendPasswordResetEmail,
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
@@ -173,6 +174,16 @@ const githubSignIn = async () => {
   }
 }
 
+const forgotPassword = async (email) => {
+  try {
+    await sendPasswordResetEmail(auth, email);
+    console.log('Password reset email sent successfully');
+    return { success: true };
+  } catch (error) {
+    console.error('An error occurred while sending the password reset email', error);
+    return { error };
+  }
+};
 
 
 const logOut = async () => {
