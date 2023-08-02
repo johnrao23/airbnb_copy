@@ -25,6 +25,8 @@ const Search = () => {
     return result - (result * (price/100));
   };
 
+  // Apply this priceSlash function above ^^^ to result.price.total so users can see their savings
+
   return (
     <div
       style={{
