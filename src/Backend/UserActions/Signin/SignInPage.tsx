@@ -14,36 +14,42 @@ export const SignIn = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [signInError, setSigninError] = useState("");
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertType, setAlertType] = useState(null); // 'success' or 'error'
 
   const navigate = useNavigate();
 
   const handleSubmit = async () => {
     setLoading(true);
-
+  
     try {
       const result: SignInResult = await signIn({ email, password });
       console.log("result: ", result);
       if (result.error) {
         setSigninError(result.error.message);
-        alert(result.error.message);
+        setAlertMessage(result.error.message);
+        setAlertType('error');
         setLoading(false);
         return;
       }
-      
+  
       navigate("/home");
     } catch (error) {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
-        alert(error.message);
+        setAlertMessage(error.message);
+        setAlertType('error');
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
-        alert("An error occurred");
+        setAlertMessage("An error occurred");
+        setAlertType('error');
       }
       setLoading(false);
     }
-  }
+  };
+  
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
@@ -143,14 +149,12 @@ export const SignIn = () => {
     forgotPassword(email)
       .then((response) => {
         if (response.success) {
-          // Inform the user that the email was sent
-          console.log("Email sent to user")
-          alert(response.success && "Check Email")
+          setAlertMessage("Check Email");
+          setAlertType("success");
         } else {
-          // Show the error to the user
           const errorMessage = "Must Include Email";
-          setSigninError(errorMessage);
-          alert(errorMessage);
+          setAlertMessage(errorMessage);
+          setAlertType("error");
         }
       });
   };
@@ -181,7 +185,22 @@ export const SignIn = () => {
             </button>
           </p>
         </div>
-
+        {alertMessage && (
+          <div
+            className={`rounded-md p-4 mb-4 ${
+              alertType === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+            }`}
+          >
+            <div className="flex">
+              <div className="flex-shrink-0">
+                {/* Add an icon here if you like, e.g. a checkmark for success or an 'X' for error */}
+              </div>
+              <div className="ml-3">
+                <p className="text-sm">{alertMessage}</p>
+              </div>
+            </div>
+          </div>
+        )}
         <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
           <div
             className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
