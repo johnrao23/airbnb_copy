@@ -145,6 +145,7 @@ export const SignIn = () => {
         if (response.success) {
           // Inform the user that the email was sent
           console.log("Email sent to user")
+          alert(response.success)
         } else {
           // Show the error to the user
           const errorMessage = "Must Include Email";
