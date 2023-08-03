@@ -10,6 +10,8 @@ const HomePage: React.FC = () => {
   const [searchInput, setSearchInput] = useState('');
   const [checkInDate, setCheckInDate] = useState('');
   const [checkOutDate, setCheckOutDate] = useState('');
+  const [showAlert, setShowAlert] = useState(false);
+  const [alertMessage, setAlertMessage] = useState('');
   const { setResults } = useAuthStore((state) => state.searchResults);
 
   const navigate = useNavigate();
