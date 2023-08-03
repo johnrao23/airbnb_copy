@@ -20,11 +20,13 @@ const HomePage: React.FC = () => {
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
-    if (!searchInput.trim() || !checkInDate.trim() || !checkOutDate.trim()) {
+    if (!searchInput || !checkInDate || !checkOutDate) {
       setShowAlert(true);
-      setAlertMessage('Please enter a location and dates before searching.');
+      setAlertMessage("Please enter location and dates before searching.");
       return;
     }
+  
+    setIsLoading(true);
   
     try {
       const data = await locationSearch(searchInput, checkInDate, checkOutDate);
@@ -38,7 +40,10 @@ const HomePage: React.FC = () => {
     } catch (error) {
       console.error(error);
     }
+  
+    setIsLoading(false);
   };
+  
   
 
   return (
