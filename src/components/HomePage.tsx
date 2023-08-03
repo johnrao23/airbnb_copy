@@ -54,6 +54,11 @@ const HomePage: React.FC = () => {
           {alertMessage}
         </div>
       )}
+      {isLoading && (
+        <div className="bg-green-500 text-white text-center py-2">
+          Finding Your Dream Rentals Now...
+        </div>
+      )}
       <div 
         className="relative flex-grow bg-cover bg-no-repeat" 
         style={{ 
