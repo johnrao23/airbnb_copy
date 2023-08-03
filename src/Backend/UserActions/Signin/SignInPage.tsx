@@ -27,7 +27,7 @@ export const SignIn = () => {
       console.log("result: ", result);
       if (result.error) {
         setSigninError(result.error.message);
-        setAlertMessage(result.error.message);
+        setAlertMessage("Missing Information");
         setAlertType('error');
         setLoading(false);
         return;
