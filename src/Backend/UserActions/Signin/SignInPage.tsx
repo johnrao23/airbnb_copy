@@ -187,21 +187,14 @@ export const SignIn = () => {
         </div>
         {alertMessage && (
           <div
-            className={`rounded-md p-4 mb-4 ${
-              alertType === 'success' ? 'bg-green-100 text-green-800' : 'bg-red-100 text-red-800'
+            className={`text-center py-2 text-white mt-4 ${
+              alertType === 'success' ? 'bg-green-500' : 'bg-red-500'
             }`}
           >
-            <div className="flex">
-              <div className="flex-shrink-0">
-                {/* Add an icon here if you like, e.g. a checkmark for success or an 'X' for error */}
-              </div>
-              <div className="ml-3">
-                <p className="text-sm">{alertMessage}</p>
-              </div>
-            </div>
+            {alertMessage}
           </div>
         )}
-        <div className="mt-8 sm:mx-auto sm:w-full sm:max-w-md">
+        <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-md">
           <div
             className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
           >
