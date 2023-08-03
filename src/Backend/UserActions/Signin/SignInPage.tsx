@@ -187,9 +187,9 @@ export const SignIn = () => {
         </div>
         {alertMessage && (
           <div
-            className={`text-center py-2 text-white mt-4 ${
+            className={`mx-auto my-4 text-center py-2 text-white w-2/3 md:w-1/2 lg:w-1/3 ${
               alertType === 'success' ? 'bg-green-500' : 'bg-red-500'
-            }`}
+            } rounded-lg`}
           >
             {alertMessage}
           </div>
