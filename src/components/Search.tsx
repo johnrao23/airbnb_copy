@@ -22,10 +22,11 @@ const Search = () => {
   };
 
   const priceSlash = (result, price) => {
-    return result - (result * (price/100));
+    if (typeof result !== 'number' || typeof price !== 'number') {
+      return result; // Return the original value if it's not a number
+    }
+    return result - (result * (price / 100));
   };
-
-  // Apply this priceSlash function above ^^^ to result.price.total so users can see their savings
 
   return (
     <div
@@ -58,7 +59,14 @@ const Search = () => {
                   src={result.images[0]}
                   alt="Result"
                 />
-                <p className="mb-2 text-green-500">${result.price.total}</p>
+                <div className="mb-2">
+                  <span className="text-red-500 line-through">
+                    ${result.price.total}
+                  </span>
+                  <span className="text-green-500 ml-2">
+                    ${priceSlash(result.price.total, 50)}
+                  </span>
+                </div>
                 <button
                   className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 mt-auto"
                   onClick={() => handleSubmit(result)}
