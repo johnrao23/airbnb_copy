@@ -39,9 +39,10 @@ const Search = () => {
       <h1 className="text-center text-2xl font-bold my-4">
         Get ready to live it up for less, {user?.email}
       </h1>
+      <h2 className="text-center text-2xl font-bold my-4">All prices reflect a 50% discount!!!</h2>
       { !searchResults.results.results.length && hasClicked ? (
         <div className="text-center text-xl font-semibold">
-          Come back with some vacation ideas!
+          Come back with some vacation ideas...
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
