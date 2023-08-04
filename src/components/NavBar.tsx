@@ -4,6 +4,7 @@ import { Disclosure, Menu, Transition } from "@headlessui/react";
 import { Bars3Icon, BellIcon, XMarkIcon } from "@heroicons/react/24/outline";
 import SignOut from "../Backend/UserActions/Signout";
 import ProfileImg from "../assets/profileicon.png";
+import palmTrees from "../assets/palmTrees.png"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -39,14 +40,14 @@ export default function NavBar() {
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
                 <div className="flex flex-shrink-0 items-center">
                   <img
-                    className="block h-8 w-auto lg:hidden"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                    className="block h-10 w-auto lg:hidden"
+                    src={palmTrees}
+                    alt="Fairbnb"
                   />
                   <img
-                    className="hidden h-8 w-auto lg:block"
-                    src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=500"
-                    alt="Your Company"
+                    className="hidden h-10 w-auto lg:block"
+                    src={palmTrees}
+                    alt="Fairbnb"
                   />
                 </div>
                 <div className="hidden sm:ml-6 sm:block">
