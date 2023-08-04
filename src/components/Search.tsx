@@ -12,7 +12,6 @@ const Search = () => {
   const [hasClicked, setHasClicked] = useState(false);
 
   useEffect(() => {
-    // Set hasClicked to true as soon as the component is rendered
     setHasClicked(true);
   }, []);
 
@@ -23,7 +22,7 @@ const Search = () => {
 
   const priceSlash = (result, price) => {
     if (typeof result !== 'number' || typeof price !== 'number') {
-      return result; // Return the original value if it's not a number
+      return result;
     }
     return result - (result * (price / 100));
   };
@@ -39,10 +38,9 @@ const Search = () => {
       <h1 className="text-center text-2xl font-bold my-4">
         Get ready to live it up for less, {user?.email}
       </h1>
-      <h2 className="text-center text-2xl font-bold my-4">All prices reflect a 50% discount!!!</h2>
       { !searchResults.results.results.length && hasClicked ? (
         <div className="text-center text-xl font-semibold">
-          Come back with some vacation ideas...
+          Come back with some vacation ideas!
         </div>
       ) : (
         <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
@@ -60,13 +58,13 @@ const Search = () => {
                   src={result.images[0]}
                   alt="Result"
                 />
-                <div className="mb-2">
-                  <span className="text-red-500 line-through">
+                <div className="mb-2 text-center">
+                  <p className="text-red-500 line-through">
                     ${result.price.total}
-                  </span>
-                  <span className="text-green-500 ml-2">
+                  </p>
+                  <p className="text-green-500">
                     ${priceSlash(result.price.total, 50)}
-                  </span>
+                  </p>
                 </div>
                 <button
                   className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 mt-auto"
