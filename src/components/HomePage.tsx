@@ -81,7 +81,7 @@ const HomePage: React.FC = () => {
                   value={searchInput}
                 />
               </div>
-              <div className="flex flex-col sm:flex-row justify-center sm:justify-start space-y-2 sm:space-y-0">
+              <div className="flex flex-col sm:flex-row justify-center sm:justify-start space-y-2 sm:space-y-0 w-full sm:w-auto">
                 <input
                   type="date"
                   className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black mb-2 sm:mb-0 text-xs sm:text-base"
