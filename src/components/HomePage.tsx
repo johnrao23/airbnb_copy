@@ -69,7 +69,7 @@ const HomePage: React.FC = () => {
         <div className="absolute w-full top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 md:px-0 text-xs sm:text-base">
           <h1 className="text-lg sm:text-2xl">Welcome, {user?.email}</h1>
           <p className="text-green-500 text-xl mb-2 sm:text-2xl sm:mb-4">Click Search to find your next adventure.</p>
-          <form onSubmit={handleSearch} className="mb-2 sm:mb-4 w-full sm:w-auto">
+          <form onSubmit={handleSearch} className="mb-2 sm:mb-4">
             <p className="text-sm sm:text-lg mb-1 sm:mb-2">Search for the location you want to travel to:</p>
             <div className="flex flex-col">
               <div className="mb-2 sm:mb-4">
@@ -98,21 +98,19 @@ const HomePage: React.FC = () => {
                     value={checkOutDate}
                   />
                 </div>
-                <div className="flex justify-center sm:justify-start">
-                  <button
-                    type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg focus:outline-none hover:bg-blue-600 text-xs sm:text-base"
-                  >
-                    Search
-                  </button>
-                </div>
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-xs sm:text-base"
+                >
+                  Search
+                </button>
               </div>
-              </div>
-            </form>
-          </div>
+            </div>
+          </form>
         </div>
       </div>
-    );  
+    </div>
+  );  
 };
 
 export default HomePage;
