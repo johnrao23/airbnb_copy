@@ -163,7 +163,7 @@ export const SignIn = () => {
 
   return (
     <>
-      <h1 className="text-4xl font-bold text-blue-500 text-center my-8">
+      <h1 className="text-4xl font-bold text-orange-500 text-center my-8">
         A place to get last minute travel deals at a fair price!
       </h1>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
