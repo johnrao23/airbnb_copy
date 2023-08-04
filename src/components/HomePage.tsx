@@ -47,7 +47,7 @@ const HomePage: React.FC = () => {
   
 
   return (
-    <div className="min-h-screen flex flex-col">
+    <div className="min-h-screen flex flex-col overflow-hidden">
       <NavBar />
       {showAlert && (
         <div className="bg-red-500 text-white text-center py-2">
@@ -66,48 +66,48 @@ const HomePage: React.FC = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-50" />
-        <div className="absolute w-full top-[54%] flex flex-col items-center text-white pb-20 px-4 md:px-0">
-          <h1>Welcome, {user?.email}</h1>
-          <p className="text-green-500 text-2xl mb-4">Click Search to find your next adventure.</p>
-          <form onSubmit={handleSearch} className="mb-4">
-              <p className="text-lg mb-2">Search for the location you want to travel to:</p>
-              <div className="flex flex-col">
-                  <div className="mb-4">
-                      <input
-                          type="search"
-                          placeholder="Search here"
-                          className="border border-gray-400 rounded-lg px-3 py-2 w-full sm:w-[200] focus:outline-none text-black"
-                          onChange={e => {setSearchInput(e.target.value); setShowAlert(false);}}
-                          value={searchInput}
-                      />
-                  </div>
-                  <div className="flex flex-col sm:flex-row justify-center sm:justify-start">
-                      <input
-                          type="date"
-                          className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black mb-2 sm:mb-0"
-                          onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
-                          value={checkInDate}
-                      />
-                      <input
-                          type="date"
-                          className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 mb-2 sm:mb-0"
-                          onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
-                          value={checkOutDate}
-                      />
-                      <button
-                          type="submit"
-                          className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600"
-                      >
-                          Search
-                      </button>
-                  </div>
+        <div className="absolute w-full top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 md:px-0 text-xs sm:text-base">
+          <h1 className="text-lg sm:text-2xl">Welcome, {user?.email}</h1>
+          <p className="text-green-500 text-xl mb-2 sm:text-2xl sm:mb-4">Click Search to find your next adventure.</p>
+          <form onSubmit={handleSearch} className="mb-2 sm:mb-4">
+            <p className="text-sm sm:text-lg mb-1 sm:mb-2">Search for the location you want to travel to:</p>
+            <div className="flex flex-col">
+              <div className="mb-2 sm:mb-4">
+                <input
+                  type="search"
+                  placeholder="Search here"
+                  className="border border-gray-400 rounded-lg px-3 py-2 w-full sm:w-[200] focus:outline-none text-black text-xs sm:text-base"
+                  onChange={e => {setSearchInput(e.target.value); setShowAlert(false);}}
+                  value={searchInput}
+                />
               </div>
+              <div className="flex flex-col sm:flex-row justify-center sm:justify-start space-y-2 sm:space-y-0">
+                <input
+                  type="date"
+                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black mb-2 sm:mb-0 text-xs sm:text-base"
+                  onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
+                  value={checkInDate}
+                />
+                <input
+                  type="date"
+                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 mb-2 sm:mb-0 text-xs sm:text-base"
+                  onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
+                  value={checkOutDate}
+                />
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-xs sm:text-base"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
           </form>
         </div>
       </div>
     </div>
-  );  
-}
+  );
+};
 
 export default HomePage;
 
