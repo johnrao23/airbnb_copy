@@ -3,6 +3,7 @@ import { signIn, googleSignIn, twitterSignIn, githubSignIn, forgotPassword } fro
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
+import palmTrees from "./src/assets/palmTrees.png";
 
 interface SignInResult {
   user?: User;
@@ -169,7 +170,7 @@ export const SignIn = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src="https://tailwindui.com/img/logos/mark.svg?color=indigo&shade=600"
+            src=""
             alt="Your Company"
           />
           <h2 className={`mt-6 text-center text-3xl font-bold tracking-tight ${styles.green}`}>
