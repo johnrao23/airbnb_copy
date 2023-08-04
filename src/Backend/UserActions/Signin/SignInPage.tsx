@@ -3,7 +3,7 @@ import { signIn, googleSignIn, twitterSignIn, githubSignIn, forgotPassword } fro
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
-import palmTrees from "./src/assets/palmTrees.png";
+import palmTrees from "../../../assets/palmTrees.png";
 
 interface SignInResult {
   user?: User;
@@ -169,7 +169,7 @@ export const SignIn = () => {
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
-            className="mx-auto h-12 w-auto"
+            className="mx-auto h-20 w-20"
             src={palmTrees}
             alt="Fairbnb"
           />
