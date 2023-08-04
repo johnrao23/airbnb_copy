@@ -170,8 +170,8 @@ export const SignIn = () => {
         <div className="sm:mx-auto sm:w-full sm:max-w-md">
           <img
             className="mx-auto h-12 w-auto"
-            src=""
-            alt="Your Company"
+            src={palmTrees}
+            alt="Fairbnb"
           />
           <h2 className={`mt-6 text-center text-3xl font-bold tracking-tight ${styles.green}`}>
             Sign in to your account
