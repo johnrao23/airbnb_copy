@@ -76,28 +76,24 @@ const HomePage: React.FC = () => {
                 <input
                   type="search"
                   placeholder="Search here"
-                  className="border border-gray-400 rounded-lg px-3 py-2 w-full sm:w-[200] focus:outline-none text-black text-xs sm:text-base"
+                  className="border border-gray-400 rounded-lg px-3 py-2 w-full focus:outline-none text-black text-xs sm:text-base"
                   onChange={e => {setSearchInput(e.target.value); setShowAlert(false);}}
                   value={searchInput}
                 />
               </div>
               <div className="flex flex-col sm:flex-row justify-center sm:justify-start space-y-2 sm:space-y-0">
-                <div className="flex justify-center mb-2 sm:mb-0">
-                  <input
-                    type="date"
-                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-xs sm:text-base"
-                    onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
-                    value={checkInDate}
-                  />
-                </div>
-                <div className="flex justify-center mb-2 sm:mb-0">
-                  <input
-                    type="date"
-                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 text-xs sm:text-base"
-                    onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
-                    value={checkOutDate}
-                  />
-                </div>
+                <input
+                  type="date"
+                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black mb-2 sm:mb-0 text-xs sm:text-base"
+                  onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
+                  value={checkInDate}
+                />
+                <input
+                  type="date"
+                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 mb-2 sm:mb-0 text-xs sm:text-base"
+                  onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
+                  value={checkOutDate}
+                />
                 <button
                   type="submit"
                   className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-xs sm:text-base"
