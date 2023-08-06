@@ -26,7 +26,7 @@ const Search = () => {
     }
     return result - (result * (price / 100));
   };
-
+// background image with no search results instead
   return (
     <div
       style={{

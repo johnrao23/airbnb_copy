@@ -3,6 +3,7 @@ import CraterLake from "../assets/craterLake.png";
 import NavBar from "./NavBar";
 
 const Contact = () => {
+  // Optimize page for mobile
   return (
     <div className="overflow-hidden h-screen flex flex-col">
       <NavBar />
