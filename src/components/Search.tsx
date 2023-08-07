@@ -2,6 +2,7 @@ import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
 import { useAuthStore } from "../Backend/store/store";
 import { useNavigate } from "react-router-dom";
+import sunsetField from "../assets/sunsetField.png"
 
 const Search = () => {
   const user = useAuthStore((state) => state.user);
@@ -26,11 +27,16 @@ const Search = () => {
     }
     return result - (result * (price / 100));
   };
-// background image with no search results instead
+  
+  const backgroundImage = !searchResults.results.results.length && hasClicked
+  ? `url(${sunsetField})`
+  : 'transparent';
+
   return (
     <div
       style={{
-        backgroundColor: !searchResults.results.results.length && hasClicked ? 'aqua' : 'transparent',
+        backgroundImage: backgroundImage,
+        backgroundSize: 'cover',
         minHeight: '100vh',
       }}
     >
