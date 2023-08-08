@@ -80,9 +80,9 @@ const HomePage: React.FC = () => {
                 value={searchInput}
               />
             </div>
-            <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0">
-  <div className="flex flex-col justify-center mb-2 sm:mb-0">
-    <label className="sm:hidden text-white mb-1">Check in:</label> {/* Shown only on small screens */}
+<div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0">
+  <div className="flex flex-row justify-center items-center mb-2 sm:mb-0">
+    <label className="sm:hidden text-white mr-2">Check in:</label> {/* Shown only on small screens */}
     <input
       type="date"
       className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-base sm:text-base"
@@ -90,8 +90,8 @@ const HomePage: React.FC = () => {
       value={checkInDate}
     />
   </div>
-  <div className="flex flex-col justify-center mb-2 sm:mb-0">
-    <label className="sm:hidden text-white mb-1">Check out:</label> {/* Shown only on small screens */}
+  <div className="flex flex-row justify-center items-center mb-2 sm:mb-0">
+    <label className="sm:hidden text-white mr-2">Check out:</label> {/* Shown only on small screens */}
     <input
       type="date"
       className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black md:ml-2 text-base sm:text-base"
