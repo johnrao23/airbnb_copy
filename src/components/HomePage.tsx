@@ -82,21 +82,25 @@ const HomePage: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0">
-                <input
-                  type="date"
-                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black mb-2 sm:mb-0 text-base sm:text-base mx-auto sm:mx-0" 
-                  onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
-                  value={checkInDate}
-                />
-                <input
-                  type="date"
-                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 mb-2 sm:mb-0 text-base sm:text-base mx-auto sm:mx-0" 
-                  onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
-                  value={checkOutDate}
-                />
+                <div className="flex justify-center mb-2 sm:mb-0"> {/* Added div */}
+                  <input
+                    type="date"
+                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-base sm:text-base"
+                    onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
+                    value={checkInDate}
+                  />
+                </div>
+                <div className="flex justify-center mb-2 sm:mb-0"> {/* Added div */}
+                  <input
+                    type="date"
+                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 text-base sm:text-base"
+                    onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
+                    value={checkOutDate}
+                  />
+                </div>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-base sm:text-base" 
+                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-base sm:text-base mx-auto sm:mx-0" // Centered on mobile
                 >
                   Search
                 </button>
