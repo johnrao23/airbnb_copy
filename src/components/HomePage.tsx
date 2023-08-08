@@ -100,7 +100,7 @@ const HomePage: React.FC = () => {
                 </div>
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-base sm:text-base mx-auto sm:mx-0" // Centered on mobile
+                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg ml-2 focus:outline-none hover:bg-blue-600 text-base sm:text-base mx-auto sm:mx-0"
                 >
                   Search
                 </button>
