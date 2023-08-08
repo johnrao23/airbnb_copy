@@ -82,7 +82,7 @@ const HomePage: React.FC = () => {
                 />
               </div>
               <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0">
-                <div className="flex justify-center mb-2 sm:mb-0"> {/* Added div */}
+                <div className="flex justify-center mb-2 sm:mb-0">
                   <input
                     type="date"
                     className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-base sm:text-base"
@@ -90,7 +90,7 @@ const HomePage: React.FC = () => {
                     value={checkInDate}
                   />
                 </div>
-                <div className="flex justify-center mb-2 sm:mb-0"> {/* Added div */}
+                <div className="flex justify-center mb-2 sm:mb-0">
                   <input
                     type="date"
                     className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 sm:ml-2 text-base sm:text-base"
