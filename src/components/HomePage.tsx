@@ -93,7 +93,7 @@ const HomePage: React.FC = () => {
                 <div className="flex justify-center mb-2 sm:mb-0">
                   <input
                     type="date"
-                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black ml-2 text-base sm:text-base"
+                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-base sm:text-base"
                     onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
                     value={checkOutDate}
                   />
