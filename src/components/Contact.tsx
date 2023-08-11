@@ -1,6 +1,7 @@
 import React from "react";
 import CraterLake from "../assets/craterLake.png";
 import NavBar from "./NavBar";
+import Footer from "./Footer"
 
 const Contact = () => {
   return (
@@ -18,6 +19,7 @@ const Contact = () => {
           <h1 className="text-xl md:text-2xl">(800) 555-1234</h1>
         </div>
       </div>
+      <Footer />
     </div>
   );
 };
