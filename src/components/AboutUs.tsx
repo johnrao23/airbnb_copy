@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthStore } from "../Backend/store/store";
 import nycImg from "../assets/nycImg2.png";
 import NavBar from "./NavBar";
+import Footer from "./Footer"
 
 const About = () => {
   const user = useAuthStore((state) => state.user);
@@ -20,6 +21,7 @@ const About = () => {
           <p className="text-lg md:text-xl">Here at Fairbnb, we want to provide you with once in a lifetime opportunities for a much better price!</p>
         </div>
       </div>
+      <Footer />
     </div>
   )
 }
