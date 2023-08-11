@@ -1,5 +1,6 @@
 import React, { useState } from "react";
 import NavBar from "./NavBar";
+import Footer from "./Footer"
 import { useAuthStore } from "../Backend/store/store";
 
 const Profile = () => {
@@ -40,6 +41,7 @@ const Profile = () => {
                     <h2 className="text-2xl text-gray-800 mb-4">Thank you, {user?.name}</h2>
                 )}
             </div>
+            <Footer />
         </div>
     )
 }
