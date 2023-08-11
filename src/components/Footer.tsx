@@ -67,13 +67,13 @@ const Footer = () => {
     ]
 
     return (
-        <footer className="bg-white bg-opacity-80"> {/* Added opacity to the background */}
+        <footer className="bg-white bg-opacity-200">
           <div className="mx-auto max-w-7xl px-4 py-4 md:flex md:items-center md:justify-between lg:px-6">
             <div className="flex justify-center space-x-6 md:order-2">
               {navigation.map((item) => (
-                <a key={item.name} href={item.href} className="text-gray-600 hover:text-gray-700"> {/* Adjusted text color for better readability */}
+                <a key={item.name} href={item.href} className="text-gray-600 hover:text-gray-700">
                   <span className="sr-only">{item.name}</span>
-                  <item.icon className="h-6 w-6 text-gray-600 hover:text-gray-700" aria-hidden="true" /> {/* Adjusted icon color for better readability */}
+                  <item.icon className="h-6 w-6 text-gray-600 hover:text-gray-700" aria-hidden="true" />
                 </a>
               ))}
             </div>
