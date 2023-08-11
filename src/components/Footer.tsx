@@ -67,7 +67,7 @@ const Footer = () => {
     ]
 
     return (
-        <footer className="bg-white bg-opacity-200">
+        <footer className="bg-white bg-opacity-80">
           <div className="mx-auto max-w-7xl px-4 py-4 md:flex md:items-center md:justify-between lg:px-6">
             <div className="flex justify-center space-x-6 md:order-2">
               {navigation.map((item) => (

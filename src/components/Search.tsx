@@ -1,5 +1,6 @@
 import React, { useState, useEffect } from "react";
 import NavBar from "./NavBar";
+import Footer from "./Footer"
 import { useAuthStore } from "../Backend/store/store";
 import { useNavigate } from "react-router-dom";
 import sunsetField from "../assets/sunsetField.png"
@@ -82,6 +83,7 @@ const Search = () => {
             ))}
         </div>
       )}
+      <Footer />
     </div>
   );
 };
