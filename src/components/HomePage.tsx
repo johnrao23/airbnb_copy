@@ -1,6 +1,7 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
+import Footer from "./Footer"
 import beachImg from "../assets/beachImg.png";
 import { locationSearch } from "../Backend/api/LocationSearch";
 import { useNavigate } from "react-router-dom";
@@ -111,6 +112,7 @@ const HomePage: React.FC = () => {
           </form>
         </div>
       </div>
+      <Footer />
     </div>
   );  
 };
