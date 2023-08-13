@@ -40,7 +40,7 @@ const Footer = () => {
         },
         {
           name: 'GitHub',
-          href: '#',
+          href: 'https://github.com/johnrao23',
           icon: (props) => (
             <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
               <path
