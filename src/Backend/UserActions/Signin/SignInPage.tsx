@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
 import palmTrees from "../../../assets/palmTrees.png";
+import Footer from "../../../components/Footer"
 
 interface SignInResult {
   user?: User;
@@ -357,6 +358,7 @@ export const SignIn = () => {
             </div>
           </div>
         </div>
+        <Footer />
       </div>
     </>
   );
