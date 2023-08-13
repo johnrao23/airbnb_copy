@@ -2,6 +2,7 @@ import { User } from "firebase/auth";
 import { signUp } from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
+import Footer from "../../../components/Footer"
 
 interface SignUpResult {
   user?: User;
@@ -102,6 +103,7 @@ const SignUp = () => {
 
           </form>
         </div>
+        <Footer />
       </div>
     </>
   );
