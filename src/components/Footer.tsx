@@ -79,7 +79,7 @@ const Footer = () => {
             </div>
             <div className="md:order-1">
               <p className="text-center text-xs leading-5 text-gray-600">
-                &copy; 2023 Fairbnb, Inc. All rights reserved.
+                &copy; Fairbnb, A John Rao Project.
               </p>
             </div>
           </div>
