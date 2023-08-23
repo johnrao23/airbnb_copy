@@ -2,7 +2,7 @@ import React from "react";
 import { useAuthStore } from "../Backend/store/store";
 import nycImg from "../assets/nycImg.png";
 import NavBar from "./NavBar";
-import Footer from "./Footer"
+import Footer from "./Footer";
 
 const About = () => {
   const user = useAuthStore((state) => state.user);
@@ -16,7 +16,7 @@ const About = () => {
           backgroundImage: `url(${nycImg})`,
         }}
       >
-        <div className="absolute inset-x-0 md:right-0 bg-blue-500 bg-opacity-90 text-white p-3 md:p-5 mx-3 md:mx-5 mt-5 text-center">
+        <div className="bg-blue-500 bg-opacity-90 text-white p-3 md:p-5 rounded-lg shadow-lg mx-auto md:mx-auto mt-20 text-center max-w-xl">
           <h1 className="text-2xl md:text-4xl">Thanks for asking about us, {user?.email}!</h1>
           <p className="text-lg md:text-xl">Here at Fairbnb, we want to provide you with once in a lifetime opportunities for a much better price!</p>
         </div>
