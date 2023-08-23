@@ -164,8 +164,8 @@ export const SignIn = () => {
 
 
   return (
-    <>
-      <h1 className="text-4xl font-bold text-orange-500 text-center my-8">
+    <div className="bg-cover bg-no-repeat" style={{ backgroundImage: `url(${wavesImg})` }}>
+      <h1 className="text-4xl font-bold text-orange-500 text-center">
         A place to get last minute travel deals at a fair price!
       </h1>
       <div className="flex min-h-full flex-col justify-center py-12 sm:px-6 lg:px-8">
@@ -199,7 +199,7 @@ export const SignIn = () => {
         )}
         <div className="mt-4 sm:mx-auto sm:w-full sm:max-w-md">
           <div
-            className="bg-white px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
+            className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
           >
             <div>
               <label
@@ -359,9 +359,9 @@ export const SignIn = () => {
             </div>
           </div>
         </div>
-        <Footer />
       </div>
-    </>
+      <Footer />
+    </div>
   );
 };
 
