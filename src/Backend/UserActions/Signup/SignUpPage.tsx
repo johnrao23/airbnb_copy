@@ -16,6 +16,9 @@ const SignUp = () => {
   const [password, setPassword] = useState("");
   const [loading, setLoading] = useState(false);
   const [signUpError, setSignupError] = useState('');
+  const [alertMessage, setAlertMessage] = useState(null);
+  const [alertType, setAlertType] = useState(null); // 'success' or 'error'
+
 
   const handleInputChange = (e) => {
     const { name, value } = e.target;
@@ -29,29 +32,27 @@ const SignUp = () => {
 
   const handleSignUp = async () => {
     setLoading(true);
-
+  
     try {
       const result: SignUpResult = await signUp({ email, password });
-   
+  
       if (result.error) {
-        setSignupError(JSON.stringify(result?.error.message))
+        // If signUp gives a specific error in its result
+        setAlertMessage(result.error.message);
+        setAlertType('error');
         setLoading(false);
-       return 
+        return;
       }
       navigate("/home");
     } catch (error) {
-      // TODO - pass correct result.error here and move if logic down  here 
       console.log(error);
-      setSignupError(error)
-      const errorCode = error.code;
-      const errorMessage = error.message;
-      alert(errorMessage);
+      // If an unexpected error occurs
+      setAlertMessage(error.message);
+      setAlertType('error');
       setLoading(false);
-     
-    }
-
-    setLoading(false);
+    }  
   };
+  
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
@@ -61,6 +62,15 @@ const SignUp = () => {
         </h1>
           <div className="max-w-sm mx-auto py-12">
             <h1 className="text-2xl font-bold mb-8 text-center">Sign up</h1>
+            {alertMessage && (
+              <div
+                  className={`mx-auto my-4 text-center py-2 text-white w-2/3 md:w-1/2 lg:w-1/3 ${
+                      alertType === 'success' ? 'bg-green-500' : 'bg-red-500'
+                  } rounded-lg`}
+              >
+                {alertMessage}
+              </div>
+            )}
             <div
               className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
@@ -99,10 +109,6 @@ const SignUp = () => {
                   >
                     {loading ? "Loading..." : "Sign up"}
                   </button>
-                </div>
-
-                <div>
-                  {signUpError && <p className="text-red-500">{signUpError }</p>}
                 </div>
               </form>
             </div>
