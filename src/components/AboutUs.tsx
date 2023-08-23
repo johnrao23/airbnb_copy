@@ -1,6 +1,6 @@
 import React from "react";
 import { useAuthStore } from "../Backend/store/store";
-import nycImg from "../assets/nycImg2.png";
+import nycImg from "../assets/nycImg.png";
 import NavBar from "./NavBar";
 import Footer from "./Footer"
 
