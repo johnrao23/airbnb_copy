@@ -5,6 +5,7 @@ import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
 import palmTrees from "../../../assets/palmTrees.png";
 import Footer from "../../../components/Footer"
+import wavesImg from "../../../assets/wavesImg.png"
 
 interface SignInResult {
   user?: User;
