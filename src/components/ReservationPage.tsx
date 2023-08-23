@@ -2,6 +2,7 @@ import React from "react";
 import NavBar from "./NavBar";
 import { useAuthStore } from "../Backend/store/store"
 import { useNavigate } from "react-router-dom"
+import Footer from "./Footer"
 
 const Reservation = () => {
     const user = useAuthStore((state) => state.user);
@@ -32,6 +33,7 @@ const Reservation = () => {
               <p className="mb-2">Bathrooms: {selectedResult.bathrooms}</p>
               <button className="bg-blue-500 text-white rounded p-2 hover:bg-blue-700 mt-auto" onClick={() => confirmResult()}>Confirm Reservation</button>
             </div>
+        <Footer />
         </div>
     );
 }
