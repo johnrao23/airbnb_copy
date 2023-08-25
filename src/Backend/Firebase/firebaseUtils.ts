@@ -197,8 +197,9 @@ const githubSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
+      const providerData = extractProviderData(user);
       useAuthStore.setState({
-        user: { id: user?.uid, email: user?.email, name: user.displayName },
+        user: { id: user?.uid, email: user?.email, name: providerData.displayName || user.displayName },
         isSignedIn: true,
       });
       return { user };  // return user object for further use if needed
