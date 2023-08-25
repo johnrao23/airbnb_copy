@@ -2,6 +2,7 @@ import React from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import buildingdockImg from "../assets/buildingdockImg.png"
 
 const Settings = () => {
     const user = useAuthStore((state) => state.user);
@@ -13,10 +14,10 @@ const Settings = () => {
                 <div 
                     className="relative flex-grow bg-cover bg-no-repeat bg-center pb-5 md:pb-20 text-center md:text-right" 
                     style={{ 
-                        backgroundImage: `url(${nycImg})`,
+                        backgroundImage: `url(${buildingdockImg})`,
                     }}
                     >
-                    <div className="bg-blue-500 bg-opacity-90 text-white p-3 md:p-5 rounded-lg shadow-lg mx-auto md:mx-auto mt-20 text-center max-w-xl">
+                    <div className="bg-gray-500 bg-opacity-30 text-white p-3 md:p-5 rounded-lg shadow-lg mx-auto md:mx-auto mt-20 text-center max-w-xl">
                         <h1 className="text-2xl md:text-4xl">How can we help, {user?.email}?</h1>
                     </div>
                 </div>
