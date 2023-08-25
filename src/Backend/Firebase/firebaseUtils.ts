@@ -15,6 +15,7 @@ import {
 import { useAuthStore } from "../store/store";
 
 interface ProviderSpecificData {
+  displayName?: string,
   twitterUsername?: string;
   githubUsername?: string;
 }
@@ -97,13 +98,14 @@ const extractProviderData = (user) => {
     switch (data.providerId) {
       case 'twitter.com':
         providerSpecificData.twitterUsername = data.displayName || user.displayName;
+        providerSpecificData.displayName = data.displayName;
         break;
       case 'github.com':
         providerSpecificData.githubUsername = data.displayName || user.displayName;  // GitHub's might differ, please adjust accordingly after checking.
+        providerSpecificData.displayName = data.displayName;
         break;
       case 'google.com':
-        // For Google, we might not need any extra data as we're already getting the user's name and email.
-        // But, if there's something specific you want, you can add it here.
+        providerSpecificData.displayName = data.displayName || user.displayName;
         break;
       default:
         break;
@@ -169,7 +171,7 @@ const twitterSignIn = async () => {
       // Extract Twitter username and store in zustad
 
       useAuthStore.setState({
-        user: { id: user?.uid, email: user?.email, name: user.displayName, ...providerData },
+        user: { id: user?.uid, email: user?.email, name: providerData.displayName || user.displayName, ...providerData },
         isSignedIn: true,
       });
       return { user };  // return user object for further use if needed
