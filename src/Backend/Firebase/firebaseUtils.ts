@@ -167,7 +167,6 @@ const twitterSignIn = async () => {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
       const providerData = extractProviderData(user);
-      console.log(result.user.providerData);
       // Extract Twitter username and store in zustad
 
       useAuthStore.setState({

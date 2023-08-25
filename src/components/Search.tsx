@@ -45,7 +45,7 @@ const Search = () => {
             >
                 <NavBar />
                 <h1 className="text-center text-2xl font-bold my-4">
-                    Get ready to live it up for less, {user?.email}
+                    Get ready to live it up for less, {user?.twitterUsername || user?.displayName || user?.email}
                 </h1>
                 { !searchResults.results.results.length && hasClicked ? (
                     <div className="text-center text-xl font-semibold">

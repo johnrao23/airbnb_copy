@@ -68,7 +68,7 @@ const HomePage: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="absolute w-full top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 md:px-0 text-xs sm:text-base">
-          <h1 className="text-lg sm:text-2xl">Welcome, {user?.email}</h1>
+          <h1 className="text-lg sm:text-2xl">Welcome, {user?.twitterUsername || user?.displayName || user?.email}</h1>
           <p className="text-green-500 text-xl mb-2 sm:text-2xl sm:mb-4">Click Search to find your next adventure.</p>
           <form onSubmit={handleSearch} className="mb-2 sm:mb-4">
             <p className="text-sm sm:text-lg mb-1 sm:mb-2">Search for the location you want to travel to:</p>

@@ -18,7 +18,7 @@ const Settings = () => {
                     }}
                     >
                     <div className="bg-gray-500 bg-opacity-30 text-white p-3 md:p-5 rounded-lg shadow-lg mx-auto md:mx-auto mt-20 text-center max-w-xl">
-                        <h1 className="text-2xl md:text-4xl">How can we help, {user?.email}?</h1>
+                        <h1 className="text-2xl md:text-4xl">How can we help, {user?.twitterUsername || user?.displayName || user?.email}?</h1>
                     </div>
                 </div>
             <Footer />

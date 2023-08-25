@@ -26,7 +26,7 @@ const Confirmation = () => {
         <>
         <NavBar />
         <div className="max-w-md mx-auto">
-            <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.email}</h1>
+            <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.twitterUsername || user?.displayName || user?.email}</h1>
             <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
                 <img className="w-full h-full object-cover" src={selectedResult.images[0]} alt="Result" />
             </div>

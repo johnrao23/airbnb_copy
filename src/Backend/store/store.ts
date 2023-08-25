@@ -54,6 +54,7 @@ export interface User {
   id: string;
   name: string | null;
   email?: string | null;
+  displayName?: string | null,
   twitterUsername?: string | null;
   githubUsername?: string | null;
 }

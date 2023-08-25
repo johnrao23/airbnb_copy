@@ -26,7 +26,7 @@ const Profile = () => {
         <div>
             <NavBar />
             <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100">
-                <h1 className="text-2xl text-gray-800 mb-4">Let us get to know you a little bit, {user?.email}</h1>
+                <h1 className="text-2xl text-gray-800 mb-4">Let us get to know you a little bit, {user?.twitterUsername || user?.displayName || user?.email}</h1>
                 {!submitted ? (
                     <form onSubmit={handleSubmit} className="w-full max-w-md mx-auto p-6 space-y-2 bg-white rounded-xl shadow-md">
                         <div>
