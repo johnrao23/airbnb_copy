@@ -10,7 +10,6 @@ const Settings = () => {
     return (
         <div>
             <NavBar />
-            <h1>This is where user settings will be.</h1>
             <h1>Hello, {user?.email}</h1>
             <Footer />
         </div>
