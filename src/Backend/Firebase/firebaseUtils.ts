@@ -14,6 +14,12 @@ import {
 } from "firebase/auth";
 import { useAuthStore } from "../store/store";
 
+interface ProviderSpecificData {
+  twitterUsername?: string;
+  githubUsername?: string;
+}
+
+
 const signUp = async ({ email, password }) => {
   try {
     // Create user with email and password
@@ -84,6 +90,30 @@ const signIn = async ({ email, password }) => {
   }
 };
 
+const extractProviderData = (user) => {
+  let providerSpecificData: ProviderSpecificData = {};
+
+  user.providerData.forEach(data => {
+    switch (data.providerId) {
+      case 'twitter.com':
+        providerSpecificData.twitterUsername = data.displayName || user.displayName;
+        break;
+      case 'github.com':
+        providerSpecificData.githubUsername = data.displayName || user.displayName;  // GitHub's might differ, please adjust accordingly after checking.
+        break;
+      case 'google.com':
+        // For Google, we might not need any extra data as we're already getting the user's name and email.
+        // But, if there's something specific you want, you can add it here.
+        break;
+      default:
+        break;
+    }
+  });
+
+  return providerSpecificData;
+};
+
+
 const googleSignIn = async () => {
   const isMobile = /Android|webOS|iPhone|iPad|iPod|BlackBerry|IEMobile|Opera Mini/i.test(navigator.userAgent);
   const provider = new GoogleAuthProvider();
@@ -134,11 +164,12 @@ const twitterSignIn = async () => {
     try {
       const result = await signInWithPopup(auth, provider);
       const user = result.user;
-
+      const providerData = extractProviderData(user);
+      console.log(result.user.providerData);
       // Extract Twitter username and store in zustad
 
       useAuthStore.setState({
-        user: { id: user?.uid, email: user?.email, name: user.displayName },
+        user: { id: user?.uid, email: user?.email, name: user.displayName, ...providerData },
         isSignedIn: true,
       });
       return { user };  // return user object for further use if needed
@@ -198,7 +229,7 @@ const logOut = async () => {
   }
 };
 
-export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn, forgotPassword };
+export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn, extractProviderData, forgotPassword };
 
 
 // const user = () => {
