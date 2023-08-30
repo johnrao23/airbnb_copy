@@ -39,21 +39,26 @@ const Settings = () => {
                     <div className="bg-gray-500 bg-opacity-30 text-white p-3 md:p-5 rounded-lg shadow-lg mx-auto md:mx-auto mt-20 text-center max-w-xl">
                         <h1 className="text-2xl md:text-4xl">How can we help, {user?.twitterUsername || user?.displayName || user?.email}?</h1>
                     </div>
-                    <div className="chat-container">
-                        <ul>
-                        {chatHistory.map((msg, index) => (
-                            <li key={index} className={msg.type}>
-                            {msg.text}
-                            </li>
-                        ))}
-                        </ul>
-                        <form onSubmit={handleQuestionSubmit}>
-                        <input
-                            type="text"
-                            value={userInput}
-                            onChange={(e) => setUserInput(e.target.value)}
-                        />
-                        <button type="submit">Ask</button>
+                    <div className="relative flex-grow flex flex-col justify-end items-center pb-10">
+                        <div className="chat-container w-full">
+                            <ul className="list-inside list-decimal">
+                            {chatHistory.map((msg, index) => (
+                                <li key={index} className={`${msg.type} text-left`}>
+                                {msg.text}
+                                </li>
+                            ))}
+                            </ul>
+                        </div>
+                        <form onSubmit={handleQuestionSubmit} className="w-full flex justify-center">
+                            <input
+                                type="text"
+                                value={userInput}
+                                onChange={(e) => setUserInput(e.target.value)}
+                                className="border rounded w-1/2 py-2 px-3"
+                            />
+                            <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4">
+                                Ask
+                            </button>
                         </form>
                     </div>
                 </div>
