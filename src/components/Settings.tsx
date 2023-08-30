@@ -43,7 +43,7 @@ const Settings = () => {
                         <div className="chat-container w-full">
                             <ul className="list-inside list-decimal">
                             {chatHistory.map((msg, index) => (
-                                <li key={index} className={`${msg.type} text-left`}>
+                                <li key={index} className={`${msg.type} text-center`}>
                                 {msg.text}
                                 </li>
                             ))}
