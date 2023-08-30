@@ -1,7 +1,8 @@
 import axios from 'axios';
+require("dotenv").config();
 
-const API_KEY = '578c6464e2mshc3cfe32bae51a74p127e53jsnc298999d88ec';
-const API_HOST = 'airbnb13.p.rapidapi.com';
+const apiKey = process.env.API_KEY
+const apiHost = process.env.API_HOST;
 
 export const locationSearch = async (location: string, checkin: string, checkout: string) => {
   try {
@@ -18,8 +19,8 @@ export const locationSearch = async (location: string, checkin: string, checkout
         currency: 'USD'
       },
       headers: {
-        'X-RapidAPI-Key': API_KEY,
-        'X-RapidAPI-Host': API_HOST
+        'X-RapidAPI-Key': apiKey,
+        'X-RapidAPI-Host': apiHost
       }
     });
 
