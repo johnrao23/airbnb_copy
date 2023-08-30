@@ -11,5 +11,3 @@ export async function getGPTResponse(prompt: string) {
     return data;
   }
   
-
-const API_KEY = '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'
