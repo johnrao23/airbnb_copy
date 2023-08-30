@@ -1,4 +1,4 @@
-async function getGPTResponse(prompt) {
+export async function getGPTResponse(prompt: string) {
     const response = await fetch("/api/chat", {
       method: "POST",
       headers: {
