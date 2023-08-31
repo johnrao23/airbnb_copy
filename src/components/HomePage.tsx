@@ -3,7 +3,6 @@ import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer"
 import beachImg from "../assets/beachImg.png";
-import { locationSearch } from "../Backend/api/LocationSearch";
 import { useNavigate } from "react-router-dom";
 
 const HomePage: React.FC = () => {
@@ -30,11 +29,22 @@ const HomePage: React.FC = () => {
     setIsLoading(true);
   
     try {
-      const data = await locationSearch(searchInput, checkInDate, checkOutDate);
+      const response = await fetch('/api/locationSearch', {
+        method: 'POST',
+        headers: {
+          'Content-Type': 'application/json',
+        },
+        body: JSON.stringify({
+          location: searchInput,
+          checkin: checkInDate,
+          checkout: checkOutDate,
+        }),
+      });
+
+      const data = await response.json();
       console.log(data);
-  
+
       setResults(data);
-  
       console.log("Updated Store: ", useAuthStore.getState().searchResults);
   
       navigate("/search");

@@ -1,9 +1,11 @@
+import type { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
-const API_KEY = '578c6464e2mshc3cfe32bae51a74p127e53jsnc298999d88ec';
-const API_HOST = 'airbnb13.p.rapidapi.com';
+export const locationSearch = async (req: VercelRequest, res: VercelResponse) => {
+  const { location, checkin, checkout } = req.body;
+  const API_KEY = process.env.LOCATION_API_KEY;
+  const API_HOST = process.env.LOCATION_API_HOST;
 
-export const locationSearch = async (location: string, checkin: string, checkout: string) => {
   try {
     const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
       params: {
@@ -23,9 +25,8 @@ export const locationSearch = async (location: string, checkin: string, checkout
       }
     });
 
-    return response.data;
+    res.status(200).json(response.data);
   } catch (error) {
-    console.error(error);
-    throw error;
+    res.status(500).json({ error: "An error occurred." });
   }
 };
