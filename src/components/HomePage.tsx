@@ -63,9 +63,6 @@ const HomePage: React.FC = () => {
   
     setIsLoading(false);
   };
-  
-  
-  
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
