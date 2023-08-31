@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer"
+import { locationSearch } from "../Backend/api/LocationSearch";
 import beachImg from "../assets/beachImg.png";
 import { useNavigate } from "react-router-dom";
 
@@ -29,35 +30,16 @@ const HomePage: React.FC = () => {
     setIsLoading(true);
   
     try {
-      const response = await fetch('/api/locationSearch', {
-        method: 'POST',
-        headers: {
-          'Content-Type': 'application/json',
-        },
-        body: JSON.stringify({
-          location: searchInput,
-          checkin: checkInDate,
-          checkout: checkOutDate,
-        }),
-      });
-  
-      if (!response.ok) {
-        const text = await response.text();
-        throw new Error(`Server responded with status ${response.status}. Message: ${text}`);
-      }
-  
-      const data = await response.json();
+      const data = await locationSearch(searchInput, checkInDate, checkOutDate);
       console.log(data);
   
       setResults(data);
+  
       console.log("Updated Store: ", useAuthStore.getState().searchResults);
   
       navigate("/search");
     } catch (error) {
       console.error(error);
-      if (error instanceof SyntaxError) {
-        console.error("There was a problem parsing the response: ", error);
-      }
     }
   
     setIsLoading(false);
