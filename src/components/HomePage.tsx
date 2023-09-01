@@ -30,7 +30,7 @@ const HomePage: React.FC = () => {
     setIsLoading(true);
   
     try {
-      const response = await fetch('/api/locationSearch', {
+      const response = await fetch('http://localhost:3000/api/locationSearch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
