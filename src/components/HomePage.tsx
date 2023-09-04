@@ -29,7 +29,7 @@ const HomePage: React.FC = () => {
     setIsLoading(true);
   
     try {
-      const response = await fetch('http://localhost:3000/api/locationSearch', {
+      const response = await fetch('/api/locationSearch', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',
@@ -41,8 +41,8 @@ const HomePage: React.FC = () => {
         }),
       });
   
-      if (!response.ok) { // Check if response went through
-        const text = await response.text();  // Read the text from the response
+      if (!response.ok) { 
+        const text = await response.text();
         throw new Error(`Server responded with status ${response.status}. Message: ${text}`);
       }
   
@@ -55,7 +55,6 @@ const HomePage: React.FC = () => {
       navigate("/search");
     } catch (error) {
       console.error(error);
-      // If it's a SyntaxError (JSON parsing issue), handle it
       if (error instanceof SyntaxError) {
         console.error("There was a problem parsing the response: ", error);
       }
