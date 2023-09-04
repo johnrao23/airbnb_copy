@@ -6,7 +6,7 @@ import Search from "./components/Search"
 import Reservation from "./components/ReservationPage" 
 import Confirmation from "./components/ConfirmationPage"
 import Profile from "./components/UserProfile";
-import Settings from "./components/Settings"
+// import Settings from "./components/Settings"
 import About from "./components/AboutUs";
 import Contact from "./components/Contact";
 import SignUp from "./Backend/UserActions/Signup/SignUpPage";
@@ -77,14 +77,14 @@ function App() {
               </ProtectedRoute>
             }
           />
-          <Route
+          {/* <Route
             path="/settings"
             element={
               <ProtectedRoute>
                 <Settings />
               </ProtectedRoute>
             }
-          />
+          /> */}
         </Routes>
       </BrowserRouter>
     </div>

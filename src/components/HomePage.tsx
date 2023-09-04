@@ -2,7 +2,6 @@ import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer"
-import { locationSearch } from "../../api/LocationSearch";
 import beachImg from "../assets/beachImg.png";
 import { useNavigate } from "react-router-dom";
 
