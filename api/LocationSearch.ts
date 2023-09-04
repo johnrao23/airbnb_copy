@@ -2,18 +2,17 @@ import type { VercelRequest, VercelResponse } from '@vercel/node';
 import axios from 'axios';
 
 export default async function locationSearch(req: VercelRequest, res: VercelResponse) {
+  res.setHeader('Access-Control-Allow-Origin', '*');
+  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, OPTIONS');
+  res.setHeader('Access-Control-Allow-Headers', 'Content-Type');
+
+  if (req.method === 'OPTIONS') {
+    return res.status(200).end();
+  }
+
   const { location, checkin, checkout } = req.body;
   const API_KEY = process.env.LOCATION_API_KEY;
   const API_HOST = process.env.LOCATION_API_HOST;
-  res.setHeader('Access-Control-Allow-Origin', '*');
-  res.setHeader('Access-Control-Allow-Methods', 'GET, POST, PUT, DELETE, OPTIONS');
-  res.setHeader('Access-Control-Allow-Headers', 'X-Requested-With, Content-Type, Accept');
-  
-
-  if (req.method === 'OPTIONS') {
-    // preflight request. Reply successfully:
-    return res.status(200).end();
-  }
 
   try {
     const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
@@ -38,7 +37,8 @@ export default async function locationSearch(req: VercelRequest, res: VercelResp
   } catch (error) {
     res.status(500).json({ error: "An error occurred." });
   }
-};
+}
+
 
 // import axios from 'axios';
 
