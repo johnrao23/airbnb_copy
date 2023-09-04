@@ -5,7 +5,7 @@
     "jsx": "preserve",
     "esModuleInterop": true,
     "allowJs": true,
-    "module": "commonjs",
+    "module": "ESNext",
     "target": "esnext",
     "lib": ["dom", "dom.iterable", "esnext"],
     "moduleResolution": "node",
@@ -19,6 +19,7 @@
   "include": [
     "src",
     "typings",
-    "src/custom.d.ts"
-, "api"  ]
+    "src/custom.d.ts",
+    "api"
+  ]
 }
