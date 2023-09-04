@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
-import { getGPTResponse } from "../Backend/api/chatGPT";
+import { getGPTResponse } from "../../api/chatGPT";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import buildingdockImg from "../assets/buildingdockImg.png"

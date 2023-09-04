@@ -20,5 +20,5 @@
     "src",
     "typings",
     "src/custom.d.ts"
-  ]
+, "api"  ]
 }
