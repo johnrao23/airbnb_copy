@@ -1,3 +1,35 @@
+import axios from 'axios';
+
+export const locationSearch = async (location: string, checkin: string, checkout: string) => {
+  const API_KEY = (import.meta as any).env.VITE_LOCATION_API_KEY;
+  const API_HOST = (import.meta as any).env.VITE_LOCATION_API_HOST;
+
+  try {
+    const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
+      params: {
+        location,
+        checkin,
+        checkout,
+        adults: '1',
+        children: '0',
+        infants: '0',
+        pets: '0',
+        page: '1',
+        currency: 'USD',
+      },
+      headers: {
+        'X-RapidAPI-Key': API_KEY,
+        'X-RapidAPI-Host': API_HOST,
+      },
+    });
+
+    return response.data;
+  } catch (error) {
+    console.error(error);
+    throw error;
+  }
+};
+
 // import type { VercelRequest, VercelResponse } from '@vercel/node';
 // import axios from 'axios';
 
@@ -38,35 +70,3 @@
 //     res.status(500).json({ error: "An error occurred." });
 //   }
 // }
-
-import axios from 'axios';
-
-export const locationSearch = async (location: string, checkin: string, checkout: string) => {
-  const API_KEY = (import.meta as any).env.VITE_LOCATION_API_KEY;
-  const API_HOST = (import.meta as any).env.VITE_LOCATION_API_HOST;
-
-  try {
-    const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
-      params: {
-        location,
-        checkin,
-        checkout,
-        adults: '1',
-        children: '0',
-        infants: '0',
-        pets: '0',
-        page: '1',
-        currency: 'USD',
-      },
-      headers: {
-        'X-RapidAPI-Key': API_KEY,
-        'X-RapidAPI-Host': API_HOST,
-      },
-    });
-
-    return response.data;
-  } catch (error) {
-    console.error(error);
-    throw error;
-  }
-};

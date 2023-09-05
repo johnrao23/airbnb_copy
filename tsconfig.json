@@ -21,6 +21,6 @@
     "src",
     "typings",
     "src/custom.d.ts",
-    "src/api"
-, "src/api/locationSearch.ts"  ]
+    "src/Backend/api"
+, "src/Backend/api/locationSearch.ts"  ]
 }
