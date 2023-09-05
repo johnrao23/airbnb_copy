@@ -17,10 +17,10 @@ const Settings = () => {
         setChatHistory([...chatHistory, { type: "user", text: userInput }]);
     
         // Fetch GPT-3 response
-        const gptResponse = await chatGPT(userInput);
+        const gptResponse = await chatGPT(prompt, userInput);
     
         // Append GPT-3 response to chat history
-        setChatHistory([...chatHistory, { type: "user", text: userInput }, { type: "gpt", text: gptResponse.text }]);
+        setChatHistory([...chatHistory, { type: "user", text: userInput }, { type: "gpt", text: gptResponse }]);
     
         // Clear user input
         setUserInput("");
