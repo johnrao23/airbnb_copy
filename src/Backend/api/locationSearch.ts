@@ -25,7 +25,7 @@ export const locationSearch = async (location: string, checkin: string, checkout
 
     return response.data;
   } catch (error) {
-    console.error(error);
+    console.error('Error details:', error.response?.data, error.response?.status);
     throw error;
   }
 };
