@@ -42,7 +42,11 @@
 import axios from 'axios';
 
 export const locationSearch = async (location: string, checkin: string, checkout: string) => {
-  console.log('API_KEY:', import.meta.env.VITE_LOCATION_API_KEY);
+  const API_KEY = (import.meta as any).env.VITE_LOCATION_API_KEY;
+  const API_HOST = (import.meta as any).env.VITE_LOCATION_API_HOST;
+
+  console.log('API_KEY:', API_KEY);
+
   try {
     const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
       params: {
