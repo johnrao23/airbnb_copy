@@ -13,13 +13,14 @@
     "baseUrl": ".",
     "paths": {
       "*": ["src/*"]
-    }
+    },
+    "typeRoots": []
   },
   "exclude": ["node_modules", "src/**/*.js"],
   "include": [
     "src",
     "typings",
     "src/custom.d.ts",
-    "api"
-  ]
+    "src/api"
+, "src/api/locationSearch.ts"  ]
 }
