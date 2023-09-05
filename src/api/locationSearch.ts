@@ -39,13 +39,10 @@
 //   }
 // }
 
-
 import axios from 'axios';
 
-const API_KEY = process.env.REACT_APP_LOCATION_API_KEY;
-const API_HOST = process.env.REACT_APP_LOCATION_API_HOST;
-
 export const locationSearch = async (location: string, checkin: string, checkout: string) => {
+  console.log('API_KEY:', import.meta.env.VITE_LOCATION_API_KEY);
   try {
     const response = await axios.get('https://airbnb13.p.rapidapi.com/search-location', {
       params: {
@@ -57,12 +54,12 @@ export const locationSearch = async (location: string, checkin: string, checkout
         infants: '0',
         pets: '0',
         page: '1',
-        currency: 'USD'
+        currency: 'USD',
       },
       headers: {
         'X-RapidAPI-Key': API_KEY,
-        'X-RapidAPI-Host': API_HOST
-      }
+        'X-RapidAPI-Host': API_HOST,
+      },
     });
 
     return response.data;
