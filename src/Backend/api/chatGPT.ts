@@ -1,15 +1,11 @@
-import axios from 'axios';
+import axios from "axios";
 
-export const chatGPT = async (req, res) => {
+
+export const fetchGPTResponse = async (payload) => {
   const API_KEY = (import.meta as any).env.VITE_CHAT_GPT_KEY;
-  const { prompt } = req.body;
-
   try {
     const response = await axios.post("https://api.openai.com/v1/engines/davinci-codex/completions", 
-      {
-        prompt,
-        max_tokens: 50
-      },
+      payload,
       {
         headers: {
           "Content-Type": "application/json",
@@ -17,10 +13,9 @@ export const chatGPT = async (req, res) => {
         }
       }
     );
-
-    res.status(200).json(response.data);
+    return response;
   } catch (error) {
     console.error(error);
-    res.status(500).json({ error: "An error occurred while communicating with the GPT-3 API" });
+    throw new Error("An error occurred while communicating with the GPT-3 API");
   }
 };
