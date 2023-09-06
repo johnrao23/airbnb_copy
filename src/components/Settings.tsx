@@ -13,7 +13,7 @@ const Settings = () => {
   const handleQuestionSubmit = async (e) => {
     e.preventDefault();
   
-    const messages = [
+    let messages = [
       { role: "system", content: "You are a helpful assistant." },
       ...chatHistory.map((msg) => ({ role: msg.type, content: msg.text })),
       { role: "user", content: userInput }
@@ -21,18 +21,21 @@ const Settings = () => {
   
     try {
       const { data } = await fetchGPTResponse({ messages });
-      const gptResponse = data.choices[0]?.text.trim() || "Sorry, I couldn't understand that.";
+      const gptResponse = data.choices[0]?.message.content.trim() || "Sorry, I couldn't understand that.";
   
-      // Append GPT-3 response to chat history
-      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: gptResponse }]);
+      // Append GPT-3.5-turbo response to chat history
+      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "assistant", text: gptResponse }]);
     } catch (error) {
       console.error(error);
-      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: "An error occurred while fetching the GPT-3.5-turbo response" }]);
+  
+      // Append Error message to chat history
+      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "assistant", text: "An error occurred while fetching the GPT-3.5-turbo response" }]);
     }
   
     // Clear user input
     setUserInput("");
   };
+  
   
 
   return (
