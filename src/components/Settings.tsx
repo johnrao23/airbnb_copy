@@ -10,32 +10,30 @@ const Settings = () => {
   const [chatHistory, setChatHistory] = useState([]);
   const [userInput, setUserInput] = useState("");
 
-  const handleQuestionSubmit = async (e) => {
-    e.preventDefault();
+const handleQuestionSubmit = async (e) => {
+  e.preventDefault();
 
-    // Append user question to chat history
-    setChatHistory([...chatHistory, { type: "user", text: userInput }]);
+  const conversationHistory = chatHistory
+    .filter(msg => msg.text !== "An error occurred while fetching GPT-3 response")
+    .map(msg => `${msg.type === "user" ? "You" : "GPT"}: ${msg.text}`)
+    .join("\n");
 
-    const conversationHistory = chatHistory.map(msg => `${msg.type === "user" ? "You" : "GPT"}: ${msg.text}`).join("\n");
+  const newPrompt = `${conversationHistory}\nYou: ${userInput}\nGPT: `;
 
-    const newPrompt = `${conversationHistory}\nYou: ${userInput}\nGPT: `;
+  try {
+    const { data } = await fetchGPTResponse({ prompt: newPrompt });
+    const gptResponse = data.choices[0]?.text.trim() || "Sorry, I couldn't understand that.";
 
-    try {
-      // Fetch GPT-3 response
-      const { data } = await fetchGPTResponse({ prompt: newPrompt });
-      const gptResponse = data.choices[0]?.text.trim() || "Sorry, I couldn't understand that.";
+    // Update chat history here
+    setChatHistory(prevHistory => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: gptResponse }]);
+  } catch (error) {
+    console.error(error);
+    setChatHistory(prevHistory => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: "An error occurred while fetching GPT-3 response" }]);
+  }
 
-      // Append GPT-3 response to chat history
-      setChatHistory(prevHistory => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: gptResponse }]);
-      
-    } catch (error) {
-      console.error(error);
-      setChatHistory([...chatHistory, { type: "user", text: userInput }, { type: "gpt", text: "An error occurred while fetching GPT-3 response" }]);
-    }
-
-    // Clear user input
-    setUserInput("");
-  };
+  // Clear user input
+  setUserInput("");
+};
 
   return (
     <div className="min-h-screen flex flex-col">
