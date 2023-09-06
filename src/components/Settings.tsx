@@ -27,7 +27,7 @@ const Settings = () => {
       setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: gptResponse }]);
     } catch (error) {
       console.error(error);
-      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: "An error occurred while fetching the GPT-4 response" }]);
+      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "gpt", text: "An error occurred while fetching the GPT-3.5-turbo response" }]);
     }
   
     // Clear user input
