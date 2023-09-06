@@ -13,14 +13,19 @@ const Settings = () => {
   const handleQuestionSubmit = async (e) => {
     e.preventDefault();
   
+    // Build messages array including chat history and new user input
     const messages = [
       { role: "system", content: "You are a helpful assistant." },
       ...chatHistory.map(msg => ({ role: msg.type, content: msg.text })),
       { role: "user", content: userInput }
     ];
   
+    // Convert messages array to string prompt for GPT-3 API
+    const prompt = messages.map(msg => `${msg.role}: ${msg.content}`).join("\n");
+  
     try {
-      const { data } = await fetchGPTResponse({ messages });
+      // Fetch GPT-3 Response using the built prompt
+      const { data } = await fetchGPTResponse({ prompt });
       const gptResponse = data.choices[0]?.text.trim() || "Sorry, I couldn't understand that.";
   
       // Append GPT-3 response to chat history
@@ -32,8 +37,7 @@ const Settings = () => {
   
     // Clear user input
     setUserInput("");
-  };  
-  
+  };   
 
   return (
     <div className="min-h-screen flex flex-col">
