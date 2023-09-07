@@ -20,23 +20,27 @@ const Settings = () => {
     ];
   
     try {
-      const { data } = await fetchGPTResponse({ messages });
-      const gptResponse = data.choices[0]?.message.content.trim() || "Sorry, I couldn't understand that.";
+      const response = await fetchGPTResponse({ messages });
+      const data = response.data;
+      console.log("API Response:", data);
+
   
-      // Append GPT-3.5-turbo response to chat history
-      setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "assistant", text: gptResponse }]);
+      if (data && data.choices && data.choices.length > 0) {
+        const gptResponse = data.choices[0].message.content || "Sorry, I couldn't understand that.";
+        setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "assistant", text: gptResponse }]);
+      } else {
+        // If the response structure is different or unexpected
+        throw new Error(`Unexpected response format: ${JSON.stringify(data)}`);      
+      }
     } catch (error) {
       console.error(error);
-  
-      // Append Error message to chat history
       setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "assistant", text: "An error occurred while fetching the GPT-3.5-turbo response" }]);
     }
   
-    // Clear user input
     setUserInput("");
   };
   
-  
+  console.log(chatHistory);
 
   return (
     <div className="min-h-screen flex flex-col">
