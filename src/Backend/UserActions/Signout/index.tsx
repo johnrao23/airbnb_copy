@@ -3,7 +3,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import { logOut } from "../../Firebase/firebaseUtils.js";
 
-const SignOut = React.forwardRef((props, ref) => {
+const SignOut = React.forwardRef<HTMLButtonElement, any>((props, ref) => {
   const [loading, setLoading] = useState(false);
   const navigate = useNavigate();
 
