@@ -21,7 +21,7 @@ const Settings = () => {
   
     try {
       const response = await fetchGPTResponse({ messages });
-      const data = response.data;
+      const data = response;
       console.log("API Response:", data);
 
   
