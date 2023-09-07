@@ -17,6 +17,7 @@ export const fetchGPTResponse = async (payload) => {
         }
       }
     );
+    console.log("Inside fetchGPTResponse:", response);
     return response.data;
   } catch (error) {
     console.error("An error occurred:", error);
