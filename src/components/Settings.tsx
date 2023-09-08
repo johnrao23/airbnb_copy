@@ -25,6 +25,7 @@ const Settings = () => {
       const data = response;
       console.log("API Response:", data);
 
+      setIsLoading(true);
   
       if (data && data.choices && data.choices.length > 0) {
         const gptResponse = data.choices[0].message.content || "Sorry, I couldn't understand that.";
@@ -37,7 +38,8 @@ const Settings = () => {
       console.error(error);
       setChatHistory((prevHistory) => [...prevHistory, { type: "user", text: userInput }, { type: "assistant", text: "An error occurred while fetching the GPT-3.5-turbo response" }]);
     }
-  
+
+    setIsLoading(false);
     setUserInput("");
   };
   
@@ -48,7 +50,7 @@ const Settings = () => {
       <NavBar />
       {isLoading && (
         <div className="bg-green-500 text-white text-center py-2">
-          Finding Your Dream Rentals Now...
+          Thinking of the best answer for your question!
         </div>
       )}
       <div 
