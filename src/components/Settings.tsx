@@ -42,8 +42,6 @@ const Settings = () => {
     setIsLoading(false);
     setUserInput("");
   };
-  
-  console.log(chatHistory);
 
   return (
     <div className="min-h-screen flex flex-col">
