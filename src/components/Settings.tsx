@@ -9,6 +9,7 @@ const Settings = () => {
   const user = useAuthStore((state) => state.user);
   const [chatHistory, setChatHistory] = useState([]);
   const [userInput, setUserInput] = useState("");
+  const [isLoading, setIsLoading] = useState(false);
 
   const handleQuestionSubmit = async (e) => {
     e.preventDefault();
@@ -45,6 +46,11 @@ const Settings = () => {
   return (
     <div className="min-h-screen flex flex-col">
       <NavBar />
+      {isLoading && (
+        <div className="bg-green-500 text-white text-center py-2">
+          Finding Your Dream Rentals Now...
+        </div>
+      )}
       <div 
         className="relative flex-grow bg-cover bg-no-repeat bg-center pb-5 md:pb-20 text-center md:text-right" 
         style={{ 
