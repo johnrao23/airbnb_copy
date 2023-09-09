@@ -17,7 +17,7 @@ function NotificationButton() {
         </button>
   
         {showDropdown && (
-            <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white z-20">
+            <div className="origin-top-right absolute right-0 mt-2 w-48 rounded-md shadow-lg bg-white z-10">
                 <div className="rounded-md ring-1 ring-black ring-opacity-5">
                 {notifications.map((notif, index) => (
                     <div key={index} className="py-2 px-4 hover:bg-gray-200">
