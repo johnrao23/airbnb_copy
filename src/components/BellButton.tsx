@@ -3,7 +3,7 @@ import { BellIcon } from "@heroicons/react/24/outline";
 
 function NotificationButton() {
     const [showDropdown, setShowDropdown] = useState(false);
-    const notifications = ['Notifications'];
+    const notifications = ['No new notifications!'];
     const dropdownRef = useRef(null);
 
     useEffect(() => {
