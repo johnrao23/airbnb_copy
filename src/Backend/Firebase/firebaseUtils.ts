@@ -252,4 +252,4 @@ const watchAuthState = () => {
   });
 };
 
-export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn, extractProviderData, forgotPassword };
+export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn, extractProviderData, forgotPassword, watchAuthState };
