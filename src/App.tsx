@@ -1,4 +1,4 @@
-import React from "react";
+import React, { useEffect } from "react";
 import { BrowserRouter, Route, Routes } from "react-router-dom";
 import AppLoader from "./components/AppLoader";
 import HomePage from "./components/HomePage";
@@ -9,11 +9,17 @@ import Profile from "./components/UserProfile";
 import Settings from "./components/Settings"
 import About from "./components/AboutUs";
 import Contact from "./components/Contact";
+import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
-import ProtectedRoute from "./components/ProtectedRoute.jsx";
+import { watchAuthState } from "./Backend/Firebase/firebaseUtils";
 
 function App() {
+
+  useEffect(() => {
+    watchAuthState();
+  }, []);
+
   return (
     <div>
       <BrowserRouter>
