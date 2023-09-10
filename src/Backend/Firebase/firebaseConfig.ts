@@ -17,22 +17,3 @@ const auth = getAuth(firebaseApp);
 const db = getFirestore(firebaseApp);
 
 export { auth, db };
-
-// const user = {
-//   name: "ryan added 4/19/23",
-//   email: "ryan added 4/19/23@example.com",
-//   age: 5000,
-// };
-
-// const usersCollection = collection(db, "users");
-// const locationCollection = collection(db, "location");
-
-// // Add a document to the "users" collection
-// async function addUser(user) {
-//   try {
-//     const docRef = await addDoc(usersCollection, user);
-//     console.log("Document written with ID: ", docRef.id);
-//   } catch (e) {
-//     console.error("Error adding document: ", e);
-//   }
-// }
