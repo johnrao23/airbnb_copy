@@ -231,19 +231,25 @@ const logOut = async () => {
   }
 };
 
+const watchAuthState = () => {
+  onAuthStateChanged(auth, (user) => {
+    if (user) {
+      // User is signed in
+      const providerData = extractProviderData(user);
+      useAuthStore.setState({
+        user: {
+          id: user?.uid,
+          email: user?.email,
+          name: providerData.displayName || user.displayName,
+          ...providerData
+        },
+        isSignedIn: true,
+      });
+    } else {
+      // User is signed out
+      useAuthStore.setState({ isSignedIn: false, user: null });
+    }
+  });
+};
+
 export { signUp, signIn, logOut, googleSignIn, twitterSignIn, githubSignIn, extractProviderData, forgotPassword };
-
-
-// const user = () => {
-//   onAuthStateChanged(auth, (user) => {
-//     if (user) {
-//       // User is signed in, see docs for a list of available properties
-//       // https://firebase.google.com/docs/reference/js/firebase.User
-//       const uid = user.uid;
-//       // ...
-//     } else {
-//       // User is signed out
-//       // ...
-//     }
-//   });
-// };
