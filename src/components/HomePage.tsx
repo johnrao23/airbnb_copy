@@ -20,30 +20,42 @@ const HomePage: React.FC = () => {
 
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
-  
+
     if (!searchInput || !checkInDate || !checkOutDate) {
       setShowAlert(true);
       setAlertMessage("Please enter location and dates before searching.");
       return;
     }
-  
+
+    if (new Date(checkInDate) > new Date(checkOutDate)) {
+      setShowAlert(true);
+      setAlertMessage("Check-in date cannot be after Check-out date.");
+      return;
+    }
+
     setIsLoading(true);
-  
+
     try {
       const data = await locationSearch(searchInput, checkInDate, checkOutDate);
       console.log(data);
-  
+
+      if (data.error) {
+        setShowAlert(true);
+        setAlertMessage(data.message);
+        setIsLoading(false);
+        return;
+      }
+
       setResults(data);
-  
       console.log("Updated Store: ", useAuthStore.getState().searchResults);
-  
       navigate("/search");
     } catch (error) {
       console.error(error);
     }
-  
+
     setIsLoading(false);
-  };
+};
+
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
