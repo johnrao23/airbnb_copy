@@ -40,7 +40,7 @@ const Search = () => {
         >
             <div className="flex justify-center mt-8">
             <div className="bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg text-center w-11/12 md:w-1/2">
-                <h1 className="text-2xl font-bold mb-4 bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg inline-block">
+                <h1 className="text-2xl font-bold mb-4">
                     Get ready to live it up for less, {user?.twitterUsername || user?.displayName || user?.email}
                 </h1>
     
