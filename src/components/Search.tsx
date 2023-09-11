@@ -28,34 +28,35 @@ const Search = () => {
     }
     return result - (result * (price / 100));
   };
-  
-  const backgroundImage = !searchResults.results.results.length && hasClicked
-  ? `url(${sunsetField})`
-  : 'transparent';
 
   return (
-    <div className="flex flex-col min-h-screen">
-        <div className="flex-grow">
-            <div
-                style={{
-                    backgroundImage: backgroundImage,
-                    backgroundSize: 'cover',
-                    minHeight: '100vh',
-                }}
-            >
-                <NavBar />
-                <h1 className="text-center text-2xl font-bold my-4">
+    <div className="overflow-hidden flex flex-col min-h-screen">
+      <NavBar />
+        <div 
+            className="flex flex-col justify-start flex-grow w-full bg-no-repeat bg-center bg-cover md:bg-150/130 pb-10 md:pb-20 text-center"
+            style={{
+            backgroundImage: !searchResults.results.results.length && hasClicked ? `url(${sunsetField})` : 'transparent'
+            }}
+        >
+            <div className="flex justify-center mt-8">
+            <div className="bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg text-center w-11/12 md:w-1/2">
+                <h1 className="text-2xl font-bold mb-4 bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg inline-block">
                     Get ready to live it up for less, {user?.twitterUsername || user?.displayName || user?.email}
                 </h1>
-                { !searchResults.results.results.length && hasClicked ? (
-                    <div className="text-center text-xl font-semibold">
-                        Come back with some vacation ideas!
-                    </div>
-                ) : (
-                    <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
-                        {Array.isArray(searchResults.results.results) &&
-                            searchResults.results.results.map((result) => (
-                                <div
+    
+                { !searchResults.results.results.length && hasClicked && (
+                <div className="text-xl font-semibold mt-4">
+                    Come back with some vacation ideas!
+                </div>
+                )}
+            </div>
+            </div>
+    
+            { searchResults.results.results.length > 0 && (
+                <div className="grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-4">
+                    {Array.isArray(searchResults.results.results) &&
+                        searchResults.results.results.map((result) => (
+                            <div
                                     key={result.id}
                                     className="border border-gray-300 rounded-lg p-4 m-2 flex flex-col items-center justify-between space-y-4 h-full"
                                 >
@@ -83,11 +84,10 @@ const Search = () => {
                                     </button>
                                 </div>
                             ))}
-                    </div>
-                )}
-            </div>
+                </div>
+            )}
         </div>
-        <Footer />
+      <Footer />
     </div>
   );
 };
