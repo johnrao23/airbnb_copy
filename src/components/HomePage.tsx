@@ -18,53 +18,6 @@ const HomePage: React.FC = () => {
 
   const navigate = useNavigate();
 
-  // const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
-  //   e.preventDefault();
-  
-  //   if (!searchInput || !checkInDate || !checkOutDate) {
-  //     setShowAlert(true);
-  //     setAlertMessage("Please enter location and dates before searching.");
-  //     return;
-  //   }
-  
-  //   setIsLoading(true);
-  
-  //   try {
-  //     const response = await fetch('/api/locationSearch', {
-  //       method: 'POST',
-  //       headers: {
-  //         'Content-Type': 'application/json',
-  //       },
-  //       body: JSON.stringify({
-  //         location: searchInput,
-  //         checkin: checkInDate,
-  //         checkout: checkOutDate,
-  //       }),
-  //     });
-  
-  //     if (!response.ok) { 
-  //       const text = await response.text();
-  //       throw new Error(`Server responded with status ${response.status}. Message: ${text}`);
-  //     }
-  
-  //     const data = await response.json();
-  //     console.log(data);
-  
-  //     setResults(data);
-  //     console.log("Updated Store: ", useAuthStore.getState().searchResults);
-  
-  //     navigate("/search");
-  //   } catch (error) {
-  //     console.error(error);
-  //     if (error instanceof SyntaxError) {
-  //       console.error("There was a problem parsing the response: ", error);
-  //     }
-  //   }
-  
-  //   setIsLoading(false);
-  // };
-  
-
   const handleSearch = async (e: React.FormEvent<HTMLFormElement>) => {
     e.preventDefault();
   
