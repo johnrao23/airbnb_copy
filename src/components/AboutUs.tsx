@@ -12,12 +12,12 @@ const About = () => {
       <NavBar />
 
       <div 
-        className="flex flex-col justify-end flex-grow w-full bg-no-repeat bg-center bg-cover md:bg-150/130 pb-10 md:pb-20 text-center" 
+        className="flex flex-col justify-start flex-grow w-full bg-no-repeat bg-center bg-cover md:bg-150/130 pb-10 md:pb-20 text-center" 
         style={{ 
           backgroundImage: `url(${nycImg})`,
         }}
       >
-        <div className="flex justify-center mt-8">
+        <div className="flex justify-center mt-8 md:mt-20">
           <div className="bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg text-center w-11/12 md:w-1/2">
             <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Thanks for asking about us, {user?.twitterUsername || user?.displayName || user?.email}!</h1>
             <p className="text-xl md:text-2xl mb-1 md:mb-2">Here at Fairbnb, we want to provide you with once in a lifetime opportunities for a much better price!</p>
@@ -31,4 +31,3 @@ const About = () => {
 }
 
 export default About;
-
