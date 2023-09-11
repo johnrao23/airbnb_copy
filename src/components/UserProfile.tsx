@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { PhotoIcon, UserCircleIcon } from '@heroicons/react/24/solid'
+import { UserCircleIcon } from '@heroicons/react/24/solid'
 import NavBar from "./NavBar";
 import Footer from "./Footer"
 import { useAuthStore } from "../Backend/store/store";
