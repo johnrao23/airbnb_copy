@@ -1,15 +1,14 @@
 import React, { useState } from "react";
-import { UserCircleIcon } from '@heroicons/react/24/solid'
+import { UserCircleIcon } from '@heroicons/react/solid';
 import NavBar from "./NavBar";
-import Footer from "./Footer"
+import Footer from "./Footer";
 import { useAuthStore } from "../Backend/store/store";
 
 const Profile = () => {
-
     const user = useAuthStore((state) => state.user);
     const setUser = useAuthStore((state) => state.setUser);
-    const [userinfo, setUserInfo] = useState(user?.name || "")
-    const [submitted, setSubmitted] = useState(false)
+    const [userinfo, setUserInfo] = useState(user?.name || "");
+    const [submitted, setSubmitted] = useState(false);
 
     const handleNameChange = (event) => {
         setUserInfo(event.target.value);
@@ -17,9 +16,7 @@ const Profile = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        // Update the user with the new name
         setUser({ ...user, name: userinfo });
-        // Indicate that the form has been submitted
         setSubmitted(true);
     }
 
