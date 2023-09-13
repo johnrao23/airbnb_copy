@@ -39,18 +39,11 @@ export default function NavBar() {
                 </Disclosure.Button>
               </div>
               <div className="flex flex-1 items-center justify-center sm:items-stretch sm:justify-start">
-                <div className="flex flex-shrink-0 items-center">
-                  <img
-                    className="block h-10 w-auto lg:hidden"
-                    src={palmTrees}
-                    alt="Fairbnb"
-                  />
-                  <img
-                    className="hidden h-10 w-auto lg:block"
-                    src={palmTrees}
-                    alt="Fairbnb"
-                  />
-                </div>
+              <div className="flex flex-shrink-0 items-center">
+                <Link to="/home">
+                  <img className="h-10 w-auto" src={palmTrees} alt="Fairbnb" />
+                </Link>
+              </div>
                 <div className="hidden sm:ml-6 sm:block">
                   <div className="flex space-x-4">
                     {navigation.map((item) => (
