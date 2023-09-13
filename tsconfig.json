@@ -14,13 +14,13 @@
     "paths": {
       "*": ["src/*"]
     },
-    "typeRoots": []
+    "typeRoots": ["./types", "./node_modules/@types"]
   },
   "exclude": ["node_modules", "src/**/*.js"],
   "include": [
     "src",
     "typings",
-    "src/custom.d.ts",
+    "src/types/custom.d.ts",
     "src/Backend/api"
 , "src/Backend/api/locationSearch.ts"  ]
 }
