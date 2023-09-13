@@ -11,4 +11,7 @@ export default defineConfig({
     //   },
     // },
   },
+  optimizeDeps: {
+    include: ["@heroicons/react/solid"],
+  },
 });

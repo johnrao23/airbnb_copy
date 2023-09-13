@@ -1,5 +1,5 @@
 import React, { useState } from "react";
-import { UserCircleIcon } from '@heroicons/react/solid';
+import { UserCircleIcon } from '@heroicons/react/24/outline';
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { useAuthStore } from "../Backend/store/store";
@@ -30,7 +30,7 @@ const Profile = () => {
                     <div className="border-b border-gray-900/10 pb-8">
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
                         <p className="mt-1 text-sm leading-6 text-gray-600">
-                            This information will be displayed publicly so be careful what you share.
+                            This information will be displayed publicly so be careful what you share. We will not save any of this information. This is for demonstration purposes only!
                         </p>
 
                         <div className="mt-6 grid grid-cols-1 gap-x-6 gap-y-6 sm:grid-cols-6">
@@ -239,9 +239,9 @@ const Profile = () => {
                                         </div>
                                         <div className="text-sm leading-6">
                                             <label htmlFor="comments" className="font-medium text-gray-900">
-                                            Comments
+                                            Host Comments
                                             </label>
-                                            <p className="text-gray-500">Get notified when someones posts a comment on a posting.</p>
+                                            <p className="text-gray-500">Get notified when a host posts a comment on a saved listing.</p>
                                         </div>
                                         </div>
                                         <div className="relative flex gap-x-3">
@@ -255,9 +255,9 @@ const Profile = () => {
                                         </div>
                                         <div className="text-sm leading-6">
                                             <label htmlFor="candidates" className="font-medium text-gray-900">
-                                            Candidates
+                                            Openings
                                             </label>
-                                            <p className="text-gray-500">Get notified when a candidate applies for a job.</p>
+                                            <p className="text-gray-500">Get notified when a new listing becomes available.</p>
                                         </div>
                                         </div>
                                         <div className="relative flex gap-x-3">
@@ -273,7 +273,7 @@ const Profile = () => {
                                             <label htmlFor="offers" className="font-medium text-gray-900">
                                             Offers
                                             </label>
-                                            <p className="text-gray-500">Get notified when a candidate accepts or rejects an offer.</p>
+                                            <p className="text-gray-500">Get notified with new special offers!</p>
                                         </div>
                                         </div>
                                 </div>
