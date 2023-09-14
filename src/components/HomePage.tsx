@@ -77,49 +77,49 @@ const HomePage: React.FC = () => {
       >
         <div className="absolute inset-0 bg-black opacity-50" />
         <div className="absolute w-full top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 md:px-0 text-xs sm:text-base">
-          <div className="bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg text-center w-11/12 md:w-1/2">
-            <h1 className="text-lg sm:text-2xl">Welcome, {user?.twitterUsername || user?.displayName || user?.email}</h1>
-            <p className="text-green-500 text-xl mb-2 sm:text-2xl sm:mb-4">Click Search to find your next adventure.</p>
-            <form onSubmit={handleSearch} className="mb-2 sm:mb-4">
-              <p className="text-sm sm:text-lg mb-1 sm:mb-2">Search for the location you want to travel to:</p>
-              <div className="mb-2 sm:mb-4">
+        <div className="bg-white bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg mx-auto">
+          <h1 className="text-center text-lg sm:text-2xl">Welcome, {user?.twitterUsername || user?.displayName || user?.email}</h1>
+          <p className="text-center text-green-500 text-xl mb-2 sm:text-2xl sm:mb-4">Click Search to find your next adventure.</p>
+          <form onSubmit={handleSearch} className="mb-2 sm:mb-4">
+            <p className="text-sm sm:text-lg mb-1 sm:mb-2">Search for the location you want to travel to:</p>
+            <div className="mb-2 sm:mb-4">
+              <input
+                type="search"
+                placeholder="Search here"
+                className="border border-gray-400 rounded-lg px-3 py-2 w-full focus:outline-none text-black text-xs sm:text-base"
+                onChange={e => {setSearchInput(e.target.value); setShowAlert(false);}}
+                value={searchInput}
+              />
+            </div>
+            <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0">
+              <div className="flex flex-row justify-center items-center mb-2 sm:mb-0">
+                <label className="sm:hidden text-white mr-2 w-20">Check in:</label>
                 <input
-                  type="search"
-                  placeholder="Search here"
-                  className="border border-gray-400 rounded-lg px-3 py-2 w-full focus:outline-none text-black text-xs sm:text-base"
-                  onChange={e => {setSearchInput(e.target.value); setShowAlert(false);}}
-                  value={searchInput}
+                  type="date"
+                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-base sm:text-base"
+                  onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
+                  value={checkInDate}
                 />
               </div>
-              <div className="flex flex-col sm:flex-row justify-center space-y-2 sm:space-y-0">
-                <div className="flex flex-row justify-center items-center mb-2 sm:mb-0">
-                  <label className="sm:hidden text-white mr-2 w-20">Check in:</label>
-                  <input
-                    type="date"
-                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black text-base sm:text-base"
-                    onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
-                    value={checkInDate}
-                  />
-                </div>
-                <div className="flex flex-row justify-center items-center mb-2 sm:mb-0">
-                  <label className="sm:hidden text-white mr-2 w-20">Check out:</label>
-                  <input
-                    type="date"
-                    className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black md:ml-2 text-base sm:text-base"
-                    onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
-                    value={checkOutDate}
-                  />
-                </div>
-                <div className="flex justify-center sm:justify-start">
-                  <button
-                    type="submit"
-                    className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg md:ml-2 focus:outline-none hover:bg-blue-600 text-base sm:text-base"
-                  >
-                    Search
-                  </button>
-                </div>
+              <div className="flex flex-row justify-center items-center mb-2 sm:mb-0">
+                <label className="sm:hidden text-white mr-2 w-20">Check out:</label>
+                <input
+                  type="date"
+                  className="border border-gray-400 px-3 py-2 w-full sm:w-64 focus:outline-none text-black md:ml-2 text-base sm:text-base"
+                  onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
+                  value={checkOutDate}
+                />
               </div>
-            </form>
+              <div className="flex justify-center sm:justify-start">
+                <button
+                  type="submit"
+                  className="bg-blue-500 text-white px-4 py-2 w-full sm:w-auto rounded-lg sm:rounded-r-lg md:ml-2 focus:outline-none hover:bg-blue-600 text-base sm:text-base"
+                >
+                  Search
+                </button>
+              </div>
+            </div>
+          </form>
           </div>
         </div>
       </div>
