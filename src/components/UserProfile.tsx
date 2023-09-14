@@ -23,7 +23,7 @@ const Profile = () => {
     return (
         <div>
             <NavBar />
-            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-8">
+            <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-8 px-4 sm:px-0">
             { !submitted ? (
                 <form onSubmit={handleSubmit}>
                     <div className="space-y-6">
