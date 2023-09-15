@@ -16,7 +16,7 @@ export default function NavBar() {
 
   const navigation = [
     { name: "Home", href: "/home" },
-    { name: "AskAi", href: "/askai" },
+    { name: "Ask Ai", href: "/askai" },
     { name: "About Us", href: "/about" },
     { name: "Contact", href: "/contactus" },
   ];
@@ -67,7 +67,7 @@ export default function NavBar() {
               <div className="absolute inset-y-0 right-0 flex items-center pr-2 sm:static sm:inset-auto sm:ml-6 sm:pr-0">
 
                 <NotificationButton />
-                
+
                 {/* Profile dropdown */}
                 <Menu as="div" className="relative ml-3">
                   <div>
