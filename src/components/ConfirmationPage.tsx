@@ -58,8 +58,8 @@ const Confirmation = () => {
                     </div>
                     <h2 className="text-red-500 font-bold text-center">***DISCLAIMER: PLEASE DO NOT ENTER ANY PERSONAL INFORMATION. THIS SITE IS FOR LEARNING PURPOSES ONLY!!!***</h2>
                 </form>
-                <Footer />
             </div>
+            <Footer />
         </div>
     )
 }
