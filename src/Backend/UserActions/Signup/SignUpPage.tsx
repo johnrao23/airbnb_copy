@@ -61,7 +61,6 @@ const SignUp = () => {
           A place to get last minute travel deals at a fair price!
         </h1>
           <div className="max-w-sm mx-auto py-12">
-            <h1 className="text-2xl font-bold mb-8 text-center">Sign up</h1>
             {alertMessage && (
               <div
                   className={`mx-auto my-4 text-center py-2 text-white w-2/3 md:w-1/2 lg:w-1/3 ${
@@ -74,6 +73,7 @@ const SignUp = () => {
             <div
               className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
+              <h1 className="text-2xl font-bold mb-8 text-center">Sign up</h1>
               <form>
                 <div className="mb-6">
                   <label htmlFor="email" className="text-lg">

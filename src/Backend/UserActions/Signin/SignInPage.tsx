@@ -176,18 +176,6 @@ export const SignIn = () => {
               src={palmTrees}
               alt="Fairbnb"
             />
-            <h2 className={`mt-6 text-center text-3xl font-bold tracking-tight ${styles.green}`}>
-              Sign in to your account
-            </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
-              <button
-                onClick={() => navigate("/Sign-Up")}
-                className="font-medium text-indigo-600 hover:text-indigo-500"
-              >
-                Sign Up for a New Account Here
-              </button>
-            </p>
           </div>
           {alertMessage && (
             <div
@@ -202,6 +190,18 @@ export const SignIn = () => {
             <div
               className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
+            <h2 className={`mt-2 text-center text-3xl font-bold tracking-tight ${styles.green}`}>
+              Sign in to your account
+            </h2>
+            <p className="mt-2 text-center text-sm text-gray-600">
+              Or{" "}
+              <button
+                onClick={() => navigate("/Sign-Up")}
+                className="font-medium text-indigo-600 hover:text-indigo-500"
+              >
+                Sign Up for a New Account Here
+              </button>
+            </p>
               <div>
                 <label
                   htmlFor="email"
