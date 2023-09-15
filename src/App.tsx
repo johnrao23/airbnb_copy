@@ -9,6 +9,7 @@ import Profile from "./components/UserProfile";
 import Settings from "./components/Settings"
 import About from "./components/AboutUs";
 import Contact from "./components/Contact";
+import AskAi from "./components/AskAi"
 import ProtectedRoute from "./components/ProtectedRoute.jsx";
 import SignUp from "./Backend/UserActions/Signup/SignUpPage";
 import SignIn from "./Backend/UserActions/Signin/SignInPage";
@@ -72,6 +73,14 @@ function App() {
             element={
               <ProtectedRoute>
                 <About />
+              </ProtectedRoute>
+            }
+          />
+          <Route
+            path="/askai"
+            element={
+              <ProtectedRoute>
+                <AskAi />
               </ProtectedRoute>
             }
           />
