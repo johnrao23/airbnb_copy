@@ -7,7 +7,7 @@ import { extractProviderData } from "../Backend/Firebase/firebaseUtils"
 
 const AppLoader = () => {
 
-    const navigate = useNavigate()
+    const navigate = useNavigate();
 
     useEffect(() => {
       getRedirectResult(auth)
