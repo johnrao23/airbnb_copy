@@ -124,7 +124,6 @@ const HomePage: React.FC = () => {
           </div>
         </div>
       </div>
-      <div className="mb-16 sm:mb-0"></div>
       <AIButton />
       <Footer />
     </div>
