@@ -3,6 +3,7 @@ import { UserCircleIcon } from '@heroicons/react/24/outline';
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import { useAuthStore } from "../Backend/store/store";
+import AIButton from "./AskAiButton";
 
 const Profile = () => {
     const user = useAuthStore((state) => state.user);
@@ -236,6 +237,7 @@ const Profile = () => {
                     <h2 className="text-2xl text-gray-800 mb-4">Thank you, {user?.name}</h2>
                 )}
             </div>
+            <AIButton />
             <Footer />
         </div>
     );

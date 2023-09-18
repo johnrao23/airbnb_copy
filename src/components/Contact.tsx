@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import CraterLake from "../assets/craterLake.png";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import AIButton from "./AskAiButton";
 
 const Contact = () => {
   const [showResponse, setShowResponse] = useState(false);
@@ -88,6 +89,8 @@ const Contact = () => {
           </div>
         </div>
       </div>
+
+      <AIButton />
       <Footer />
     </div>
   );

@@ -3,6 +3,7 @@ import { useAuthStore } from "../Backend/store/store";
 import nycImg from "../assets/nycImg.png";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import AIButton from "./AskAiButton";
 
 const About = () => {
   const user = useAuthStore((state) => state.user);
@@ -29,6 +30,7 @@ const About = () => {
         </div>
       </div>
 
+      <AIButton />
       <Footer />
     </div>
   )

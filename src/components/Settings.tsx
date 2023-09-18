@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
+import AIButton from "./AskAiButton";
 
 const Settings = () => {
   const user = useAuthStore((state) => state.user);
@@ -147,6 +148,7 @@ const Settings = () => {
                 )}
             </div>
         </div>
+        <AIButton />
         <Footer />
     </div>
   );
