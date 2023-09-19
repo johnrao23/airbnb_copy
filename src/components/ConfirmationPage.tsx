@@ -25,9 +25,11 @@ const Confirmation = () => {
             <NavBar />
             <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.twitterUsername || user?.displayName || user?.email}</h1>
             <div className="border rounded-lg p-4 m-2 flex flex-col items-center justify-between space-y-4 h-full">
+            <h2 className="text-2xl mb-2">{selectedResult.name}</h2>
                 <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
                     <img className="w-full h-full object-cover" src={selectedResult.images[0]} alt="Result" />
                 </div>
+                <p className="mb-2 text-green-500">${selectedResult.price.total}</p>
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                     <input type="hidden" name="remember" value="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
