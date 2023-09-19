@@ -78,7 +78,7 @@ const AskAi = () => {
               type="text"
               value={userInput}
               onChange={(e) => setUserInput(e.target.value)}
-              className="border rounded w-1/2 py-2 px-3"
+              className="border rounded w-1/4 py-2 px-3"
             />
             <button type="submit" className="bg-blue-500 hover:bg-blue-700 text-white font-bold py-2 px-4 rounded ml-4">
               Ask
