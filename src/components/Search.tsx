@@ -4,6 +4,7 @@ import Footer from "./Footer"
 import { useAuthStore } from "../Backend/store/store";
 import { useNavigate } from "react-router-dom";
 import sunsetField from "../assets/sunsetField.png"
+import AIButton from "./AskAiButton";
 
 const Search = () => {
   const user = useAuthStore((state) => state.user);
@@ -89,6 +90,7 @@ const Search = () => {
               </div>
           )}
       </div>
+      <AIButton />
       <Footer />
     </div>
   );
