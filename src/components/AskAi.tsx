@@ -66,7 +66,7 @@ const AskAi = () => {
             <ul className="list-none">
               {chatHistory.map((msg, index) => (
                 <li key={`${msg.type}-${index}`} className={`${msg.type === 'user' ? 'text-left' : 'text-right'} mb-2`}>
-                  <span className={`inline-block rounded-lg px-3 py-2 ${msg.type === 'user' ? 'bg-blue-500 text-white' : 'bg-green-300 text-black'}`}>
+                  <span className={`inline-block rounded-lg px-3 py-2 ${msg.type === 'user' ? 'bg-orange-500 text-white' : 'bg-green-300 text-black'}`}>
                     {msg.text}
                   </span>
                 </li>
