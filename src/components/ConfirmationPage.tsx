@@ -2,6 +2,7 @@ import React, { useState } from "react";
 import NavBar from "./NavBar";
 import { useAuthStore } from "../Backend/store/store"
 import Footer from "./Footer";
+import AIButton from "./AskAiButton";
 
 const Confirmation = () => {
     const user = useAuthStore((state) => state.user);
@@ -59,6 +60,7 @@ const Confirmation = () => {
                     <h2 className="text-red-500 font-bold text-center">***DISCLAIMER: PLEASE DO NOT ENTER ANY PERSONAL INFORMATION. THIS SITE IS FOR LEARNING PURPOSES ONLY!!!***</h2>
                 </form>
             </div>
+            <AIButton />
             <Footer />
         </div>
     )
