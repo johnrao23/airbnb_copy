@@ -7,8 +7,6 @@ import AIButton from "./AskAiButton";
 const Confirmation = () => {
     const user = useAuthStore((state) => state.user);
     const selectedResult = useAuthStore((state) => state.selectedResult);
-
-    // form state
     const [creditCardNumber, setCreditCardNumber] = useState("");
     const [expiryDate, setExpiryDate] = useState("");
     const [cvv, setCvv] = useState("");
@@ -17,41 +15,35 @@ const Confirmation = () => {
         e.preventDefault();
 
         alert("Congratulations! You are all set. Enjoy your stay!")
-        // For now, let's just log the form data.
         console.log({ creditCardNumber, expiryDate, cvv });
 
-        // Here is where you would send the data to your server or payment processor
+        // Here is where I would send the data to your server or payment processor
     };
 
     return (
-        <div className="overflow-hidden min-h-screen flex flex-col">
+        <div>
             <NavBar />
-            <div className="max-w-md mx-auto">
-                <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.twitterUsername || user?.displayName || user?.email}</h1>
+            <h1 className="text-center text-2xl font-bold my-4">Complete Your Reservation {user?.twitterUsername || user?.displayName || user?.email}</h1>
+            <div className="border rounded-lg p-4 m-2 flex flex-col items-center justify-between space-y-4 h-full">
                 <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
                     <img className="w-full h-full object-cover" src={selectedResult.images[0]} alt="Result" />
                 </div>
-
-
                 <form onSubmit={handleSubmit} className="mt-8 space-y-6">
                     <input type="hidden" name="remember" value="true" />
                     <div className="rounded-md shadow-sm -space-y-px">
-                        <div>
-                            <label htmlFor="credit-card" className="sr-only">Credit card number</label>
-                            <input id="credit-card" name="credit-card" type="text" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Credit card number" value={creditCardNumber} onChange={e => setCreditCardNumber(e.target.value)} />
+                        <div className="flex justify-center">
+                            <input id="credit-card" name="credit-card" type="text" required className="appearance-none rounded-none relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Credit card number" value={creditCardNumber} onChange={e => setCreditCardNumber(e.target.value)} />
                         </div>
-                        <div>
-                            <label htmlFor="expiry-date" className="sr-only">Expiry date</label>
-                            <input id="expiry-date" name="expiry-date" type="text" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-t-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Expiry date (MM/YY)" value={expiryDate} onChange={e => setExpiryDate(e.target.value)} />
+                        <div className="flex justify-center">
+                            <input id="expiry-date" name="expiry-date" type="text" required className="appearance-none rounded-none relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="Expiry date (MM/YY)" value={expiryDate} onChange={e => setExpiryDate(e.target.value)} />
                         </div>
-                        <div>
-                            <label htmlFor="cvv" className="sr-only">CVV</label>
-                            <input id="cvv" name="cvv" type="text" required className="appearance-none rounded-none relative block w-full px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="CVV" value={cvv} onChange={e => setCvv(e.target.value)} />
+                        <div className="flex justify-center">
+                            <input id="cvv" name="cvv" type="text" required className="appearance-none rounded-none relative block w-1/2 px-3 py-2 border border-gray-300 placeholder-gray-500 text-gray-900 rounded-b-md focus:outline-none focus:ring-indigo-500 focus:border-indigo-500 focus:z-10 sm:text-sm" placeholder="CVV" value={cvv} onChange={e => setCvv(e.target.value)} />
                         </div>
                     </div>
-
-                    <div>
-                        <button type="submit" className="group relative w-full flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-indigo-600 hover:bg-indigo-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
+    
+                    <div className="flex justify-center">
+                        <button type="submit" className="group relative mt-auto flex justify-center py-2 px-4 border border-transparent text-sm font-medium rounded-md text-white bg-blue-500 hover:bg-blue-700 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-indigo-500">
                             <span className="absolute left-0 inset-y-0 flex items-center pl-3">
                             </span>
                             Confirm Reservation
