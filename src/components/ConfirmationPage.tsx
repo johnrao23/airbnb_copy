@@ -37,7 +37,7 @@ const Confirmation = () => {
                     <div className="text-center space-y-4">
                         <h2 className="text-2xl font-bold">Booking Successful!</h2>
                         <p>Thank you for your reservation. Enjoy your stay!</p>
-                        <Link to="/home" className="text-blue-500 hover:underline">Go back to Home</Link>
+                        <Link to="/home" className="text-blue-500 hover:underline">Go back to Home Page</Link>
                     </div>
                 ) : (
                     <form onSubmit={handleSubmit} className="mt-8 space-y-6">
