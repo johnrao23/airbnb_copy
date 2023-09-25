@@ -94,11 +94,15 @@ const Profile = () => {
                                     Photo
                                 </label>
                                 <div className="mt-2 flex items-center gap-x-3">
-                                    <img 
-                                        src={userImage || <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />} 
-                                        alt="User" 
-                                        className="h-10 w-10 rounded-full object-cover"
-                                    />
+                                    {userImage ? (
+                                        <img 
+                                            src={userImage} 
+                                            alt="User" 
+                                            className="h-10 w-10 rounded-full object-cover"
+                                        />
+                                    ) : (
+                                        <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />
+                                    )}
                                     <input
                                         type="file"
                                         onChange={handleImageChange}
