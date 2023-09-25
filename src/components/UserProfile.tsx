@@ -98,7 +98,7 @@ const Profile = () => {
                                         <img 
                                             src={userImage} 
                                             alt="User" 
-                                            className="h-10 w-10 rounded-full object-cover"
+                                            className="h-20 w-20 rounded-full object-cover"
                                         />
                                     ) : (
                                         <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />
