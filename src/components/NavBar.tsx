@@ -1,11 +1,12 @@
 import React, { Fragment } from "react";
 import { Link, useLocation } from "react-router-dom";
 import { Disclosure, Menu, Transition } from "@headlessui/react";
-import { Bars3Icon, XMarkIcon, UserCircleIcon } from "@heroicons/react/24/outline";
+import { Bars3Icon, XMarkIcon } from "@heroicons/react/24/outline";
 import NotificationButton from "./BellButton"
 import SignOut from "../Backend/UserActions/Signout";
 import { useAuthStore } from "../Backend/store/store";
 import palmTrees from "../assets/palmTrees.png"
+import ProfileImg from "../assets/profileicon.png"
 
 function classNames(...classes) {
   return classes.filter(Boolean).join(" ");
@@ -77,7 +78,11 @@ export default function NavBar() {
                         {user?.image ? (
                           <img className="h-10 w-10 rounded-full" src={user.image} alt="User" />
                         ) : (
-                          <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />
+                          <img
+                          className="h-10 w-10 rounded-full"
+                          src={ProfileImg}
+                          alt=""
+                        />
                         )}
                     </Menu.Button>
                   </div>
