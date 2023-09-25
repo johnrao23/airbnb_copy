@@ -73,11 +73,11 @@ export default function NavBar() {
                   <div>
                     <Menu.Button className="flex rounded-full bg-gray-800 text-sm focus:outline-none focus:ring-2 focus:ring-white focus:ring-offset-2 focus:ring-offset-gray-800">
                       <span className="sr-only">Open user menu</span>
-                      <img
-                        className="h-8 w-8 rounded-full"
-                        src={ProfileImg}
-                        alt=""
-                      />
+                        {userImage ? (
+                          <img className="h-8 w-8 rounded-full" src={userImage} alt="User" />
+                        ) : (
+                          <UserCircleIcon className="h-8 w-8 text-gray-300" aria-hidden="true" />
+                        )}
                     </Menu.Button>
                   </div>
                   <Transition
