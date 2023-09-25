@@ -77,7 +77,7 @@ export default function NavBar() {
                         {user?.image ? (
                           <img className="h-10 w-10 rounded-full" src={user.image} alt="User" />
                         ) : (
-                          <UserCircleIcon className="h-8 w-8 text-gray-300" aria-hidden="true" />
+                          <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />
                         )}
                     </Menu.Button>
                   </div>

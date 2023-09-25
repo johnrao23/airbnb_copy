@@ -107,7 +107,7 @@ const Profile = () => {
                                             className="h-20 w-20 rounded-full object-cover"
                                         />
                                     ) : (
-                                        <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />
+                                        <UserCircleIcon className="h-14 w-14 text-gray-300" aria-hidden="true" />
                                     )}
                                     <input
                                         type="file"
