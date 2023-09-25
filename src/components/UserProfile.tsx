@@ -29,7 +29,13 @@ const Profile = () => {
             }
             reader.readAsDataURL(file);
         }
-    }    
+    }
+
+    const handleCancel = () => {
+        setUserInfo(user?.name || "");
+        setUserImage(user?.image || null);
+        setSubmitted(false);
+    }
 
     const handleSubmit = (event) => {
         event.preventDefault();
