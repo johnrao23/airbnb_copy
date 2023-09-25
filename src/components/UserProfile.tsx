@@ -9,15 +9,31 @@ const Profile = () => {
     const user = useAuthStore((state) => state.user);
     const setUser = useAuthStore((state) => state.setUser);
     const [userinfo, setUserInfo] = useState(user?.name || "");
+    const [userImage, setUserImage] = useState(user?.image || "");
     const [submitted, setSubmitted] = useState(false);
 
     const handleNameChange = (event) => {
         setUserInfo(event.target.value);
     }
 
+    const handleImageChange = (event) => {
+        const file = event.target.files[0];
+        if (file) {
+            const reader = new FileReader();
+            reader.onloadend = () => {
+                if (typeof reader.result === "string") {
+                    setUserImage(reader.result);
+                } else {
+                    console.error('Expected string but received ArrayBuffer');
+                }
+            }
+            reader.readAsDataURL(file);
+        }
+    }    
+
     const handleSubmit = (event) => {
         event.preventDefault();
-        setUser({ ...user, name: userinfo });
+        setUser({ ...user, name: userinfo, image: userImage });
         setSubmitted(true);
     }
 
@@ -78,17 +94,19 @@ const Profile = () => {
                                     Photo
                                 </label>
                                 <div className="mt-2 flex items-center gap-x-3">
-                                    <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />
-                                    <button
-                                        type="button"
+                                    <img 
+                                        src={userImage || <UserCircleIcon className="h-10 w-10 text-gray-300" aria-hidden="true" />} 
+                                        alt="User" 
+                                        className="h-10 w-10 rounded-full object-cover"
+                                    />
+                                    <input
+                                        type="file"
+                                        onChange={handleImageChange}
                                         className="rounded-md bg-white px-2.5 py-1 text-sm font-semibold text-gray-900 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50"
-                                    >
-                                        Change
-                                    </button>
+                                    />
                                 </div>
                             </div>
                         </div>
-                    </div>
 
                     <div className="border-b border-gray-900/10 pb-8">
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Personal Information</h2>
@@ -229,6 +247,7 @@ const Profile = () => {
                         >
                             Save
                         </button>
+                    </div>
                     </div>
                     </div>
                     </div>

@@ -57,6 +57,7 @@ export interface User {
   displayName?: string | null,
   twitterUsername?: string | null;
   githubUsername?: string | null;
+  image?: string | null;
 }
 
 export interface AuthStore {
