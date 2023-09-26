@@ -77,44 +77,44 @@ const HomePage: React.FC = () => {
         }}
       >
         <div className="absolute inset-0 bg-black opacity-40" />
-        <div className="absolute w-full top-[65%] sm:top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 md:px-0 text-xs sm:text-base">
-        <div className="bg-white bg-opacity-20 p-5 md:p-10 rounded-lg shadow-lg mx-auto">
-          <h1 className="text-center text-lg sm:text-2xl">Welcome, {user?.twitterUsername || user?.displayName || user?.email}</h1>
-          <p className="text-center font-bold text-green-500 text-xl mb-2 sm:text-2xl sm:mb-4">Click Search to find your next adventure.</p>
-          <form onSubmit={handleSearch} className="mb-2 sm:mb-4">
-            <p className="text-sm sm:text-lg mb-1 sm:mb-2">Search for the location you want to travel to:</p>
-            <div className="mb-2 sm:mb-4">
+        <div className="absolute w-full top-[65%] lg:top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 lg:px-0 text-xs lg:text-base">
+        <div className="bg-white bg-opacity-20 p-5 lg:p-10 rounded-lg shadow-lg mx-auto">
+          <h1 className="text-center text-lg lg:text-2xl">Welcome, {user?.twitterUsername || user?.displayName || user?.email}</h1>
+          <p className="text-center font-bold text-green-500 text-xl mb-2 lg:text-2xl lg:mb-4">Click Search to find your next adventure.</p>
+          <form onSubmit={handleSearch} className="mb-2 lg:mb-4">
+            <p className="text-lg lg:text-lg mb-1 lg:mb-2">Search for the location you want to travel to:</p>
+            <div className="mb-2 lg:mb-4">
               <input
                 type="search"
                 placeholder="Search here"
-                className="border border-gray-400 rounded-lg px-3 py-2 w-full focus:outline-none text-black text-xs md:text-base"
+                className="border border-gray-400 rounded-lg px-3 py-2 w-full focus:outline-none text-black text-xs lg:text-base"
                 onChange={e => {setSearchInput(e.target.value); setShowAlert(false);}}
                 value={searchInput}
               />
             </div>
-            <div className="flex flex-col md:flex-row justify-center space-y-2 md:space-y-0">
-              <div className="flex flex-row justify-center items-center mb-2 md:mb-0">
-                <label className="md:hidden text-white mr-2 w-20">Check in:</label>
+            <div className="flex flex-col lg:flex-row justify-center space-y-2 lg:space-y-0">
+              <div className="flex flex-row justify-center items-center mb-2 lg:mb-0">
+                <label className="lg:hidden text-white mr-2 w-20">Check in:</label>
                 <input
                   type="date"
-                  className="border border-gray-400 px-3 py-2 w-full md:w-64 focus:outline-none text-black text-base md:text-base"
+                  className="border border-gray-400 px-3 py-2 w-full lg:w-64 focus:outline-none text-black text-base lg:text-base"
                   onChange={e => {setCheckInDate(e.target.value); setShowAlert(false);}}
                   value={checkInDate}
                 />
               </div>
-              <div className="flex flex-row justify-center items-center mb-2 md:mb-0">
-                <label className="md:hidden text-white mr-2 w-20">Check out:</label>
+              <div className="flex flex-row justify-center items-center mb-2 lg:mb-0">
+                <label className="lg:hidden text-white mr-2 w-20">Check out:</label>
                 <input
                   type="date"
-                  className="border border-gray-400 px-3 py-2 w-full md:w-64 focus:outline-none text-black md:ml-2 text-base md:text-base"
+                  className="border border-gray-400 px-3 py-2 w-full lg:w-64 focus:outline-none text-black lg:ml-2 text-base lg:text-base"
                   onChange={e => {setCheckOutDate(e.target.value); setShowAlert(false);}}
                   value={checkOutDate}
                 />
               </div>
-              <div className="flex justify-center md:justify-start">
+              <div className="flex justify-center lg:justify-start">
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 w-full md:w-auto rounded-lg md:rounded-r-lg md:ml-2 focus:outline-none hover:bg-blue-600 text-base md:text-base"
+                  className="bg-blue-500 text-white px-4 py-2 w-full lg:w-auto rounded-lg lg:rounded-r-lg lg:ml-2 focus:outline-none hover:bg-blue-600 text-base lg:text-base"
                 >
                   Search
                 </button>
