@@ -114,7 +114,7 @@ const HomePage: React.FC = () => {
               <div className="flex justify-center lg:justify-start">
                 <button
                   type="submit"
-                  className="bg-blue-500 text-white px-4 py-2 w-full lg:w-auto rounded-lg lg:rounded-r-lg lg:ml-2 focus:outline-none hover:bg-blue-600 text-base lg:text-base"
+                  className="bg-blue-600 text-white px-4 py-2 w-full lg:w-auto rounded-lg lg:rounded-r-lg lg:ml-2 focus:outline-none hover:bg-blue-700 text-base lg:text-base"
                 >
                   Search
                 </button>
