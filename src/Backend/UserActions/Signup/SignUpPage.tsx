@@ -113,7 +113,7 @@ const SignUp = () => {
                 <div className="flex justify-center items-center">
                   <button
                     onClick={handleSignUp}
-                    className="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 disabled:opacity-50"
+                    className="py-2 px-4 bg-blue-600 hover:bg-blue-700 text-white font-bold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 disabled:opacity-50"
                     disabled={loading}
                   >
                     {loading ? "Loading..." : "Sign up"}
