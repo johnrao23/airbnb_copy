@@ -74,6 +74,15 @@ const SignUp = () => {
               className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
               <h1 className="text-2xl font-bold mb-8 text-center">Sign up</h1>
+              <p className="mt-2 text-center text-sm text-gray-600">
+                Or{" "}
+                <button
+                  onClick={() => navigate("/")}
+                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                >
+                  Back to Sign In
+                </button>
+              </p>
               <form>
                 <div className="mb-6">
                   <label htmlFor="email" className="text-lg">
@@ -104,7 +113,7 @@ const SignUp = () => {
                 <div className="flex justify-center items-center">
                   <button
                     onClick={handleSignUp}
-                    className="py-2 px-4 bg-indigo-600 hover:bg-indigo-700 text-white font-bold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 disabled:opacity-50"
+                    className="py-2 px-4 bg-blue-500 hover:bg-blue-600 text-white font-bold rounded-lg shadow-md focus:outline-none focus:ring-2 focus:ring-indigo-500 focus:ring-offset-2 focus:ring-offset-gray-100 disabled:opacity-50"
                     disabled={loading}
                   >
                     {loading ? "Loading..." : "Sign up"}
