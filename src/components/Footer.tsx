@@ -50,8 +50,7 @@ const Footer = () => {
               />
             </svg>
           ),
-        }
-        
+        },
         // {
         //   name: 'YouTube',
         //   href: '#',
