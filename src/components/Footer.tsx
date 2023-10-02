@@ -73,7 +73,7 @@ const Footer = () => {
               ))}
             </div>
             <div className="md:order-1">
-              <p className="text-center text-xs leading-5 text-gray-600">
+              <p className="text-center text-xs mt-2 md:mt-0 leading-5 text-gray-600">
                 &copy; Fairbnb, A John Rao Project.
               </p>
             </div>
