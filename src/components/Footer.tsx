@@ -43,7 +43,7 @@ const Footer = () => {
           name: 'Portfolio',
           href: 'https://www.johnrao.com',
           icon: (props) => (
-            <img src={Globe} alt="Portfolio" className="h-6 w-auto object-cover" {...props} />
+            <img src={Globe} alt="Portfolio" className="h-4 w-auto object-cover" {...props} />
           ),
         },        
         // {
