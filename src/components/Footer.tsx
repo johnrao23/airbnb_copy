@@ -1,4 +1,5 @@
 import React from "react";
+import Globe from "../assets/globe.png"
 
 const Footer = () => {
 
@@ -42,15 +43,9 @@ const Footer = () => {
           name: 'Portfolio',
           href: 'https://www.johnrao.com',
           icon: (props) => (
-            <svg fill="currentColor" viewBox="0 0 24 24" {...props}>
-              <path
-              fillRule="evenodd" 
-              d="M12 2C6.48 2 2 6.48 2 12s4.48 10 10 10 10-4.48 10-10S17.52 2 12 2zm0 18c-1.84 0-3.55-.64-4.89-1.73.03-.23.06-.45.06-.69C9.41 14.38 11.19 13 13.17 13h1.25c1.44 0 2.69.53 3.63 1.37-.19.98-1.17 1.68-2.24 1.75-1.05.07-2.09-.15-2.91-.58-.1.02-.21.03-.31.03-1.65 0-2.99-1.34-2.99-3s1.34-3 3-3h2.19c.28 0 .5.22.5.5 0 .19-.07.36-.18.5-.4.5-.64 1.15-.64 1.82s.24 1.31.64 1.82c.11.14.18.31.18.5 0 .28-.22.5-.5.5H13.5c-1.17 0-2.23-.53-2.91-1.32-.07.19-.12.39-.12.6 0 1.32.79 2.47 1.92 3.11-1.33 1.17-3.12 1.88-5.05 1.88z"
-              clipRule="evenodd"
-              />
-            </svg>
+            <img src={Globe} alt="Portfolio" className="h-6 w-auto object-cover" {...props} />
           ),
-        },
+        },        
         // {
         //   name: 'YouTube',
         //   href: '#',
