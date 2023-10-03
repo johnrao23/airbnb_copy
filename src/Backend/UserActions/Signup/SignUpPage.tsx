@@ -58,6 +58,9 @@ const SignUp = () => {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div className="bg-cover bg-no-repeat flex-grow" style={{ backgroundImage: `url(${dockImg})` }}>
+        <h1 className="text-4xl font-bold text-orange-500 text-center pt-8 px-4 sm:px-0">
+            A place to get last minute travel deals at a fair price!
+          </h1>
         <div className="sm:mx-auto sm:w-full sm:max-w-md my-10">
             <img
               className="mx-auto h-20 w-20"
@@ -76,7 +79,7 @@ const SignUp = () => {
               </div>
             )}
             <div
-              className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
+              className="bg-white bg-opacity-70 px-4 py-6 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
               <h1 className="text-2xl font-bold mb-8 text-center text-orange-500">Sign up</h1>
               <p className="mt-2 text-center text-sm text-gray-600">
