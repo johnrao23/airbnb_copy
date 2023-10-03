@@ -4,6 +4,7 @@ import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import Footer from "../../../components/Footer"
 import dockImg from "../../../assets/dockImg.png"
+import palmTrees from "../../../assets/palmTrees.png"
 
 interface SignUpResult {
   user?: User;
@@ -57,10 +58,14 @@ const SignUp = () => {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div className="bg-cover bg-no-repeat flex-grow" style={{ backgroundImage: `url(${dockImg})` }}>
-        <h1 className="text-4xl font-bold text-orange-500 text-center my-8 px-4 sm:px-0">
-          A place to get last minute travel deals at a fair price!
-        </h1>
-          <div className="max-w-sm mx-auto py-12">
+        <div className="sm:mx-auto sm:w-full sm:max-w-md my-10">
+            <img
+              className="mx-auto h-20 w-20"
+              src={palmTrees}
+              alt="Fairbnb"
+            />
+          </div>
+          <div className="max-w-sm mx-auto py-6">
             {alertMessage && (
               <div
                   className={`mx-auto my-4 text-center py-2 text-white w-2/3 md:w-1/2 lg:w-1/3 ${
@@ -129,3 +134,5 @@ const SignUp = () => {
 };
 
 export default SignUp;
+
+<h1 className="text-4xl font-bold text-orange-500 text-center my-8 px-4 sm:px-0"></h1>

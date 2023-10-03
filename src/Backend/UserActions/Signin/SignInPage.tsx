@@ -166,10 +166,10 @@ export const SignIn = () => {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div className="bg-cover bg-no-repeat flex-grow" style={{ backgroundImage: `url(${wavesImg})` }}>
-        <h1 className="text-4xl font-bold text-orange-500 text-center pt-8 px-4 sm:px-0">
+        <h1 className="text-4xl font-bold text-orange-400 text-center pt-8 px-4 sm:px-0">
           A place to get last minute travel deals at a fair price!
         </h1>
-        <div className="flex min-h-full flex-col justify-between py-12 sm:px-6 lg:px-8">
+        <div className="flex min-h-full flex-col justify-between py-8 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
             <img
               className="mx-auto h-20 w-20"
@@ -190,7 +190,7 @@ export const SignIn = () => {
             <div
               className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
-            <h2 className={`mt-2 text-center text-3xl font-bold tracking-tight ${styles.green}`}>
+            <h2 className={`mt-2 text-center text-3xl font-bold tracking-tight ${styles.color}`}>
               Sign in to your account
             </h2>
             <p className="mt-2 text-center text-sm text-gray-600">
