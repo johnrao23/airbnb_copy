@@ -80,7 +80,7 @@ const HomePage: React.FC = () => {
         <div className="absolute w-full top-[65%] md:top-[72%] transform -translate-y-1/2 flex flex-col items-center text-white px-4 lg:px-0 text-xs lg:text-base">
         <div className="bg-white bg-opacity-20 p-5 lg:p-10 rounded-lg shadow-lg mx-auto">
           <h1 className="text-center text-lg lg:text-2xl">Welcome, {user?.twitterUsername || user?.displayName || user?.email}</h1>
-          <p className="text-center font-bold text-green-500 text-xl mb-2 lg:text-2xl md:mb-4">Click Search to find your next adventure.</p>
+          <p className="text-center text-orange-400 font-bold text-xl mb-2 lg:text-2xl md:mb-4">Click Search to find your next adventure.</p>
           <form onSubmit={handleSearch} className="mb-2 lg:mb-4">
             <p className="text-lg lg:text-lg mb-1 lg:mb-2">Search for the location you want to travel to:</p>
             <div className="mb-2 lg:mb-4">

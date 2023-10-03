@@ -78,7 +78,7 @@ const SignUp = () => {
             <div
               className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
             >
-              <h1 className="text-2xl font-bold mb-8 text-center">Sign up</h1>
+              <h1 className="text-2xl font-bold mb-8 text-center text-orange-500">Sign up</h1>
               <p className="mt-2 text-center text-sm text-gray-600">
                 Or{" "}
                 <button
