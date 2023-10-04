@@ -83,12 +83,12 @@ const SignUp = () => {
             >
               <h1 className="text-2xl font-bold mb-8 text-center text-orange-500">Sign up</h1>
               <p className="mt-2 text-center text-sm text-gray-600">
-                Or{" "}
+                Or Back to{" "}
                 <button
                   onClick={() => navigate("/")}
-                  className="font-medium text-indigo-600 hover:text-indigo-500"
+                  className="font-medium text-orange-600 hover:text-orange-500"
                 >
-                  Back to Sign In
+                  Sign In
                 </button>
               </p>
               <form>
