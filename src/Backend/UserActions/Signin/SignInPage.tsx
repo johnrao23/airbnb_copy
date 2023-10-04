@@ -197,10 +197,11 @@ export const SignIn = () => {
               Or{" "}
               <button
                 onClick={() => navigate("/Sign-Up")}
-                className="font-medium text-indigo-600 hover:text-indigo-500"
+                className="font-medium text-orange-600 hover:text-orange-500"
               >
-                Sign Up for a New Account Here
+                Sign Up
               </button>
+              {" "}for a New Account Here
             </p>
               <div>
                 <label
@@ -263,7 +264,7 @@ export const SignIn = () => {
                 <div className="text-sm">
                   <button
                     // Will need to set up functionality using Firebase Auth ...
-                    className="font-medium text-indigo-600 hover:text-indigo-500"
+                    className="font-medium text-orange-600 hover:text-orange-500"
                     onClick={() => handleForgotPassword(email)}
                   >
                     Forgot your password?
