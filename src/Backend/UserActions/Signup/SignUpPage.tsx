@@ -86,7 +86,7 @@ const SignUp = () => {
                 Or Back to{" "}
                 <button
                   onClick={() => navigate("/")}
-                  className="font-medium text-orange-600 hover:text-orange-500"
+                  className="font-medium text-orange-600 hover:text-orange-500 hover:underline"
                 >
                   Sign In
                 </button>
