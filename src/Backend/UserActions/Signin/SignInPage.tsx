@@ -263,8 +263,7 @@ export const SignIn = () => {
 
                 <div className="text-sm">
                   <button
-                    // Will need to set up functionality using Firebase Auth ...
-                    className="font-medium text-orange-600 hover:text-orange-500"
+                    className="font-medium text-orange-600 hover:text-orange-500 hover:underline"
                     onClick={() => handleForgotPassword(email)}
                   >
                     Forgot your password?
