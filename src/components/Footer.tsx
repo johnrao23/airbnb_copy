@@ -74,7 +74,7 @@ const Footer = () => {
             </div>
             <div className="md:order-1">
               <p className="text-center text-sm mt-2 md:mt-0 leading-5 text-gray-600">
-                  &copy; Fairbnb, A <a href="https://www.johnrao.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 font-bold hover:underline hover:scale-110 transform transition-transform duration-200">John Rao</a> Project.
+                  &copy; Fairbnb, A <a href="https://www.johnrao.com" target="_blank" rel="noopener noreferrer" className="text-orange-500 font-bold hover:underline">John Rao</a> Project.
               </p>
             </div>
           </div>
