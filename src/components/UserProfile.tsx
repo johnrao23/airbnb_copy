@@ -13,6 +13,8 @@ const Profile = () => {
     const [userImage, setUserImage] = useState(user?.image || "");
     const [submitted, setSubmitted] = useState(false);
 
+    const navigate = useNavigate();
+
     const handleNameChange = (event) => {
         setUserInfo(event.target.value);
     }
@@ -268,7 +270,7 @@ const Profile = () => {
                         <h2 className="text-2xl text-gray-800 mb-4">Thank you, {user?.name}</h2>
                         <button
                         type="submit"
-                        onClick={us}
+                        onClick={navigate("/profile")}
                         className="rounded-md bg-gradient-to-r from-indigo-500 to-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gradient-to-r hover:from-indigo-400 hover:to-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-200 ease-in-out"
                         >
                             Back to Profile
