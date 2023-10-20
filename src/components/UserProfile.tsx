@@ -270,7 +270,7 @@ const Profile = () => {
                     </div>
                 </form>
                 ) : (
-                    <div className="flex-col items-center justify-between">
+                    <div className="flex flex-col items-center justify-between">
                         <h2 className="text-2xl text-gray-800 mb-4">Thank you, {user?.name}</h2>
                         <button
                         type="submit"
@@ -279,7 +279,7 @@ const Profile = () => {
                         >
                             Back to Home Page
                         </button>
-                    </ div>
+                    </div>
                 )}
             </div>
             <AIButton />
