@@ -3,12 +3,15 @@ import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import AIButton from "./AskAiButton";
+import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const [userinfo, setUserInfo] = useState(user?.name || "");
   const [submitted, setSubmitted] = useState(false);
+
+  const navigate = useNavigate();
 
   const handleNameChange = (event) => {
       setUserInfo(event.target.value);
@@ -18,6 +21,10 @@ const Settings = () => {
       event.preventDefault();
       setUser({ ...user, name: userinfo });
       setSubmitted(true);
+  }
+
+  const backToHome = () => {
+    return navigate("/home");
   }
 
   return (
