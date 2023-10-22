@@ -189,7 +189,7 @@ const Profile = () => {
                                     <option>United States</option>
                                     <option>Canada</option>
                                     <option>Mexico</option>
-                                    <option>Mexico</option>
+                                    <option>Italy</option>
                                 </select>
                             </div>
                         </div>
