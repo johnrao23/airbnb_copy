@@ -58,7 +58,7 @@ const SignUp = () => {
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
       <div className="bg-cover bg-no-repeat flex-grow" style={{ backgroundImage: `url(${dockImg})` }}>
-        <h1 className="text-4xl font-bold text-black text-center pt-8 px-4 sm:px-0">
+        <h1 className="text-4xl font-bold text-orange-500 text-center pt-8 px-4 sm:px-0">
             A place to get last minute travel deals at a fair price!
           </h1>
         <div className="sm:mx-auto sm:w-full sm:max-w-md my-10">
