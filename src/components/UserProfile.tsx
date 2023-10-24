@@ -19,7 +19,7 @@ const Profile = () => {
         setUserInfo(event.target.value);
     }
 
-    const handleNameChange = (event) => {
+    const handleFirstNameChange = (event) => {
         setUserInfo(event.target.value);
     }
 
