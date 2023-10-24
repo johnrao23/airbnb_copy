@@ -9,14 +9,16 @@ import { useNavigate } from "react-router-dom";
 const Profile = () => {
     const user = useAuthStore((state) => state.user);
     const setUser = useAuthStore((state) => state.setUser);
-    const [userinfo, setUserInfo] = useState(user?.name || "");
+    const [userID, setUserID] = useState(user?.name || "");
+    const [firstName, setFirstName] = useState(user?.name || "");
+    const [lastName, setLastName] = useState(user?.name || "");
     const [userImage, setUserImage] = useState(user?.image || "");
     const [submitted, setSubmitted] = useState(false);
 
     const navigate = useNavigate();
 
     const handleUserID = (event) => {
-        setUserInfo(event.target.value);
+        setUserID(event.target.value);
     }
 
     const handleFirstNameChange = (event) => {
