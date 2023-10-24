@@ -52,7 +52,7 @@ const Profile = () => {
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setUser({ ...user, name: firstName, image: userImage });
+        setUser({ ...user, name: userID, image: userImage });
         setSubmitted(true);
     }
 
