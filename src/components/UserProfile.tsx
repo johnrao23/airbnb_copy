@@ -22,11 +22,11 @@ const Profile = () => {
     }
 
     const handleFirstNameChange = (event) => {
-        setUserInfo(event.target.value);
+        setFirstName(event.target.value);
     }
 
     const handleLastNameChange = (event) => {
-        setUserInfo(event.target.value);
+        setLastName(event.target.value);
     }
 
     const handleImageChange = (event) => {
@@ -45,14 +45,14 @@ const Profile = () => {
     }
 
     const handleCancel = () => {
-        setUserInfo(user?.name || "");
+        setUserID(user?.name || "");
         setUserImage(user?.image || null);
         setSubmitted(false);
     }
 
     const handleSubmit = (event) => {
         event.preventDefault();
-        setUser({ ...user, name: userinfo, image: userImage });
+        setUser({ ...user, name: firstName, image: userImage });
         setSubmitted(true);
     }
 
@@ -88,7 +88,7 @@ const Profile = () => {
                                         name="username"
                                         id="username"
                                         autoComplete="username"
-                                        value={userinfo}
+                                        value={userID}
                                         onChange={handleUserID}
                                         className="block flex-1 border-0 bg-transparent py-1.5 pl-0.5 text-gray-900 placeholder:text-gray-400 focus:ring-0 sm:text-sm sm:leading-6"
                                         placeholder="janesmith"
