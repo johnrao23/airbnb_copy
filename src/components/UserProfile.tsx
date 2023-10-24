@@ -23,6 +23,10 @@ const Profile = () => {
         setUserInfo(event.target.value);
     }
 
+    const handleLastNameChange = (event) => {
+        setUserInfo(event.target.value);
+    }
+
     const handleImageChange = (event) => {
         const file = event.target.files[0];
         if (file) {
