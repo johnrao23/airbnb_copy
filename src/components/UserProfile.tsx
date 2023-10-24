@@ -15,7 +15,7 @@ const Profile = () => {
 
     const navigate = useNavigate();
 
-    const handleNameChange = (event) => {
+    const handleUserID = (event) => {
         setUserInfo(event.target.value);
     }
 
