@@ -101,7 +101,7 @@ const Profile = () => {
                                 <label htmlFor="about" className="block text-sm font-medium leading-6 text-gray-900">
                                     About
                                 </label>
-                                <div className="mt-4">
+                                <div className="mt-8">
                                     <textarea
                                         id="about"
                                         name="about"
