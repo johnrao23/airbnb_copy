@@ -61,7 +61,7 @@ const HomePage: React.FC = () => {
     <div className="min-h-screen flex flex-col overflow-hidden">
       <NavBar />
       {showAlert && (
-        <div className="bg-red-600 text-white text-center py-2">
+        <div className="bg-red-700 text-white text-center py-2">
           {alertMessage}
         </div>
       )}
