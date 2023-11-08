@@ -20,7 +20,7 @@ const About = () => {
       >
         <div className="flex justify-center mt-4 md:mt-4">
           <div className="bg-white sm:bg-opacity-30 md:bg-opacity-10 p-5 md:p-10 rounded-lg shadow-lg text-center w-11/12 md:w-2/3">
-            <h1 className="text-2xl md:text-4xl font-bold text-orange-800 mb-2 md:mb-4">Thanks for asking about us, {user?.twitterUsername || user?.displayName || user?.email}!</h1>
+            <h1 className="text-2xl md:text-4xl font-bold mb-2 md:mb-4">Thanks for asking about us, {user?.twitterUsername || user?.displayName || user?.email}!</h1>
             <p className="text-lg md:text-xl mb-1 md:mb-2">Here at Fairbnb, we want to provide you with once in a lifetime opportunities for a much better price!</p>
             <p className="text-lg md:text-xl mb-1 md:mb-2">Our idea is, to provide last minute discounted offers on rentals that travelers would typically still have to pay full price for.</p>
             <p className="text-lg md:text-xl mb-1 md:mb-2">This is a win win for the renter and rentee! The renter still gets to rent out their property instead of no one renting it at the same high price, while the rentee gets to travel to their favorite vacation destinations at a price that allows them to use more of their money on experiences instead of just their stay!</p>
