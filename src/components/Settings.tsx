@@ -158,7 +158,7 @@ const Settings = () => {
                         onClick={() => setSubmitted(false)}
                         className="rounded-md bg-gradient-to-r from-indigo-500 to-indigo-600 px-3 py-2 text-sm font-semibold text-white shadow-sm hover:bg-gradient-to-r hover:from-indigo-400 hover:to-indigo-700 focus-visible:outline focus-visible:outline-2 focus-visible:outline-offset-2 focus-visible:outline-indigo-600 transition duration-200 ease-in-out"
                         >
-                            Back to Home Page
+                            Close
                         </button>
                     </div>
                 )}
