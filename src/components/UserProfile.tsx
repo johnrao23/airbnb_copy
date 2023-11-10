@@ -14,6 +14,7 @@ const Profile = () => {
     const [lastName, setLastName] = useState(user?.name || "");
     const [userImage, setUserImage] = useState(user?.image || "");
     const [submitted, setSubmitted] = useState(false);
+    const [showResponse, setShowResponse] = useState(false);
 
     const navigate = useNavigate();
 
