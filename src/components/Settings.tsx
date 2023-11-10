@@ -23,9 +23,9 @@ const Settings = () => {
       setSubmitted(true);
   }
 
-  const backToHome = () => {
-    return navigate("/home");
-  }
+//   const backToHome = () => {
+//     return navigate("/home");
+//   }
 
   return (
     <div className="min-h-screen flex flex-col">
