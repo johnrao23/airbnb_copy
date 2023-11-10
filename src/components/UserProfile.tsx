@@ -56,9 +56,9 @@ const Profile = () => {
         setSubmitted(true);
     }
 
-    const backToHome = () => {
-        return navigate("/home");
-    }
+    // const backToHome = () => {
+    //     return navigate("/home");
+    // }
 
     return (
         <div>
