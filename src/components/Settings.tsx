@@ -11,7 +11,7 @@ const Settings = () => {
   const [userinfo, setUserInfo] = useState(user?.name || "");
   const [submitted, setSubmitted] = useState(false);
 
-  const navigate = useNavigate();
+//   const navigate = useNavigate();
 
   const handleSubmit = (event) => {
       event.preventDefault();
