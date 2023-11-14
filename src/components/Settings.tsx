@@ -13,10 +13,6 @@ const Settings = () => {
 
   const navigate = useNavigate();
 
-  const handleNameChange = (event) => {
-      setUserInfo(event.target.value);
-  }
-
   const handleSubmit = (event) => {
       event.preventDefault();
       setUser({ ...user, name: userinfo });
