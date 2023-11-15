@@ -66,7 +66,7 @@ const Profile = () => {
             <div className="min-h-screen flex flex-col items-center justify-center bg-gray-100 pt-8 px-4 sm:px-0">
             { !submitted ? (
                 <form onSubmit={handleSubmit}>
-                    <div className="space-y-6">
+                    <div className="space-y-8">
                     <div className="border-b border-gray-900/10 pb-8">
                         <h2 className="text-base font-semibold leading-7 text-gray-900">Profile</h2>
                         <p className="mt-1 text-sm leading-6 text-gray-600">
