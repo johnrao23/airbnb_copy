@@ -9,6 +9,7 @@ const Settings = () => {
   const user = useAuthStore((state) => state.user);
   const setUser = useAuthStore((state) => state.setUser);
   const [userinfo, setUserInfo] = useState(user?.name || "");
+  const [alertUser, setAlertUser] = useState(true)
   const [submitted, setSubmitted] = useState(false);
 
 //   const navigate = useNavigate();
