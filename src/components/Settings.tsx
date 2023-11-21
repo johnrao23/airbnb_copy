@@ -3,7 +3,7 @@ import { useAuthStore } from "../Backend/store/store";
 import NavBar from "./NavBar";
 import Footer from "./Footer";
 import AIButton from "./AskAiButton";
-import { useNavigate } from "react-router-dom";
+// import { useNavigate } from "react-router-dom";
 
 const Settings = () => {
   const user = useAuthStore((state) => state.user);
