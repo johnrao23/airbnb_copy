@@ -4,7 +4,7 @@ import NavBar from "./NavBar";
 import Footer from "./Footer";
 import AIButton from "./AskAiButton";
 
-const Contact = () => {
+const Contact: React.FC = () => {
   const [showResponse, setShowResponse] = useState(false);
 
   const handleSubmit = (event) => {
