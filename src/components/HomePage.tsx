@@ -34,7 +34,7 @@ const HomePage: React.FC = () => {
       return;
     }
 
-    // moment.js instead of date
+    // moment.js instead of Date
 
     setIsLoading(true);
 
