@@ -67,7 +67,7 @@ const Search = () => {
                                 {result.name}
                             </p>
                             <img
-                                className="rounded-lg mb-4 h-48 w-full object-cover"
+                                className="rounded-lg mb-2 h-48 w-full object-cover"
                                 src={result.images[0]}
                                 alt="Result"
                             />
