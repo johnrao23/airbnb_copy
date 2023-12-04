@@ -61,7 +61,7 @@ const Search = () => {
                       searchResults.results.results.map((result) => (
                         <div
                             key={result.id}
-                            className="border border-gray-300 rounded-lg p-4 m-2 flex flex-col items-center justify-between space-y-4 h-full"
+                            className="border border-gray-300 rounded-lg p-4 m-4 flex flex-col items-center justify-between space-y-4 h-full"
                         >
                             <p className="overflow-hidden break-all mb-2 text-center h-12">
                                 {result.name}
