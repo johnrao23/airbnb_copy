@@ -71,7 +71,7 @@ const Contact: React.FC = () => {
                 </form>
               </>
             ) : (
-              <>
+              <div className="bg-white bg-opacity-20">
                 <h2 className="text-2xl font-bold mb-4">Thank you!</h2>
                 <p>
                   A representative will respond within 5 business days. Happy Traveling!
@@ -84,7 +84,7 @@ const Contact: React.FC = () => {
                       Close
                     </button>
                 </div>
-              </>
+              </div>
             )}
           </div>
         </div>
