@@ -22,7 +22,7 @@ const Reservation = () => {
     return (
         <div>
             <NavBar />
-                <h1 className="text-center text-2xl font-bold my-6">Great choice {user?.twitterUsername || user?.displayName || user?.email}! Now let's make it official...</h1>
+                <h1 className="text-center text-2xl font-bold my-4">Great choice {user?.twitterUsername || user?.displayName || user?.email}! Now let's make it official...</h1>
                 <div className="border rounded-lg p-4 m-2 flex flex-col items-center justify-between space-y-4 h-full">
                     <h2 className="text-2xl mb-2">{selectedResult.name}</h2>
                     <div className="w-250 h-220 overflow-hidden rounded-lg mb-2">
