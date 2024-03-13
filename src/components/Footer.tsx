@@ -1,5 +1,4 @@
 import React from "react";
-import Globe from "../assets/globe.png"
 
 const Footer = () => {
 
