@@ -128,13 +128,13 @@ const googleSignIn = async () => {
       return null;
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
-      return { error };  // return error object for error handling if needed
+      return { error };
     }
   } else {
     try {
       const result = await signInWithPopup(auth, provider);
 
-      console.log('signInWithPopup result: ', result); // Add this line
+      console.log('signInWithPopup result: ', result);
 
       const user = result.user;
       useAuthStore.setState({
@@ -142,10 +142,10 @@ const googleSignIn = async () => {
         isSignedIn: true,
       });
 
-      return { user };  // return user object for further use if needed
+      return { user };
     } catch (error) {
       console.error("An error occurred during Google sign-in", error);
-      return { error };  // return error object for error handling if needed
+      return { error };
     }
   }
 }
