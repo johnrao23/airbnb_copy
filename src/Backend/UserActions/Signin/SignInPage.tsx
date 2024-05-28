@@ -1,11 +1,17 @@
-import { User } from "firebase/auth"
-import { signIn, googleSignIn, twitterSignIn, githubSignIn, forgotPassword } from "../../Firebase/firebaseUtils";
+import { User } from "firebase/auth";
+import {
+  signIn,
+  googleSignIn,
+  twitterSignIn,
+  githubSignIn,
+  forgotPassword,
+} from "../../Firebase/firebaseUtils";
 import { useState } from "react";
 import { useNavigate } from "react-router-dom";
 import styles from "./Signin.module.css";
 import palmTrees from "../../../assets/palmTrees.png";
-import Footer from "../../../components/Footer"
-import wavesImg from "../../../assets/wavesImg.png"
+import Footer from "../../../components/Footer";
+import wavesImg from "../../../assets/wavesImg.png";
 
 interface SignInResult {
   user?: User;
@@ -24,55 +30,54 @@ export const SignIn = () => {
 
   const handleSubmit = async () => {
     setLoading(true);
-  
+
     try {
       const result: SignInResult = await signIn({ email, password });
       console.log("result: ", result);
       if (result.error) {
         setSigninError(result.error.message);
         setAlertMessage("Missing Information");
-        setAlertType('error');
+        setAlertType("error");
         setLoading(false);
         return;
       }
-  
+
       navigate("/home");
     } catch (error) {
       console.log(error);
       if (error.message) {
         setSigninError(error.message);
         setAlertMessage(error.message);
-        setAlertType('error');
+        setAlertType("error");
       } else {
         // handle other errors or set a generic error message
         setSigninError("An error occurred");
         setAlertMessage("An error occurred");
-        setAlertType('error');
+        setAlertType("error");
       }
       setLoading(false);
     }
   };
-  
 
   const handleGoogleSignIn = async () => {
     setLoading(true);
- 
+
     try {
       const result = await googleSignIn();
       console.log("result: ", result);
-  
+
       if (!result || result?.error) {
-        const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
+        const errorMessage = result
+          ? result?.error.message
+          : "An unknown error occurred during sign-in";
         setSigninError(errorMessage);
         setLoading(false);
         return;
       }
 
-      if (result  && result?.user) {
-         navigate("/home");
+      if (result && result?.user) {
+        navigate("/home");
       }
-  
-    
     } catch (error) {
       console.log(error);
       if (error.message) {
@@ -83,27 +88,27 @@ export const SignIn = () => {
       }
       setLoading(false);
     }
-  }
+  };
 
   const handleTwitterSignIn = async () => {
     setLoading(true);
- 
+
     try {
       const result = await twitterSignIn();
       console.log("result: ", result);
-  
+
       if (!result || result?.error) {
-        const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
+        const errorMessage = result
+          ? result?.error.message
+          : "An unknown error occurred during sign-in";
         setSigninError(errorMessage);
         setLoading(false);
         return;
       }
 
-      if (result  && result?.user) {
-         navigate("/home");
+      if (result && result?.user) {
+        navigate("/home");
       }
-  
-    
     } catch (error) {
       console.log(error);
       if (error.message) {
@@ -114,27 +119,27 @@ export const SignIn = () => {
       }
       setLoading(false);
     }
-  }
+  };
 
   const handleGithubSignIn = async () => {
     setLoading(true);
- 
+
     try {
       const result = await githubSignIn();
       console.log("result: ", result);
-  
+
       if (!result || result?.error) {
-        const errorMessage = result ? result?.error.message : "An unknown error occurred during sign-in";
+        const errorMessage = result
+          ? result?.error.message
+          : "An unknown error occurred during sign-in";
         setSigninError(errorMessage);
         setLoading(false);
         return;
       }
 
-      if (result  && result?.user) {
-         navigate("/home");
+      if (result && result?.user) {
+        navigate("/home");
       }
-  
-    
     } catch (error) {
       console.log(error);
       if (error.message) {
@@ -145,64 +150,60 @@ export const SignIn = () => {
       }
       setLoading(false);
     }
-  }
-
-
-  const handleForgotPassword = (email) => {
-    forgotPassword(email)
-      .then((response) => {
-        if (response.success) {
-          setAlertMessage("Check Email");
-          setAlertType("success");
-        } else {
-          const errorMessage = "Must Include Email";
-          setAlertMessage(errorMessage);
-          setAlertType("error");
-        }
-      });
   };
 
+  const handleForgotPassword = (email) => {
+    forgotPassword(email).then((response) => {
+      if (response.success) {
+        setAlertMessage("Check Email");
+        setAlertType("success");
+      } else {
+        const errorMessage = "Must Include Email";
+        setAlertMessage(errorMessage);
+        setAlertType("error");
+      }
+    });
+  };
 
   return (
     <div className="min-h-screen flex flex-col overflow-hidden">
-      <div className="bg-cover bg-no-repeat flex-grow" style={{ backgroundImage: `url(${wavesImg})` }}>
+      <div
+        className="bg-cover bg-no-repeat flex-grow"
+        style={{ backgroundImage: `url(${wavesImg})` }}
+      >
         <h1 className="text-4xl font-bold text-orange-400 text-center pt-8 px-4 sm:px-0">
           A place to get last minute travel deals at a fair price!
         </h1>
         <div className="flex min-h-full flex-col justify-between py-8 sm:px-6 lg:px-8">
           <div className="sm:mx-auto sm:w-full sm:max-w-md">
-            <img
-              className="mx-auto h-20 w-20"
-              src={palmTrees}
-              alt="Fairbnb"
-            />
+            <img className="mx-auto h-20 w-20" src={palmTrees} alt="Fairbnb" />
           </div>
           {alertMessage && (
             <div
               className={`mx-auto my-4 text-center py-2 text-white w-2/3 md:w-1/2 lg:w-1/3 ${
-                alertType === 'success' ? 'bg-green-500' : 'bg-red-500'
+                alertType === "success" ? "bg-green-500" : "bg-red-500"
               } rounded-lg`}
             >
               {alertMessage}
             </div>
           )}
           <div className="mt-6 sm:mx-auto sm:w-full sm:max-w-md">
-            <div
-              className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6"
-            >
-            <h2 className={`mt-2 text-center text-3xl font-bold tracking-tight ${styles.color}`}>
-              Sign in to your account
-            </h2>
-            <p className="mt-2 text-center text-sm text-gray-600">
-              Or{" "}
-              <button
-                onClick={() => navigate("/Sign-Up")}
-                className="font-medium text-orange-600 hover:text-orange-500 hover:underline"
+            <div className="bg-white bg-opacity-60 px-4 py-8 shadow sm:rounded-lg sm:px-10 space-y-6">
+              <h2
+                className={`mt-2 text-center text-3xl font-bold tracking-tight ${styles.color}`}
               >
-                Sign Up
-              </button>
-              {" "}for a New Account Here
-            </p>
+                Sign in to your account
+              </h2>
+              <p className="mt-2 text-center text-sm text-gray-600">
+                Or{" "}
+                <button
+                  onClick={() => navigate("/Sign-Up")}
+                  className="font-medium text-orange-600 hover:text-orange-500 hover:underline"
+                >
+                  Sign Up
+                </button>{" "}
+                for a New Account Here
+              </p>
               <div>
                 <label
                   htmlFor="email"
@@ -292,7 +293,6 @@ export const SignIn = () => {
                     </div>
                   </div>
 
-
                   <div className="mt-6 grid grid-cols-3 gap-3">
                     <div>
                       <button
@@ -315,8 +315,6 @@ export const SignIn = () => {
                       </button>
                     </div>
 
-
-
                     <div>
                       <button
                         className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
@@ -334,9 +332,8 @@ export const SignIn = () => {
                       </button>
                     </div>
 
-
                     <div>
-                    <button
+                      <button
                         className="inline-flex w-full justify-center rounded-md bg-white px-4 py-2 text-gray-500 shadow-sm ring-1 ring-inset ring-gray-300 hover:bg-gray-50 focus:outline-offset-0"
                         onClick={() => handleGithubSignIn()}
                       >
